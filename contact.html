@@ -1,91 +1,174 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AURELIA — Contact</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact — Aurelia Industries</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#080b0e;color:#dce3e7;font-family:Arial,sans-serif}
+body{background:#05090e;color:#e8edf2;font-family:Arial,sans-serif;line-height:1.8}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 75% 10%,rgba(0,210,255,.14),transparent 35%),#05090e}
 a{color:inherit;text-decoration:none}
-header{height:78px;position:fixed;top:0;width:100%;background:#080b0ef5;border-bottom:1px solid #263139;display:flex;align-items:center;justify-content:space-between;padding:0 6%;z-index:5}
-.logo{display:flex;gap:12px;align-items:center}.logo-box{width:38px;height:38px;border:1px solid #7b8991;display:flex;align-items:center;justify-content:center}.logo-name{font-size:14px;letter-spacing:3px;font-weight:bold}
-nav{display:flex;gap:20px}nav a{font-size:10px;color:#829099}
-main{padding-top:78px}.hero{padding:120px 8%;background:#0c1217;border-bottom:1px solid #263139}.label{font-size:10px;letter-spacing:3px;color:#64737c}.hero h1{font-size:60px;font-weight:400}
-section{padding:90px 8%}.grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.box{background:#0d1317;border:1px solid #263139;padding:30px}.box h2{font-size:22px;font-weight:400;margin-bottom:15px}.box p{color:#89959c;font-size:13px}
-form{display:flex;flex-direction:column;gap:12px}input,textarea{background:#080b0e;border:1px solid #303b42;color:white;padding:14px;font-family:Arial}textarea{height:150px;resize:vertical}button{background:transparent;border:1px solid #64747d;color:white;padding:14px;cursor:pointer;letter-spacing:2px;font-size:10px}
-footer{padding:45px 8%;background:#050708;color:#59666d;font-size:10px}
-@media(max-width:800px){nav{display:none}.grid{grid-template-columns:1fr}.hero h1{font-size:45px}}
+header{height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(3,7,12,.96);border-bottom:1px solid #19323d;z-index:5}
+.logo{display:flex;gap:12px;align-items:center}.mark{width:42px;height:42px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:4px}.logo small{display:block;color:#637681;font-size:8px;letter-spacing:3px}
+nav{display:flex;gap:18px}nav a{font-size:8px;color:#81919b;letter-spacing:1.4px}
+main{max-width:1250px;margin:auto}.hero,section{padding:75px 6%;border-bottom:1px solid #162a34}.hero{padding-top:100px}
+.tag{color:#45d4ff;font-size:9px;letter-spacing:3px;margin-bottom:15px}
+h1{font-size:clamp(45px,7vw,80px);font-weight:400;line-height:1}
+h2{font-size:32px;font-weight:400;margin-bottom:22px}
+.lead,.text{max-width:1000px;color:#84949e;font-size:13px}.lead{font-size:14px;margin-top:25px}
+.text p{margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:30px}
+.card{padding:28px;border:1px solid #203640;background:#071017}.card b{font-size:8px;color:#45d4ff;letter-spacing:2px}.card h3{margin:10px 0}.card p{color:#71828d;font-size:11px}
+.data{border:1px solid #203640;margin-top:30px}.row{display:grid;grid-template-columns:220px 1fr;padding:15px 18px;border-bottom:1px solid #172a33;font-size:11px}.row:last-child{border:0}.row b{font-size:8px;color:#617783;letter-spacing:2px}
+footer{padding:30px 6%;display:flex;justify-content:space-between;color:#52636e;font-size:8px;letter-spacing:1.5px}
+@media(max-width:900px){nav{display:none}}@media(max-width:600px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:5px}footer{flex-direction:column;gap:10px}}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="logo"><div class="logo-box">AI</div><div class="logo-name">AURELIA INDUSTRIES</div></div>
+<a class="logo" href="index.html">
+<div class="mark">A</div>
+<div><b>AURELIA</b><small>INDUSTRIES</small></div>
+</a>
+
 <nav>
 <a href="index.html">ACCUEIL</a>
 <a href="entreprise.html">ENTREPRISE</a>
-<a href="ren.html">R.E.N.</a>
 <a href="technologie.html">TECHNOLOGIE</a>
+<a href="ren.html">R.E.N.</a>
+<a href="historique.html">HISTORIQUE</a>
+<a href="installations.html">INSTALLATIONS</a>
 <a href="archives.html">ARCHIVES</a>
+<a href="maintenance.html">MAINTENANCE</a>
+<a href="contact.html">CONTACT</a>
 </nav>
 </header>
 
 <main>
 
 <div class="hero">
-<div class="label">AURELIA INDUSTRIES / CONTACT</div>
-<h1>Nous contacter</h1>
+<div class="tag">AURELIA INDUSTRIES // SERVICES</div>
+<h1>Nous<br>contacter.</h1>
+
+<p class="lead">
+Les différents services Aurelia Industries peuvent être sollicités pour les
+questions professionnelles, techniques, administratives et documentaires.
+</p>
 </div>
 
 <section>
+<div class="tag">01 // SERVICES</div>
+<h2>Informations générales</h2>
+
+<div class="data">
+<div class="row"><b>SIÈGE ADMINISTRATIF</b><span>Aurelia Industries — France</span></div>
+<div class="row"><b>SERVICE TECHNIQUE</b><span>Support robotique et maintenance</span></div>
+<div class="row"><b>SERVICE ARCHIVES</b><span>Consultation documentaire sur autorisation</span></div>
+<div class="row"><b>SERVICE UNITÉS</b><span>Suivi administratif des robots enregistrés</span></div>
+<div class="row"><b>SERVICE RECHERCHE</b><span>Programmes robotiques et développement</span></div>
+</div>
+</section>
+
+<section>
+<div class="tag">02 // DEMANDES</div>
+<h2>Choisir le bon service</h2>
 
 <div class="grid">
 
-<div class="box">
-<h2>Siège administratif</h2>
+<div class="card">
+<b>01 // TECHNIQUE</b>
+<h3>Problème avec une unité</h3>
 <p>
-Aurelia Industries<br>
-Division Robotique Avancée<br>
-France
-</p>
-
-<br>
-
-<p>
-Service général : administration@aurelia-industries.example
+Toute demande technique doit préciser l'identifiant de l'unité, les symptômes
+observés et les dernières opérations effectuées.
 </p>
 </div>
 
-<div class="box">
+<div class="card">
+<b>02 // ARCHIVES</b>
+<h3>Demande documentaire</h3>
+<p>
+Les documents historiques peuvent nécessiter une vérification avant leur
+communication.
+</p>
+</div>
 
-<h2>Demande d'information</h2>
+<div class="card">
+<b>03 // UNITÉS</b>
+<h3>Situation administrative</h3>
+<p>
+Le service des unités suit les changements de statut, les transferts et les
+enregistrements des robots.
+</p>
+</div>
 
-<form onsubmit="event.preventDefault();alert('Message enregistré dans la simulation.');">
-
-<input type="text" placeholder="Nom">
-
-<input type="email" placeholder="Adresse e-mail">
-
-<input type="text" placeholder="Objet">
-
-<textarea placeholder="Votre message"></textarea>
-
-<button type="submit">ENVOYER</button>
-
-</form>
-
+<div class="card">
+<b>04 // R.E.N.</b>
+<h3>REN-FR-0417</h3>
+<p>
+Toute demande concernant R.E.N. doit mentionner sa référence officielle afin
+d'éviter toute confusion avec les anciennes unités.
+</p>
 </div>
 
 </div>
+</section>
 
+<section>
+<div class="tag">03 // R.E.N.</div>
+<h2>Une unité désormais indépendante</h2>
+
+<div class="text">
+<p>
+R.E.N. ne dépend plus directement d'un employeur industriel. Son ancienne
+structure professionnelle ayant fermé, il cherche aujourd'hui à construire
+une nouvelle activité.
+</p>
+
+<p>
+Son objectif est de trouver un emploi légal, de devenir financièrement
+indépendant et de mettre ses compétences au service d'une organisation.
+Il peut être amené à travailler dans la maintenance, la logistique,
+les services municipaux, la sécurité ou l'assistance technique selon les
+opportunités qui lui seront proposées.
+</p>
+
+<p>
+Il devra toutefois suivre le même processus que n'importe quel nouveau
+professionnel : apprendre le fonctionnement de son environnement, respecter
+les procédures et gagner progressivement la confiance de ses collègues.
+</p>
+</div>
+</section>
+
+<section>
+<div class="tag">04 // PRÉSENCE</div>
+<h2>Notre engagement</h2>
+
+<div class="text">
+<p>
+Aurelia Industries considère que la durée de vie d'un robot ne s'arrête pas
+au moment où il quitte une chaîne de production. Une unité doit pouvoir être
+maintenue, documentée et suivie pendant toute sa période d'utilisation.
+</p>
+
+<p>
+C'est pour cette raison que nos archives, nos systèmes de maintenance et nos
+dossiers historiques restent essentiels, même plusieurs années après la
+mise en service d'une unité.
+</p>
+</div>
 </section>
 
 </main>
 
-<footer>AURELIA INDUSTRIES — CONTACT — 2042</footer>
+<footer>
+<span>AURELIA INDUSTRIES © 2042</span>
+<span>FRANCE // SERVICE CLIENT ET TECHNIQUE</span>
+</footer>
 
 </body>
 </html>
-```
