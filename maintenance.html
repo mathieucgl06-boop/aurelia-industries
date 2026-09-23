@@ -1,887 +1,180 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AURELIA INDUSTRIES — Maintenance Database</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Maintenance — Aurelia Industries</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#04080c;color:#dfe8ec;font-family:Arial,sans-serif;line-height:1.6}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 80% 0%,rgba(0,210,255,.12),transparent 35%),#04080c}
+a{color:inherit;text-decoration:none}
+header{height:70px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:#050a0f;border-bottom:1px solid #19313b;position:sticky;top:0;z-index:5}
+.logo{display:flex;gap:10px;align-items:center}.mark{width:38px;height:38px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:3px}.logo small{display:block;color:#61727c;font-size:7px;letter-spacing:2px}
+nav{display:flex;gap:15px}nav a{font-size:7px;color:#81919b;letter-spacing:1.2px}
+main{max-width:1300px;margin:auto;padding:60px 5%}
+.topline{display:flex;justify-content:space-between;border-bottom:1px solid #1b3039;padding-bottom:20px;margin-bottom:30px}
+.kicker{font-size:8px;color:#45d4ff;letter-spacing:3px}
+.system{font-size:8px;color:#58d995}
+h1{font-size:42px;font-weight:400;margin-top:10px}
+.subtitle{color:#71828c;font-size:12px;margin-top:5px}
+.controls{display:flex;gap:10px;margin:25px 0}
+input,select{
+background:#071016;
+border:1px solid #203640;
+color:#dce8ec;
+padding:12px;
+font-size:11px;
+outline:none;
 }
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#06090b;
-    color:#d7dfe3;
-    font-family:Arial,Helvetica,sans-serif;
-    min-height:100vh;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button,
-input,
-select{
-    font-family:inherit;
-}
-
-/* =========================
-   TOP BAR
-========================= */
-
-.topbar{
-    height:72px;
-    background:#090d10;
-    border-bottom:1px solid #273138;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 35px;
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:100;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:13px;
-}
-
-.brand-symbol{
-    width:37px;
-    height:37px;
-    border:1px solid #82919a;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:11px;
-    letter-spacing:2px;
-}
-
-.brand-name{
-    font-size:13px;
-    letter-spacing:3px;
-    font-weight:bold;
-}
-
-.system-status{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    font-family:monospace;
-    font-size:10px;
-    color:#74828a;
-}
-
-.status-dot{
-    width:7px;
-    height:7px;
-    background:#6f8b7b;
-    border-radius:50%;
-    box-shadow:0 0 8px rgba(100,160,120,.4);
-}
-
-/* =========================
-   MAIN
-========================= */
-
-main{
-    padding-top:72px;
-}
-
-.page{
-    max-width:1450px;
-    margin:auto;
-    padding:45px 35px 80px;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.page-header{
-    border-bottom:1px solid #263138;
-    padding-bottom:30px;
-    margin-bottom:25px;
-}
-
-.breadcrumb{
-    font-family:monospace;
-    color:#596870;
-    font-size:10px;
-    margin-bottom:18px;
-}
-
-.page-header h1{
-    font-size:38px;
-    font-weight:400;
-    letter-spacing:-1px;
-}
-
-.page-header p{
-    margin-top:9px;
-    color:#78868e;
-    font-size:13px;
-}
-
-/* =========================
-   DATABASE BAR
-========================= */
-
-.database-bar{
-    display:flex;
-    gap:10px;
-    background:#0b1013;
-    border:1px solid #263138;
-    padding:15px;
-    margin-bottom:25px;
-}
-
-.database-bar input{
-    flex:1;
-    background:#070a0c;
-    color:#e2e8eb;
-    border:1px solid #303c43;
-    padding:13px;
-    outline:none;
-    font-family:monospace;
-    font-size:12px;
-}
-
-.database-bar input:focus{
-    border-color:#65757e;
-}
-
-.database-bar button{
-    background:#d6dde0;
-    color:#080b0d;
-    border:0;
-    padding:0 24px;
-    cursor:pointer;
-    font-size:10px;
-    letter-spacing:1.5px;
-    font-weight:bold;
-}
-
-.database-bar button:hover{
-    background:white;
-}
-
-/* =========================
-   FILTERS
-========================= */
-
-.filters{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:25px;
-}
-
-.filter{
-    border:1px solid #2a363d;
-    background:#0b1013;
-    color:#78868e;
-    padding:9px 13px;
-    font-size:10px;
-    letter-spacing:1px;
-    cursor:pointer;
-}
-
-.filter.active,
-.filter:hover{
-    color:#e0e6e9;
-    border-color:#64747d;
-}
-
-/* =========================
-   DASHBOARD
-========================= */
-
-.dashboard{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr 1fr;
-    gap:12px;
-    margin-bottom:30px;
-}
-
-.stat{
-    background:#0b1013;
-    border:1px solid #273239;
-    padding:20px;
-}
-
-.stat-label{
-    font-size:9px;
-    letter-spacing:2px;
-    color:#596870;
-}
-
-.stat-value{
-    font-size:25px;
-    margin-top:9px;
-    color:#e4eaed;
-}
-
-.stat-small{
-    margin-top:4px;
-    font-size:10px;
-    color:#69777f;
-}
-
-/* =========================
-   TABLE
-========================= */
-
-.panel{
-    background:#0a0f12;
-    border:1px solid #273239;
-}
-
-.panel-header{
-    height:53px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 18px;
-    border-bottom:1px solid #273239;
-}
-
-.panel-title{
-    font-size:11px;
-    letter-spacing:2px;
-    color:#aab5ba;
-}
-
-.panel-code{
-    font-family:monospace;
-    font-size:10px;
-    color:#596870;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-th{
-    text-align:left;
-    padding:13px 15px;
-    font-size:9px;
-    letter-spacing:1.5px;
-    color:#596870;
-    font-weight:normal;
-    background:#080c0f;
-    border-bottom:1px solid #222d33;
-}
-
-td{
-    padding:16px 15px;
-    border-bottom:1px solid #1b252b;
-    font-size:12px;
-    color:#aeb8bd;
-}
-
-tr:hover td{
-    background:#0d1317;
-}
-
-.unit{
-    color:#dce3e7;
-    font-family:monospace;
-}
-
-.status{
-    display:inline-block;
-    padding:4px 8px;
-    border:1px solid #40534a;
-    color:#81998b;
-    font-size:9px;
-    font-family:monospace;
-}
-
-.status.warning{
-    border-color:#665b42;
-    color:#a69870;
-}
-
-.status.restricted{
-    border-color:#613d3d;
-    color:#ad7070;
-}
-
-.view-button{
-    border:1px solid #39464d;
-    padding:7px 11px;
-    font-size:9px;
-    color:#8d9aa1;
-    cursor:pointer;
-    background:transparent;
-}
-
-.view-button:hover{
-    color:white;
-    border-color:#71818a;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    border-top:1px solid #202a30;
-    padding:30px 35px;
-    display:flex;
-    justify-content:space-between;
-    color:#4f5c63;
-    font-family:monospace;
-    font-size:9px;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px){
-
-    .topbar{
-        padding:0 18px;
-    }
-
-    .system-status{
-        display:none;
-    }
-
-    .page{
-        padding:35px 18px 60px;
-    }
-
-    .dashboard{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .database-bar{
-        flex-direction:column;
-    }
-
-    .database-bar button{
-        height:42px;
-    }
-
-    .panel{
-        overflow-x:auto;
-    }
-
-    table{
-        min-width:850px;
-    }
-
-    footer{
-        flex-direction:column;
-        gap:10px;
-    }
-}
-
-@media(max-width:500px){
-
-    .brand-name{
-        font-size:11px;
-    }
-
-    .dashboard{
-        grid-template-columns:1fr;
-    }
-
-    .page-header h1{
-        font-size:30px;
-    }
-}
+input{flex:1}
+button{background:#0bbde9;border:0;padding:0 20px;font-size:9px;font-weight:bold;letter-spacing:1px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:25px}
+.stat{padding:20px;border:1px solid #1c333d;background:#071017}
+.stat b{display:block;font-size:8px;color:#607681;letter-spacing:2px}.stat strong{font-size:25px;font-weight:400}
+.table{border:1px solid #1e3540;overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:850px}
+th,td{padding:15px;border-bottom:1px solid #172a33;text-align:left;font-size:10px}
+th{font-size:8px;color:#607681;letter-spacing:1.5px;background:#071017}
+td{color:#a0afb6}
+.status{font-size:8px;padding:5px 8px;border:1px solid #236b4c;color:#56d998}.warning{border-color:#876a27;color:#e3bd55}.restricted{border-color:#743b3b;color:#e87575}
+.link{color:#45d4ff;cursor:pointer}
+#message{margin-top:20px;color:#e0a42b;font-size:10px;display:none}
+footer{padding:25px 5%;border-top:1px solid #172a33;color:#52636e;font-size:8px;letter-spacing:1px}
+@media(max-width:900px){nav{display:none}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.stats{grid-template-columns:1fr}.controls{flex-direction:column}.controls button{height:40px}}
 </style>
 </head>
 
 <body>
 
-<header class="topbar">
-
-    <a href="index.html" class="brand">
-
-        <div class="brand-symbol">
-            AI
-        </div>
-
-        <div class="brand-name">
-            AURELIA INDUSTRIES
-        </div>
-
-    </a>
-
-    <div class="system-status">
-
-        <span class="status-dot"></span>
-
-        ARCHIVE SYSTEM ONLINE
-
-        <span>|</span>
-
-        NODE FR-09
-
-    </div>
-
+<header>
+<a class="logo" href="index.html">
+<div class="mark">A</div>
+<div><b>AURELIA</b><small>INDUSTRIES</small></div>
+</a>
+<nav>
+<a href="index.html">ACCUEIL</a>
+<a href="ren.html">R.E.N.</a>
+<a href="maintenance.html">MAINTENANCE</a>
+<a href="archives.html">ARCHIVES</a>
+<a href="contact.html">CONTACT</a>
+</nav>
 </header>
-
 
 <main>
 
-<div class="page">
-
-    <div class="page-header">
-
-        <div class="breadcrumb">
-            AURELIA / ENGINEERING / MAINTENANCE DATABASE
-        </div>
-
-        <h1>
-            Maintenance Database
-        </h1>
-
-        <p>
-            Base de données des interventions techniques enregistrées
-            sur les unités robotiques Aurelia Industries.
-        </p>
-
-    </div>
-
-
-    <!-- SEARCH -->
-
-    <div class="database-bar">
-
-        <input
-            id="unitSearch"
-            type="text"
-            placeholder="ENTER UNIT ID — ex: REN-FR-0417"
-        >
-
-        <button onclick="searchUnit()">
-            SEARCH DATABASE
-        </button>
-
-    </div>
-
-
-    <!-- FILTERS -->
-
-    <div class="filters">
-
-        <button class="filter active" onclick="filterStatus('all',this)">
-            ALL RECORDS
-        </button>
-
-        <button class="filter" onclick="filterStatus('operational',this)">
-            OPERATIONAL
-        </button>
-
-        <button class="filter" onclick="filterStatus('warning',this)">
-            WARNING
-        </button>
-
-        <button class="filter" onclick="filterStatus('restricted',this)">
-            RESTRICTED
-        </button>
-
-    </div>
-
-
-    <!-- DASHBOARD -->
-
-    <div class="dashboard">
-
-        <div class="stat">
-
-            <div class="stat-label">
-                REGISTERED UNITS
-            </div>
-
-            <div class="stat-value">
-                184
-            </div>
-
-            <div class="stat-small">
-                DATABASE TOTAL
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-label">
-                ACTIVE UNITS
-            </div>
-
-            <div class="stat-value">
-                37
-            </div>
-
-            <div class="stat-small">
-                CURRENTLY OPERATIONAL
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-label">
-                OPEN INCIDENTS
-            </div>
-
-            <div class="stat-value">
-                03
-            </div>
-
-            <div class="stat-small">
-                REQUIRES REVIEW
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-label">
-                DATABASE SYNC
-            </div>
-
-            <div class="stat-value">
-                99.8%
-            </div>
-
-            <div class="stat-small">
-                NODE FR-09
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- DATABASE -->
-
-    <div class="panel">
-
-        <div class="panel-header">
-
-            <div class="panel-title">
-                REGISTERED UNITS
-            </div>
-
-            <div class="panel-code">
-                DB/MAINT/2042
-            </div>
-
-        </div>
-
-
-        <table id="unitsTable">
-
-            <thead>
-
-                <tr>
-                    <th>UNIT ID</th>
-                    <th>DESIGNATION</th>
-                    <th>CLASS</th>
-                    <th>LAST SERVICE</th>
-                    <th>STATUS</th>
-                    <th>ACCESS</th>
-                    <th></th>
-                </tr>
-
-            </thead>
-
-
-            <tbody>
-
-                <tr data-status="operational">
-
-                    <td class="unit">
-                        REN-FR-0417
-                    </td>
-
-                    <td>
-                        R.E.N.
-                    </td>
-
-                    <td>
-                        HUMANOID
-                    </td>
-
-                    <td>
-                        14.08.2042
-                    </td>
-
-                    <td>
-                        <span class="status">
-                            OPERATIONAL
-                        </span>
-                    </td>
-
-                    <td>
-                        PUBLIC
-                    </td>
-
-                    <td>
-                        <a
-                            class="view-button"
-                            href="journal-ren.html"
-                        >
-                            VIEW LOG
-                        </a>
-                    </td>
-
-                </tr>
-
-
-                <tr data-status="operational">
-
-                    <td class="unit">
-                        AX-2031
-                    </td>
-
-                    <td>
-                        AURORA
-                    </td>
-
-                    <td>
-                        INDUSTRIAL
-                    </td>
-
-                    <td>
-                        02.09.2042
-                    </td>
-
-                    <td>
-                        <span class="status">
-                            OPERATIONAL
-                        </span>
-                    </td>
-
-                    <td>
-                        TECHNICIAN
-                    </td>
-
-                    <td>
-                        <button class="view-button">
-                            VIEW LOG
-                        </button>
-                    </td>
-
-                </tr>
-
-
-                <tr data-status="warning">
-
-                    <td class="unit">
-                        MX-0812
-                    </td>
-
-                    <td>
-                        MISTRAL
-                    </td>
-
-                    <td>
-                        MAINTENANCE
-                    </td>
-
-                    <td>
-                        29.08.2042
-                    </td>
-
-                    <td>
-                        <span class="status warning">
-                            WARNING
-                        </span>
-                    </td>
-
-                    <td>
-                        TECHNICIAN
-                    </td>
-
-                    <td>
-                        <button class="view-button">
-                            VIEW LOG
-                        </button>
-                    </td>
-
-                </tr>
-
-
-                <tr data-status="restricted">
-
-                    <td class="unit">
-                        REN-ARCH-0001
-                    </td>
-
-                    <td>
-                        UNKNOWN
-                    </td>
-
-                    <td>
-                        HUMANOID
-                    </td>
-
-                    <td>
-                        03.02.2037
-                    </td>
-
-                    <td>
-                        <span class="status restricted">
-                            RESTRICTED
-                        </span>
-                    </td>
-
-                    <td>
-                        CLASSIFIED
-                    </td>
-
-                    <td>
-                        <button
-                            class="view-button"
-                            onclick="restrictedMessage()"
-                        >
-                            VIEW LOG
-                        </button>
-                    </td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
+<div class="topline">
+<div>
+<div class="kicker">MAINTENANCE DATABASE // FR-09</div>
+<h1>Base de maintenance</h1>
+<div class="subtitle">Gestion des unités robotiques Aurelia Industries</div>
+</div>
+<div class="system">● SYSTÈME EN LIGNE</div>
+</div>
+
+<div class="controls">
+<input id="search" type="text" placeholder="Rechercher une unité, une désignation ou une classe..." onkeyup="searchUnit()">
+<select id="status" onchange="filterStatus()">
+<option value="all">Tous les statuts</option>
+<option value="operational">Opérationnel</option>
+<option value="warning">Avertissement</option>
+<option value="restricted">Restreint</option>
+</select>
+</div>
+
+<div class="stats">
+<div class="stat"><b>UNITÉS ENREGISTRÉES</b><strong>184</strong></div>
+<div class="stat"><b>UNITÉS ACTIVES</b><strong>37</strong></div>
+<div class="stat"><b>INCIDENTS OUVERTS</b><strong>03</strong></div>
+<div class="stat"><b>SYNCHRONISATION</b><strong>99.8%</strong></div>
+</div>
+
+<div class="table">
+<table id="units">
+<thead>
+<tr>
+<th>IDENTIFIANT</th>
+<th>DÉSIGNATION</th>
+<th>CLASSE</th>
+<th>DERNIÈRE INTERVENTION</th>
+<th>STATUT</th>
+<th>ACCÈS</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr data-status="operational">
+<td>REN-FR-0417</td>
+<td>R.E.N.</td>
+<td>HUMANOÏDE</td>
+<td>14.08.2042</td>
+<td><span class="status">OPÉRATIONNEL</span></td>
+<td><a class="link" href="journal-ren.html">OUVRIR</a></td>
+</tr>
+
+<tr data-status="operational">
+<td>AX-2031</td>
+<td>AURORA</td>
+<td>INDUSTRIEL</td>
+<td>02.09.2042</td>
+<td><span class="status">OPÉRATIONNEL</span></td>
+<td>TECHNICIEN</td>
+</tr>
+
+<tr data-status="warning">
+<td>MX-0812</td>
+<td>MISTRAL</td>
+<td>MAINTENANCE</td>
+<td>29.08.2042</td>
+<td><span class="status warning">AVERTISSEMENT</span></td>
+<td>TECHNICIEN</td>
+</tr>
+
+<tr data-status="restricted">
+<td>REN-ARCH-0001</td>
+<td>UNKNOWN</td>
+<td>HUMANOÏDE</td>
+<td>03.02.2037</td>
+<td><span class="status restricted">RESTREINT</span></td>
+<td><span class="link" onclick="restrictedMessage()">CLASSIFIÉ</span></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div id="message">
+ACCÈS REFUSÉ — Niveau d'autorisation insuffisant pour consulter ce document.
 </div>
 
 </main>
 
-
 <footer>
-
-    <div>
-        AURELIA INDUSTRIES / ENGINEERING DATABASE
-    </div>
-
-    <div>
-        SYSTEM VERSION 4.17 / NODE FR-09
-    </div>
-
+AURELIA INDUSTRIES © 2042 // MAINTENANCE DATABASE
 </footer>
 
-
 <script>
-
 function searchUnit(){
-
-    const input =
-        document.getElementById("unitSearch").value
-        .toUpperCase()
-        .trim();
-
-    const rows =
-        document.querySelectorAll("#unitsTable tbody tr");
-
-    let found = false;
-
-    rows.forEach(row => {
-
-        const unit =
-            row.children[0].textContent
-            .trim()
-            .toUpperCase();
-
-        if(input === "" || unit.includes(input)){
-
-            row.style.display = "";
-            found = true;
-
-        }else{
-
-            row.style.display = "none";
-
-        }
-
+    const q=document.getElementById("search").value.toLowerCase();
+    document.querySelectorAll("#units tbody tr").forEach(row=>{
+        row.style.display=row.innerText.toLowerCase().includes(q)?"":"none";
     });
-
-    if(!found){
-
-        alert(
-            "NO RECORD FOUND\n\n" +
-            "The requested unit does not exist " +
-            "in the accessible database."
-        );
-
-    }
-
 }
 
-
-function filterStatus(status,button){
-
-    document
-        .querySelectorAll(".filter")
-        .forEach(b => b.classList.remove("active"));
-
-    button.classList.add("active");
-
-    document
-        .querySelectorAll("#unitsTable tbody tr")
-        .forEach(row => {
-
-            if(
-                status === "all" ||
-                row.dataset.status === status
-            ){
-
-                row.style.display = "";
-
-            }else{
-
-                row.style.display = "none";
-
-            }
-
-        });
-
+function filterStatus(){
+    const status=document.getElementById("status").value;
+    document.querySelectorAll("#units tbody tr").forEach(row=>{
+        row.style.display=status==="all"||row.dataset.status===status?"":"none";
+    });
 }
-
 
 function restrictedMessage(){
-
-    alert(
-        "ACCESS DENIED\n\n" +
-        "Authorization level insufficient.\n\n" +
-        "Reference: SEC-0417"
-    );
-
+    document.getElementById("message").style.display="block";
 }
-
 </script>
 
 </body>
 </html>
-```
