@@ -1,105 +1,173 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AURELIA — DOSSIER INITIAL</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>R.E.N. — Dossier initial</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#070809;color:#cbd2d5;font-family:Arial,sans-serif;line-height:1.7}
+body{background:#05090e;color:#e8edf2;font-family:Arial,sans-serif;line-height:1.8}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 75% 10%,rgba(0,210,255,.13),transparent 35%),#05090e}
 a{color:inherit;text-decoration:none}
-header{height:78px;position:fixed;top:0;width:100%;background:#090a0bf5;border-bottom:1px solid #352727;display:flex;align-items:center;justify-content:space-between;padding:0 6%;z-index:5}
-.logo{display:flex;gap:12px;align-items:center}.logo-box{width:38px;height:38px;border:1px solid #866666;display:flex;align-items:center;justify-content:center}.logo-name{font-size:14px;letter-spacing:3px;font-weight:bold}
-nav{display:flex;gap:20px}nav a{font-size:10px;color:#8d7b7b}
-main{padding-top:78px}.hero{padding:120px 8%;background:radial-gradient(circle at 80%,#2b1717,transparent 30%),#0c0a0a;border-bottom:1px solid #3b2828}.label{font-size:10px;letter-spacing:3px;color:#9b7777}.hero h1{font-size:55px;font-weight:400;margin-top:15px}.warning{color:#b36f6f;margin-top:10px;letter-spacing:2px}
-section{padding:90px 8%;border-bottom:1px solid #292020}.locked{max-width:900px;border:1px solid #513333;background:#100b0b;padding:40px}.status{display:flex;justify-content:space-between;border-bottom:1px solid #382525;padding-bottom:20px;color:#a66d6d;font-family:monospace;font-size:11px}.terminal{margin-top:30px;background:#050505;border:1px solid #292929;padding:25px;font-family:monospace;color:#65756d;font-size:12px;line-height:2}.error{color:#a75f5f}.question{margin-top:40px;color:#766969;max-width:750px}
-footer{padding:45px 8%;background:#050505;color:#594d4d;font-size:10px}
-@media(max-width:800px){nav{display:none}.hero h1{font-size:40px}}
+header{height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(3,7,12,.96);border-bottom:1px solid #19323d;z-index:5}
+.logo{display:flex;gap:12px;align-items:center}.mark{width:42px;height:42px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:4px}.logo small{display:block;color:#637681;font-size:8px;letter-spacing:3px}
+nav{display:flex;gap:18px}nav a{font-size:8px;color:#81919b;letter-spacing:1.4px}
+main{max-width:1250px;margin:auto}.hero,section{padding:75px 6%;border-bottom:1px solid #162a34}.hero{padding-top:100px}
+.tag{color:#45d4ff;font-size:9px;letter-spacing:3px;margin-bottom:15px}
+h1{font-size:clamp(42px,7vw,75px);font-weight:400;line-height:1}
+h2{font-size:31px;font-weight:400;margin-bottom:22px}
+.lead,.text{max-width:1000px;color:#84949e;font-size:13px}.lead{font-size:14px;margin-top:25px}
+.text p{margin-bottom:20px}.text strong{color:#d5e8ee}
+.notice{padding:24px;margin-top:30px;border-left:3px solid #e0a42b;background:rgba(224,164,43,.04);font-size:11px;color:#89969d}.notice b{display:block;color:#e0a42b;font-size:9px;letter-spacing:2px;margin-bottom:7px}
+.classified{padding:30px;border:1px solid #6e3737;background:rgba(110,30,30,.05);margin-top:30px}.classified h3{color:#e47d7d;font-size:12px;letter-spacing:2px;margin-bottom:10px}.classified p{font-size:11px;color:#977d7d}
+footer{padding:30px 6%;display:flex;justify-content:space-between;color:#52636e;font-size:8px;letter-spacing:1.5px}
+@media(max-width:900px){nav{display:none}}@media(max-width:600px){footer{flex-direction:column;gap:10px}}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="logo"><div class="logo-box">AI</div><div class="logo-name">AURELIA INDUSTRIES</div></div>
+<a class="logo" href="index.html"><div class="mark">A</div><div><b>AURELIA</b><small>INDUSTRIES</small></div></a>
 <nav>
-<a href="index.html">ACCUEIL</a>
-<a href="ren.html">R.E.N.</a>
-<a href="archives.html">ARCHIVES</a>
+<a href="index.html">ACCUEIL</a><a href="ren.html">R.E.N.</a><a href="historique.html">HISTORIQUE</a><a href="archives.html">ARCHIVES</a><a href="maintenance.html">MAINTENANCE</a><a href="contact.html">CONTACT</a>
 </nav>
 </header>
 
 <main>
 
 <div class="hero">
-<div class="label">RESTRICTED ARCHIVE / REN-FR-0417</div>
-<h1>R.E.N. — DOSSIER INITIAL</h1>
-<div class="warning">ACCESS LEVEL : RESTRICTED</div>
+<div class="tag">ARCHIVE // NIVEAU 4 // REN-FR-0417</div>
+<h1>R.E.N.<br>Dossier initial.</h1>
+<p class="lead">
+Document historique relatif à la création et au développement de l'unité
+REN-FR-0417. Cette version publique ne contient pas la totalité des documents
+d'origine.
+</p>
 </div>
 
 <section>
+<div class="tag">01 // ORIGINE DU PROGRAMME</div>
+<h2>Pourquoi créer R.E.N. ?</h2>
 
-<div class="locked">
+<div class="text">
+<p>
+Le programme R.E.N. naît d'un constat réalisé par les équipes Aurelia :
+les robots spécialisés sont particulièrement performants lorsqu'ils
+effectuent une tâche précise, mais deviennent moins efficaces lorsque
+l'environnement de travail change.
+</p>
 
-<div class="status">
-<span>ARCHIVE STATUS</span>
-<span>LOCKED</span>
+<p>
+Les ingénieurs souhaitent donc créer une plateforme capable de passer d'une
+activité à une autre sans nécessiter une reconstruction complète de son
+système.
+</p>
+
+<p>
+La forme humanoïde permet notamment à l'unité d'utiliser des outils,
+franchir des passages conçus pour l'être humain et travailler dans des
+environnements déjà existants.
+</p>
 </div>
-
-<div class="terminal">
-
-AURELIA ARCHIVE SYSTEM v4.17<br>
---------------------------------<br>
-> REQUEST : REN/INITIAL<br>
-> SEARCHING DATABASE...<br>
-> FILE FOUND<br>
-> FILE ID : REN-FR-0417-INITIAL<br>
-> INTEGRITY : UNKNOWN<br>
-> AUTHORIZATION : FAILED<br>
-<br>
-<span class="error">ERROR 0417 — AUTHORIZATION DATA NOT FOUND</span><br>
-<span class="error">ERROR 2037 — ARCHIVE CLOSURE RECORD MISSING</span><br>
-<br>
-> SECONDARY DATABASE SEARCH...<br>
-> SEARCHING...<br>
-> 0 MATCHING RECORDS<br>
-<br>
-<span class="error">WARNING : ORIGINAL ARCHIVE MAY HAVE BEEN MODIFIED</span><br>
-<span class="error">WARNING : ACCESS LOGS INCOMPLETE</span><br>
-<br>
-> CONNECTION TERMINATED
-
-</div>
-
-<div class="question">
-Le contenu original de cette archive ne peut actuellement
-pas être consulté. La cause de cette restriction n'est pas
-documentée dans les archives publiques d'Aurelia Industries.
-</div>
-
-</div>
-
 </section>
 
 <section>
+<div class="tag">02 // OBJECTIFS</div>
+<h2>Les objectifs initiaux</h2>
 
-<h2 style="font-weight:400;margin-bottom:25px">
-Dernière référence connue
-</h2>
-
-<p style="color:#827575;max-width:800px">
-Le dernier enregistrement administratif disponible indique
-simplement que l'unité devait être transférée vers un centre
-spécialisé après la fermeture de son entreprise exploitante.
-La procédure apparaît comme interrompue.
+<div class="text">
+<p>
+R.E.N. doit être capable de comprendre une instruction professionnelle,
+effectuer une tâche, détecter une anomalie et prévenir un opérateur lorsque
+la situation dépasse ses paramètres.
 </p>
 
+<p>
+Une deuxième partie du programme concerne la communication. Les ingénieurs
+souhaitent déterminer si une machine peut améliorer naturellement sa manière
+de communiquer simplement en observant les personnes qui l'entourent.
+</p>
+
+<p>
+Cette recherche donnera naissance à l'architecture neurocognitive qui
+deviendra l'une des caractéristiques principales de R.E.N.
+</p>
+</div>
+</section>
+
+<section>
+<div class="tag">03 // DÉVELOPPEMENT</div>
+<h2>Les premières observations</h2>
+
+<div class="text">
+<p>
+Les premières observations indiquent que R.E.N. possède un comportement
+strictement professionnel. Il reçoit une instruction, l'exécute et signale
+le résultat.
+</p>
+
+<p>
+Après plusieurs années de fonctionnement, les chercheurs observent cependant
+des changements dans sa communication. R.E.N. commence à reconnaître des
+habitudes, à différencier certaines manières de parler et à adapter ses
+réponses.
+</p>
+
+<p>
+Cette évolution conduit Aurelia à approfondir le programme plutôt qu'à
+limiter l'unité à son rôle industriel initial.
+</p>
+</div>
+</section>
+
+<section>
+<div class="tag">04 // SECTION RESTREINTE</div>
+<h2>Données indisponibles</h2>
+
+<div class="notice">
+<b>ACCÈS NIVEAU 4 REQUIS</b>
+Certaines informations du dossier initial ont été retirées de la version
+publique. Les références archivées indiquent qu'une modification importante
+de l'architecture de R.E.N. a été enregistrée avant la fermeture du site FR-07.
+</div>
+
+<div class="classified">
+<h3>DOCUMENT PARTIELLEMENT CLASSIFIÉ</h3>
+<p>
+La nature exacte de la modification n'est pas déterminée par les documents
+actuellement disponibles. Aucun élément accessible ne permet d'affirmer
+qu'elle représentait une menace. Une partie des journaux techniques est
+simplement incomplète.
+</p>
+</div>
+</section>
+
+<section>
+<div class="tag">05 // ÉTAT ACTUEL</div>
+<h2>Le dossier n'est pas considéré comme terminé</h2>
+
+<div class="text">
+<p>
+R.E.N. est aujourd'hui opérationnel et indépendant de son ancien employeur.
+Il ne poursuit pas activement l'étude de son propre dossier et cherche
+principalement à construire une nouvelle vie professionnelle.
+</p>
+
+<p>
+Toutefois, certaines questions historiques restent sans réponse. Elles
+pourraient prendre une importance différente si de nouveaux documents
+venaient à réapparaître.
+</p>
+</div>
 </section>
 
 </main>
 
-<footer>AURELIA INDUSTRIES — RESTRICTED ARCHIVE — DO NOT DISTRIBUTE</footer>
+<footer>
+<span>AURELIA INDUSTRIES © 2042</span>
+<span>DOCUMENT PARTIELLEMENT RESTREINT</span>
+</footer>
 
 </body>
 </html>
-```
