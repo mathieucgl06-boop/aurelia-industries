@@ -1,93 +1,140 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AURELIA — Archives</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Archives — Aurelia Industries</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#070a0d;color:#dce3e7;font-family:Arial,sans-serif}
+body{background:#05090e;color:#e8edf2;font-family:Arial,sans-serif;line-height:1.8}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 75% 10%,rgba(0,210,255,.14),transparent 35%),linear-gradient(135deg,#05090e,#09131d,#05090e)}
 a{color:inherit;text-decoration:none}
-header{height:78px;position:fixed;top:0;width:100%;background:#080b0ef5;border-bottom:1px solid #263139;display:flex;align-items:center;justify-content:space-between;padding:0 6%;z-index:5}
-.logo{display:flex;gap:12px;align-items:center}.logo-box{width:38px;height:38px;border:1px solid #7b8991;display:flex;align-items:center;justify-content:center}.logo-name{font-size:14px;letter-spacing:3px;font-weight:bold}
-nav{display:flex;gap:20px}nav a{font-size:10px;color:#829099}
-main{padding-top:78px}.hero{padding:120px 8%;background:#0d1216;border-bottom:1px solid #263139}.label{font-size:10px;letter-spacing:3px;color:#64737c}.hero h1{font-size:60px;font-weight:400}
-section{padding:90px 8%}.archive{border:1px solid #29343a;background:#0c1115;padding:25px;margin-bottom:15px;display:flex;justify-content:space-between;gap:20px;align-items:center}.archive h2{font-size:16px;font-weight:400}.archive p{font-size:11px;color:#738189}.restricted{color:#a56e6e;font-family:monospace;font-size:10px}
-footer{padding:45px 8%;background:#050708;color:#59666d;font-size:10px}
-@media(max-width:800px){nav{display:none}.archive{flex-direction:column;align-items:flex-start}.hero h1{font-size:45px}}
+header{height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(3,7,12,.96);border-bottom:1px solid #19323d;z-index:5}
+.logo{display:flex;gap:12px;align-items:center}.logo-mark{width:42px;height:42px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:4px}.logo small{display:block;color:#637681;font-size:8px;letter-spacing:3px}
+nav{display:flex;gap:18px}nav a{font-size:8px;color:#81919b;letter-spacing:1.4px}
+main{max-width:1250px;margin:auto}.hero,section{padding:75px 6%;border-bottom:1px solid #162a34}.hero{padding-top:100px}
+.tag{color:#45d4ff;font-size:9px;letter-spacing:3px;margin-bottom:15px}
+h1{font-size:clamp(45px,7vw,80px);font-weight:400;line-height:1}
+h2{font-size:32px;font-weight:400;margin-bottom:22px}
+.lead,.text{max-width:1000px;color:#84949e;font-size:13px}.lead{font-size:14px;margin-top:25px}
+.text p{margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:30px}
+.card{padding:28px;border:1px solid #203640;background:#071017}.card b{color:#45d4ff;font-size:8px;letter-spacing:2px}.card h3{margin:12px 0}.card p{font-size:11px;color:#71828d}
+.notice{margin-top:25px;padding:22px;border-left:3px solid #e0a42b;background:rgba(224,164,43,.04);font-size:11px;color:#89969d}.notice b{display:block;color:#e0a42b;font-size:9px;letter-spacing:2px;margin-bottom:7px}
+footer{padding:30px 6%;display:flex;justify-content:space-between;color:#52636e;font-size:8px;letter-spacing:1.5px}
+@media(max-width:900px){nav{display:none}}@media(max-width:600px){.grid{grid-template-columns:1fr}footer{flex-direction:column;gap:10px}}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo"><div class="logo-box">AI</div><div class="logo-name">AURELIA INDUSTRIES</div></div>
+<a class="logo" href="index.html"><div class="logo-mark">A</div><div><b>AURELIA</b><small>INDUSTRIES</small></div></a>
 <nav>
-<a href="index.html">ACCUEIL</a><a href="entreprise.html">ENTREPRISE</a><a href="ren.html">R.E.N.</a><a href="technologie.html">TECHNOLOGIE</a><a href="historique.html">HISTORIQUE</a><a href="archives.html">ARCHIVES</a>
+<a href="index.html">ACCUEIL</a><a href="entreprise.html">ENTREPRISE</a><a href="technologie.html">TECHNOLOGIE</a><a href="ren.html">R.E.N.</a><a href="historique.html">HISTORIQUE</a><a href="installations.html">INSTALLATIONS</a><a href="archives.html">ARCHIVES</a><a href="maintenance.html">MAINTENANCE</a><a href="contact.html">CONTACT</a>
 </nav>
 </header>
 
 <main>
 
 <div class="hero">
-<div class="label">ARCHIVE DATABASE / PUBLIC INDEX</div>
-<h1>Archives</h1>
+<div class="tag">AURELIA INDUSTRIES // CENTRE DOCUMENTAIRE</div>
+<h1>Archives<br>industrielles.</h1>
+<p class="lead">
+Cette base regroupe les documents historiques accessibles concernant les
+programmes, installations et unités développés par Aurelia Industries.
+</p>
 </div>
 
 <section>
+<div class="tag">01 // CATÉGORIES</div>
+<h2>Documents disponibles</h2>
 
-<div class="archive">
-<div>
-<h2>REN-FR-0417 — Fiche technique</h2>
-<p>Informations générales sur l'unité R.E.N.</p>
-</div>
-<div>PUBLIC</div>
-</div>
-
-<div class="archive">
-<div>
-<h2>REN-FR-0417 — Historique opérationnel</h2>
-<p>Historique professionnel disponible.</p>
-</div>
-<div>PUBLIC</div>
+<div class="grid">
+<div class="card">
+<b>ARCH-01</b>
+<h3>Documents d'entreprise</h3>
+<p>Historique, organisation et évolution des activités Aurelia.</p>
 </div>
 
-<div class="archive">
-<div>
-<h2>AI-TECH-2032 — Architecture neurocognitive</h2>
-<p>Documentation technique partiellement disponible.</p>
-</div>
-<div>PUBLIC</div>
+<div class="card">
+<b>ARCH-02</b>
+<h3>Documentation technique</h3>
+<p>Informations sur les architectures mécaniques et électroniques.</p>
 </div>
 
-<div class="archive">
-<div>
-<h2>REN-INITIAL — DOSSIER INITIAL</h2>
-<p>Archive originale associée à l'unité.</p>
-</div>
-<div class="restricted">RESTRICTED</div>
+<div class="card">
+<b>ARCH-03</b>
+<h3>Unités robotiques</h3>
+<p>Informations administratives et historiques relatives aux robots enregistrés.</p>
 </div>
 
-<div class="archive">
-<div>
-<h2>REN-INC-2037 — Rapport administratif</h2>
-<p>Événement relatif à la clôture du dossier.</p>
-</div>
-<div class="restricted">RESTRICTED</div>
+<div class="card">
+<b>ARCH-04</b>
+<h3>Rapports de maintenance</h3>
+<p>Interventions, diagnostics et mises à jour des unités.</p>
 </div>
 
-<br>
+<div class="card">
+<b>ARCH-05</b>
+<h3>Installations</h3>
+<p>Données historiques relatives aux différents centres Aurelia.</p>
+</div>
 
-<a href="dossier-initial.html" style="display:inline-block;border:1px solid #583535;padding:14px 20px;font-size:10px;letter-spacing:2px">
-CONSULTER L'ARCHIVE RESTREINTE
-</a>
+<div class="card">
+<b>ARCH-06</b>
+<h3>Dossiers restreints</h3>
+<p>Documents nécessitant un niveau d'autorisation supérieur.</p>
+</div>
+</div>
+</section>
 
+<section>
+<div class="tag">02 // R.E.N.</div>
+<h2>Archives liées à REN-FR-0417</h2>
+
+<div class="text">
+<p>
+Le dossier de R.E.N. est réparti entre plusieurs systèmes. Les documents
+techniques sont principalement conservés dans la base de maintenance,
+tandis que son historique professionnel se trouve dans les archives
+administratives.
+</p>
+<p>
+Certains événements enregistrés entre 2036 et 2037 ne sont toutefois pas
+présents dans leur intégralité. Cette situation explique pourquoi plusieurs
+documents de R.E.N. possèdent aujourd'hui un statut particulier.
+</p>
+</div>
+
+<div class="notice">
+<b>ACCÈS RESTREINT</b>
+Le document « R.E.N. — DOSSIER INITIAL » contient des sections non
+accessibles depuis l'interface publique.
+</div>
+</section>
+
+<section>
+<div class="tag">03 // CONSERVATION</div>
+<h2>Pourquoi conserver ces données ?</h2>
+
+<div class="text">
+<p>
+Une unité robotique peut rester active pendant plusieurs décennies.
+Conserver son historique permet aux techniciens de comprendre l'origine
+d'une modification, d'une panne ou d'un comportement inhabituel.
+</p>
+<p>
+Les archives permettent également d'éviter la disparition des connaissances
+acquises lors des anciennes générations de robots.
+</p>
+</div>
 </section>
 
 </main>
 
-<footer>AURELIA INDUSTRIES — ARCHIVE DATABASE — 2042</footer>
-
+<footer>
+<span>AURELIA INDUSTRIES © 2042</span>
+<span>ARCHIVES // ACCÈS PUBLIC PARTIEL</span>
+</footer>
 </body>
 </html>
-```
