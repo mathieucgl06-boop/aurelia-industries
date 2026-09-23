@@ -1,0 +1,164 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AURELIA — R.E.N.</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#070a0d;color:#dce3e7;font-family:Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+header{height:78px;position:fixed;top:0;width:100%;z-index:10;background:#080b0eee;border-bottom:1px solid #263139;display:flex;align-items:center;justify-content:space-between;padding:0 6%}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-box{width:38px;height:38px;border:1px solid #7d8b93;display:flex;align-items:center;justify-content:center}
+.logo-name{letter-spacing:3px;font-size:14px;font-weight:bold}
+nav{display:flex;gap:20px}
+nav a{font-size:10px;color:#849099}
+main{padding-top:78px}
+.hero{padding:120px 8%;background:radial-gradient(circle at 80%,#273741,transparent 35%),#090d10;border-bottom:1px solid #253038}
+.label{font-size:10px;letter-spacing:3px;color:#697780}
+h1{font-size:100px;font-weight:300;letter-spacing:8px;margin-top:15px}
+.subtitle{letter-spacing:4px;color:#73818a}
+section{padding:90px 8%;border-bottom:1px solid #1d272d}
+h2{font-size:34px;font-weight:400;margin-bottom:30px}
+.profile{display:grid;grid-template-columns:1fr 2fr;gap:25px}
+.box{background:#0d1317;border:1px solid #273239;padding:30px}
+.data{display:flex;justify-content:space-between;border-bottom:1px solid #202a30;padding:13px 0;font-size:13px}
+.data span:first-child{color:#66747d}.data span:last-child{text-align:right}
+.text{color:#96a2a8;max-width:850px;line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:#0d1317;border:1px solid #263139;padding:30px}
+.card h3{font-weight:400;margin-bottom:10px}.card p{color:#87949b;font-size:13px}
+footer{padding:45px 8%;background:#050708;color:#59666d;font-size:10px}
+@media(max-width:800px){nav{display:none}.profile,.grid{grid-template-columns:1fr}h1{font-size:60px}}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo"><div class="logo-box">AI</div><div class="logo-name">AURELIA INDUSTRIES</div></div>
+<nav>
+<a href="index.html">ACCUEIL</a>
+<a href="entreprise.html">ENTREPRISE</a>
+<a href="ren.html">R.E.N.</a>
+<a href="technologie.html">TECHNOLOGIE</a>
+<a href="historique.html">HISTORIQUE</a>
+<a href="archives.html">ARCHIVES</a>
+</nav>
+</header>
+
+<main>
+
+<div class="hero">
+<div class="label">UNIT PROFILE / REN-FR-0417</div>
+<h1>R.E.N.</h1>
+<div class="subtitle">ROBOT D'EXPLOITATION NEUROCOGNITIVE</div>
+</div>
+
+<section>
+
+<h2>Identification</h2>
+
+<div class="profile">
+
+<div class="box">
+
+<div class="data"><span>Désignation</span><span>R.E.N.</span></div>
+<div class="data"><span>Nom usuel</span><span>Ren</span></div>
+<div class="data"><span>Date d'activation</span><span>17 avril 2017</span></div>
+<div class="data"><span>Origine</span><span>France</span></div>
+<div class="data"><span>Statut</span><span>Citoyen</span></div>
+<div class="data"><span>Année de référence</span><span>2042</span></div>
+<div class="data"><span>Situation</span><span>Recherche d'emploi</span></div>
+
+</div>
+
+<div class="box text">
+
+<p>
+R.E.N. est un robot humanoïde développé en France afin
+d'assister les humains dans différents domaines professionnels.
+</p>
+
+<br>
+
+<p>
+Ses premières affectations concernaient la logistique,
+la gestion de stocks, la maintenance et l'assistance technique.
+</p>
+
+<br>
+
+<p>
+Au contact de ses collègues humains, Ren a progressivement
+développé une compréhension plus importante de la communication,
+des relations professionnelles et des comportements sociaux.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Situation actuelle</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Objectif professionnel</h3>
+<p>Intégrer progressivement un service public et mettre ses compétences au service de la population.</p>
+</div>
+
+<div class="card">
+<h3>Approche</h3>
+<p>Commencer au niveau qui lui sera proposé, apprendre le métier et gagner la confiance de ses collègues.</p>
+</div>
+
+<div class="card">
+<h3>Particularité comportementale</h3>
+<p>Ren peut interpréter certaines situations sociales de manière littérale et cherche souvent une explication logique.</p>
+</div>
+
+<div class="card">
+<h3>Autonomie</h3>
+<p>Ren vit désormais indépendamment et assume lui-même ses choix professionnels et personnels.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Accéder aux archives</h2>
+
+<p class="text">
+Un ancien fichier portant la référence
+<strong>R.E.N. — DOSSIER INITIAL</strong>
+est toujours enregistré dans les archives Aurelia.
+Son contenu demeure inaccessible.
+</p>
+
+<br>
+
+<a href="dossier-initial.html" style="display:inline-block;border:1px solid #5a3434;padding:13px 20px;font-size:10px;letter-spacing:2px">
+ACCÉDER AU DOSSIER INITIAL
+</a>
+
+</section>
+
+</main>
+
+<footer>
+AURELIA INDUSTRIES — R.E.N. — UNIT ARCHIVE — 2042
+</footer>
+
+</body>
+</html>
+```
