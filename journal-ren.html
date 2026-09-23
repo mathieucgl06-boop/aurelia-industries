@@ -1,0 +1,1025 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>AURELIA — REN-FR-0417 — Maintenance Log</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#06090b;
+    color:#d8e0e4;
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    height:72px;
+    background:#090d10;
+    border-bottom:1px solid #2a343a;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 35px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.logo{
+    width:37px;
+    height:37px;
+    border:1px solid #7c8b94;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.name{
+    font-size:13px;
+    letter-spacing:3px;
+    font-weight:bold;
+}
+
+.back{
+    color:#78868e;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+    max-width:1250px;
+    margin:auto;
+    padding:45px 30px 80px;
+}
+
+.breadcrumb{
+    color:#596870;
+    font-family:monospace;
+    font-size:10px;
+    margin-bottom:18px;
+}
+
+.title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:30px;
+    padding-bottom:30px;
+    border-bottom:1px solid #263139;
+}
+
+h1{
+    font-size:42px;
+    font-weight:400;
+}
+
+.subtitle{
+    color:#75838b;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.unit-status{
+    border:1px solid #405349;
+    color:#82998c;
+    padding:9px 13px;
+    font-family:monospace;
+    font-size:10px;
+}
+
+/* =========================
+   UNIT INFO
+========================= */
+
+.unit-info{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    gap:10px;
+    margin:25px 0;
+}
+
+.info{
+    background:#0b1013;
+    border:1px solid #273239;
+    padding:18px;
+}
+
+.info-label{
+    color:#596870;
+    font-size:9px;
+    letter-spacing:1.5px;
+}
+
+.info-value{
+    margin-top:7px;
+    font-family:monospace;
+    color:#cbd4d8;
+    font-size:12px;
+}
+
+/* =========================
+   ALERT
+========================= */
+
+.notice{
+    background:#0e0c0c;
+    border:1px solid #493434;
+    padding:18px 20px;
+    margin-bottom:25px;
+}
+
+.notice-title{
+    color:#ad7777;
+    font-family:monospace;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+.notice p{
+    margin-top:7px;
+    color:#887575;
+    font-size:12px;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.log-container{
+    position:relative;
+}
+
+.log-container:before{
+    content:"";
+    position:absolute;
+    left:12px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:#29343a;
+}
+
+.log{
+    position:relative;
+    padding-left:45px;
+    margin-bottom:35px;
+}
+
+.log:before{
+    content:"";
+    position:absolute;
+    left:7px;
+    top:6px;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:#080b0d;
+    border:2px solid #72828b;
+}
+
+.log.warning:before{
+    border-color:#9c8a60;
+}
+
+.log.restricted:before{
+    border-color:#a36464;
+}
+
+.log-date{
+    font-family:monospace;
+    font-size:10px;
+    color:#62727a;
+    margin-bottom:5px;
+}
+
+.log-header{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    align-items:center;
+}
+
+.log h2{
+    font-size:19px;
+    font-weight:400;
+}
+
+.level{
+    font-family:monospace;
+    font-size:9px;
+    padding:4px 7px;
+    border:1px solid #39464c;
+    color:#77858c;
+}
+
+.level.warning{
+    border-color:#665d43;
+    color:#a49569;
+}
+
+.level.restricted{
+    border-color:#603b3b;
+    color:#a96969;
+}
+
+.log-body{
+    background:#0b1013;
+    border:1px solid #242f35;
+    padding:20px;
+    margin-top:10px;
+    color:#8d9aa0;
+    font-size:12px;
+}
+
+.log-body strong{
+    color:#bfc8cc;
+    font-weight:normal;
+}
+
+.log-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 30px;
+    margin-top:15px;
+}
+
+.log-grid div{
+    border-bottom:1px solid #1c262b;
+    padding:7px 0;
+}
+
+.terminal{
+    margin-top:18px;
+    background:#050707;
+    border:1px solid #252d30;
+    padding:18px;
+    font-family:monospace;
+    color:#65756e;
+    font-size:10px;
+    line-height:1.9;
+}
+
+.terminal .red{
+    color:#a86464;
+}
+
+.terminal .yellow{
+    color:#a19267;
+}
+
+/* =========================
+   SIGNATURE
+========================= */
+
+.signature{
+    margin-top:12px;
+    color:#596970;
+    font-family:monospace;
+    font-size:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid #202a30;
+    padding:30px;
+    color:#505e65;
+    font-family:monospace;
+    font-size:9px;
+    display:flex;
+    justify-content:space-between;
+}
+
+@media(max-width:800px){
+
+    header{
+        padding:0 18px;
+    }
+
+    .name{
+        font-size:10px;
+    }
+
+    main{
+        padding:35px 18px 60px;
+    }
+
+    .title-row{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .unit-info{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .log-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .log-grid{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+
+@media(max-width:500px){
+
+    .unit-info{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        font-size:30px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<a href="maintenance.html" class="brand">
+
+    <div class="logo">
+        AI
+    </div>
+
+    <div class="name">
+        AURELIA INDUSTRIES
+    </div>
+
+</a>
+
+<a href="maintenance.html" class="back">
+    ← MAINTENANCE DATABASE
+</a>
+
+</header>
+
+
+<main>
+
+<div class="breadcrumb">
+AURELIA / MAINTENANCE / REN-FR-0417 / LOG
+</div>
+
+
+<div class="title-row">
+
+<div>
+
+<h1>
+R.E.N.
+</h1>
+
+<div class="subtitle">
+UNIT MAINTENANCE & SERVICE HISTORY
+</div>
+
+</div>
+
+<div class="unit-status">
+● OPERATIONAL
+</div>
+
+</div>
+
+
+<!-- UNIT INFORMATION -->
+
+<div class="unit-info">
+
+<div class="info">
+
+<div class="info-label">
+UNIT ID
+</div>
+
+<div class="info-value">
+REN-FR-0417
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-label">
+DESIGNATION
+</div>
+
+<div class="info-value">
+R.E.N.
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-label">
+CLASS
+</div>
+
+<div class="info-value">
+HUMANOID
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-label">
+ORIGIN
+</div>
+
+<div class="info-value">
+FRANCE
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-label">
+ACTIVATION
+</div>
+
+<div class="info-value">
+17.04.2017
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-label">
+CURRENT YEAR
+</div>
+
+<div class="info-value">
+2042
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-label">
+LAST SERVICE
+</div>
+
+<div class="info-value">
+14.08.2042
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-label">
+SERVICE COUNT
+</div>
+
+<div class="info-value">
+27
+</div>
+
+</div>
+
+</div>
+
+
+<!-- NOTICE -->
+
+<div class="notice">
+
+<div class="notice-title">
+ARCHIVE NOTICE / REN-FR-0417
+</div>
+
+<p>
+Certain historical maintenance records have been partially
+restricted following the administrative closure of the
+original operating company in 2037.
+</p>
+
+</div>
+
+
+<!-- LOGS -->
+
+<div class="log-container">
+
+
+<!-- 2017 -->
+
+<div class="log">
+
+<div class="log-date">
+17.04.2017 — SERVICE EVENT #001
+</div>
+
+<div class="log-header">
+
+<h2>
+Initial activation
+</h2>
+
+<div class="level">
+PUBLIC
+</div>
+
+</div>
+
+<div class="log-body">
+
+Initial system activation completed.
+
+<div class="log-grid">
+
+<div>
+<strong>Mobility systems</strong><br>
+NORMAL
+</div>
+
+<div>
+<strong>Visual sensors</strong><br>
+NORMAL
+</div>
+
+<div>
+<strong>Communication</strong><br>
+NORMAL
+</div>
+
+<div>
+<strong>Neurocognitive core</strong><br>
+NORMAL
+</div>
+
+</div>
+
+<div class="signature">
+Technician : M. Delorme / TECH-118
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 2019 -->
+
+<div class="log">
+
+<div class="log-date">
+03.09.2019 — SERVICE EVENT #006
+</div>
+
+<div class="log-header">
+
+<h2>
+Actuator maintenance
+</h2>
+
+<div class="level">
+PUBLIC
+</div>
+
+</div>
+
+<div class="log-body">
+
+Minor wear detected on lower-limb actuator assembly.
+
+<div class="log-grid">
+
+<div>
+<strong>Component</strong><br>
+LL-ACT-04
+</div>
+
+<div>
+<strong>Action</strong><br>
+REPLACEMENT
+</div>
+
+<div>
+<strong>Result</strong><br>
+PASSED
+</div>
+
+<div>
+<strong>Downtime</strong><br>
+02H 17M
+</div>
+
+</div>
+
+<div class="signature">
+Technician : C. Moreau / TECH-204
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 2024 -->
+
+<div class="log">
+
+<div class="log-date">
+21.06.2024 — SERVICE EVENT #014
+</div>
+
+<div class="log-header">
+
+<h2>
+Neurocognitive system update
+</h2>
+
+<div class="level">
+TECHNICIAN
+</div>
+
+</div>
+
+<div class="log-body">
+
+Software update and behavioral calibration.
+
+<div class="log-grid">
+
+<div>
+<strong>Previous version</strong><br>
+REN-NC 6.2
+</div>
+
+<div>
+<strong>Current version</strong><br>
+REN-NC 7.0
+</div>
+
+<div>
+<strong>Learning system</strong><br>
+UPDATED
+</div>
+
+<div>
+<strong>Social interpretation</strong><br>
+CALIBRATED
+</div>
+
+</div>
+
+<div class="signature">
+Technician : A. Vasseur / TECH-391
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 2028 -->
+
+<div class="log">
+
+<div class="log-date">
+14.03.2028 — SERVICE EVENT #019
+</div>
+
+<div class="log-header">
+
+<h2>
+Behavioral observation
+</h2>
+
+<div class="level">
+TECHNICIAN
+</div>
+
+</div>
+
+<div class="log-body">
+
+Repeated observations indicate increased adaptation
+to human conversational patterns.
+
+No technical malfunction detected.
+
+<div class="terminal">
+
+> BEHAVIORAL ANALYSIS<br>
+> RESPONSE TIME ............. NORMAL<br>
+> VOCAL ADAPTATION .......... INCREASED<br>
+> SOCIAL PATTERN RECOGNITION  +17%<br>
+> EMOTIONAL SIMULATION ...... N/A<br>
+> SYSTEM INTEGRITY .......... 100%
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 2036 -->
+
+<div class="log warning">
+
+<div class="log-date">
+14.11.2036 — SERVICE EVENT #024
+</div>
+
+<div class="log-header">
+
+<h2>
+Unscheduled intervention
+</h2>
+
+<div class="level warning">
+WARNING
+</div>
+
+</div>
+
+<div class="log-body">
+
+An intervention was registered outside the normal
+maintenance schedule.
+
+<div class="log-grid">
+
+<div>
+<strong>Technician</strong><br>
+UNKNOWN
+</div>
+
+<div>
+<strong>Authorization</strong><br>
+NOT FOUND
+</div>
+
+<div>
+<strong>Location</strong><br>
+FR-07
+</div>
+
+<div>
+<strong>Duration</strong><br>
+01H 43M
+</div>
+
+</div>
+
+<div class="terminal">
+
+<span class="yellow">
+> WARNING — SERVICE REQUEST NOT FOUND
+</span><br>
+
+> AUTHORIZATION TOKEN ........ INVALID<br>
+
+> TECHNICIAN ID ............. UNKNOWN<br>
+
+> SYSTEM CHANGES ............ DETECTED<br>
+
+> LOG INTEGRITY ............. 87%
+
+</div>
+
+<div class="signature">
+Original record incomplete.
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 2037 -->
+
+<div class="log restricted">
+
+<div class="log-date">
+02.02.2037 — SERVICE EVENT #025
+</div>
+
+<div class="log-header">
+
+<h2>
+Final registered maintenance
+</h2>
+
+<div class="level restricted">
+RESTRICTED
+</div>
+
+</div>
+
+<div class="log-body">
+
+Unit prepared for transfer to specialized maintenance
+facility following closure of the operating company.
+
+<div class="log-grid">
+
+<div>
+<strong>Destination</strong><br>
+FR-07
+</div>
+
+<div>
+<strong>Transfer status</strong><br>
+PENDING
+</div>
+
+<div>
+<strong>Administrative file</strong><br>
+CLOSED
+</div>
+
+<div>
+<strong>Unit status</strong><br>
+UNASSIGNED
+</div>
+
+</div>
+
+<div class="terminal">
+
+> TRANSFER REQUEST CREATED<br>
+> DESTINATION : FR-07<br>
+> EXPECTED ARRIVAL : 05.02.2037<br>
+<br>
+
+<span class="red">
+> TRANSFER CONFIRMATION : NOT RECEIVED
+</span><br>
+
+<span class="red">
+> RECEIVING FACILITY : NO RECORD
+</span><br>
+
+<span class="red">
+> EVENT CLOSED : 08.02.2037
+</span><br>
+<br>
+
+> REASON : ADMINISTRATIVE CLOSURE
+
+</div>
+
+<div class="signature">
+Access to the complete report requires authorization level 4.
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 2042 -->
+
+<div class="log">
+
+<div class="log-date">
+14.08.2042 — SERVICE EVENT #027
+</div>
+
+<div class="log-header">
+
+<h2>
+Current system diagnostic
+</h2>
+
+<div class="level">
+PUBLIC
+</div>
+
+</div>
+
+<div class="log-body">
+
+Latest available diagnostic performed on the active unit.
+
+<div class="log-grid">
+
+<div>
+<strong>Mobility</strong><br>
+98%
+</div>
+
+<div>
+<strong>Power system</strong><br>
+96%
+</div>
+
+<div>
+<strong>Communication</strong><br>
+100%
+</div>
+
+<div>
+<strong>Neurocognitive core</strong><br>
+94%
+</div>
+
+<div>
+<strong>Memory integrity</strong><br>
+91%
+</div>
+
+<div>
+<strong>Maintenance required</strong><br>
+NO
+</div>
+
+</div>
+
+<div class="terminal">
+
+> DIAGNOSTIC COMPLETE<br>
+> SYSTEM STATUS : OPERATIONAL<br>
+> CRITICAL ERRORS : 0<br>
+> WARNINGS : 2<br>
+> MAINTENANCE : NOT REQUIRED
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+<div>
+AURELIA INDUSTRIES / ENGINEERING
+</div>
+
+<div>
+REN-FR-0417 / MAINTENANCE LOG
+</div>
+
+<div>
+ARCHIVE VERSION 4.17
+</div>
+
+</footer>
+
+</body>
+</html>
+```
