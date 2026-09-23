@@ -1,945 +1,251 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>R.E.N. — Aurelia Industries</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #07090c;
-            color: #e6e9ed;
-            font-family: Arial, Helvetica, sans-serif;
-            min-height: 100vh;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* HEADER */
-
-        header {
-            height: 74px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(7, 9, 12, 0.95);
-            border-bottom: 1px solid #252c35;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .logo-symbol {
-            width: 38px;
-            height: 38px;
-            border: 1px solid #00c8ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #00c8ff;
-            font-weight: bold;
-        }
-
-        .logo-text strong {
-            display: block;
-            font-size: 14px;
-            letter-spacing: 3px;
-        }
-
-        .logo-text span {
-            color: #68737e;
-            font-size: 9px;
-            letter-spacing: 2px;
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            color: #8a949f;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            transition: 0.2s;
-        }
-
-        nav a:hover {
-            color: #00c8ff;
-        }
-
-        .system {
-            font-size: 9px;
-            color: #38d39f;
-            letter-spacing: 1.5px;
-        }
-
-        /* HERO */
-
-        .hero {
-            padding: 160px 8% 80px;
-            border-bottom: 1px solid #1c232b;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "R.E.N.";
-            position: absolute;
-            right: -40px;
-            top: 100px;
-            font-size: 180px;
-            font-weight: bold;
-            color: rgba(255,255,255,0.015);
-            letter-spacing: -10px;
-        }
-
-        .classification {
-            color: #00c8ff;
-            font-size: 10px;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: clamp(60px, 10vw, 130px);
-            line-height: 0.9;
-            letter-spacing: -7px;
-        }
-
-        .full-name {
-            margin-top: 20px;
-            color: #8a949f;
-            letter-spacing: 4px;
-            font-size: 12px;
-        }
-
-        .hero-description {
-            max-width: 750px;
-            margin-top: 35px;
-            color: #78838e;
-            line-height: 1.9;
-            font-size: 15px;
-        }
-
-        /* STATUS */
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 35px;
-            border: 1px solid #1d5c4b;
-            padding: 12px 16px;
-            color: #38d39f;
-            font-size: 10px;
-            letter-spacing: 2px;
-            background: rgba(56, 211, 159, 0.04);
-        }
-
-        /* INFORMATION */
-
-        section {
-            padding: 90px 8%;
-            border-bottom: 1px solid #171d24;
-        }
-
-        .section-label {
-            color: #00c8ff;
-            font-size: 10px;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            font-size: 36px;
-            margin-bottom: 35px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-top: 1px solid #252c35;
-            border-left: 1px solid #252c35;
-        }
-
-        .info {
-            min-height: 125px;
-            padding: 25px;
-            border-right: 1px solid #252c35;
-            border-bottom: 1px solid #252c35;
-            background: #0b0f14;
-        }
-
-        .info-label {
-            color: #68737e;
-            font-size: 9px;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .info-value {
-            font-size: 16px;
-        }
-
-        /* DESCRIPTION */
-
-        .description {
-            max-width: 900px;
-            color: #7d8792;
-            line-height: 2;
-            font-size: 15px;
-        }
-
-        .description p {
-            margin-bottom: 25px;
-        }
-
-        /* SYSTEM */
-
-        .system-panel {
-            border: 1px solid #252c35;
-            background: #0b0f14;
-        }
-
-        .system-header {
-            padding: 18px 22px;
-            border-bottom: 1px solid #252c35;
-            display: flex;
-            justify-content: space-between;
-            color: #68737e;
-            font-size: 9px;
-            letter-spacing: 2px;
-        }
-
-        .system-row {
-            display: grid;
-            grid-template-columns: 1fr 2fr 100px;
-            align-items: center;
-            padding: 17px 22px;
-            border-bottom: 1px solid #1b222a;
-            font-size: 11px;
-        }
-
-        .system-row:last-child {
-            border-bottom: none;
-        }
-
-        .bar {
-            height: 5px;
-            background: #1c242c;
-            position: relative;
-        }
-
-        .bar span {
-            display: block;
-            height: 100%;
-            background: #00c8ff;
-        }
-
-        .percentage {
-            text-align: right;
-            color: #00c8ff;
-        }
-
-        /* LINKS */
-
-        .actions {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .action {
-            border: 1px solid #252c35;
-            background: #0b0f14;
-            padding: 28px;
-            transition: 0.25s;
-        }
-
-        .action:hover {
-            border-color: #00c8ff;
-            transform: translateY(-3px);
-        }
-
-        .action small {
-            color: #00c8ff;
-            letter-spacing: 2px;
-            font-size: 9px;
-        }
-
-        .action h3 {
-            margin-top: 18px;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .action p {
-            color: #68737e;
-            font-size: 12px;
-            line-height: 1.7;
-        }
-
-        /* WARNING */
-
-        .notice {
-            border-left: 3px solid #ffb020;
-            background: rgba(255, 176, 32, 0.04);
-            padding: 25px;
-            margin-top: 40px;
-        }
-
-        .notice-title {
-            color: #ffb020;
-            font-size: 10px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-
-        .notice p {
-            color: #858e98;
-            line-height: 1.7;
-            font-size: 12px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 40px 8%;
-            display: flex;
-            justify-content: space-between;
-            color: #56616c;
-            font-size: 9px;
-            letter-spacing: 1.5px;
-        }
-
-        @media (max-width: 1000px) {
-
-            nav {
-                display: none;
-            }
-
-            .info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .actions {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            header {
-                padding: 0 20px;
-            }
-
-            .hero {
-                padding: 130px 25px 70px;
-            }
-
-            section {
-                padding: 70px 25px;
-            }
-
-            h1 {
-                font-size: 70px;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .system-row {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .percentage {
-                text-align: left;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>R.E.N. — Aurelia Industries</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#05090e;color:#e8edf2;font-family:Arial,sans-serif;line-height:1.8}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 75% 10%,rgba(0,210,255,.15),transparent 35%),linear-gradient(135deg,#05090e,#09131d,#05090e)}
+a{color:inherit;text-decoration:none}
+header{height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5;background:rgba(3,7,12,.96);border-bottom:1px solid #19323d}
+.logo{display:flex;align-items:center;gap:12px}.logo-mark{width:42px;height:42px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:4px}.logo small{display:block;color:#637681;font-size:8px;letter-spacing:3px}
+nav{display:flex;gap:18px}nav a{font-size:8px;color:#81919b;letter-spacing:1.4px}nav a:hover{color:#45d4ff}
+main{max-width:1250px;margin:auto}
+.hero,section{padding:70px 6%;border-bottom:1px solid #162a34}
+.hero{padding-top:100px}
+.tag{color:#45d4ff;font-size:9px;letter-spacing:3px;margin-bottom:15px}
+h1{font-size:clamp(55px,9vw,105px);font-weight:400;line-height:.9;letter-spacing:-5px}
+h2{font-size:32px;font-weight:400;margin-bottom:22px}
+h3{font-size:17px;margin:25px 0 10px}
+.lead,.text{max-width:1000px;color:#84949e;font-size:13px}
+.lead{font-size:14px;margin-top:25px}
+.text p{margin-bottom:20px}.text strong{color:#d9ebf0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.card{padding:22px;border:1px solid #203640;background:#071017}
+.card b{font-size:8px;color:#45d4ff;letter-spacing:2px}.card p{font-size:11px;color:#71828d;margin-top:8px}
+.status{display:inline-block;margin-top:25px;padding:9px 14px;border:1px solid #1d704e;color:#49d38a;font-size:8px;letter-spacing:2px}
+.bar{height:5px;background:#14232b;margin-top:8px}.bar i{display:block;height:100%;background:#45d4ff}
+.data{border:1px solid #213640;margin-top:30px}.row{display:grid;grid-template-columns:220px 1fr;padding:14px 18px;border-bottom:1px solid #172a33;font-size:11px}.row:last-child{border:0}.row b{font-size:8px;color:#617783;letter-spacing:2px}
+.notice{padding:22px;border-left:3px solid #e0a42b;background:rgba(224,164,43,.04);color:#89969d;font-size:11px;margin-top:25px}.notice b{display:block;color:#e0a42b;font-size:9px;letter-spacing:2px;margin-bottom:8px}
+.buttons{margin-top:25px}.btn{display:inline-block;border:1px solid #29434f;padding:12px 18px;margin:5px;font-size:8px;letter-spacing:2px}.btn:hover{border-color:#45d4ff;color:#45d4ff}
+footer{padding:30px 6%;display:flex;justify-content:space-between;color:#52636e;font-size:8px;letter-spacing:1.5px}
+@media(max-width:900px){nav{display:none}.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero{padding-top:70px}footer{flex-direction:column;gap:10px}}
+</style>
 </head>
 
 <body>
 
-
 <header>
-
-    <a href="index.html" class="logo">
-
-        <div class="logo-symbol">
-            AI
-        </div>
-
-        <div class="logo-text">
-            <strong>AURELIA</strong>
-            <span>INDUSTRIES</span>
-        </div>
-
-    </a>
-
-
-    <nav>
-
-        <a href="entreprise.html">COMPANY</a>
-
-        <a href="technologie.html">TECHNOLOGY</a>
-
-        <a href="ren.html">R.E.N.</a>
-
-        <a href="historique.html">HISTORY</a>
-
-        <a href="archives.html">ARCHIVES</a>
-
-        <a href="maintenance.html">MAINTENANCE</a>
-
-        <a href="contact.html">CONTACT</a>
-
-    </nav>
-
-
-    <div class="system">
-        ● SYSTEM ONLINE
-    </div>
-
+<a class="logo" href="index.html">
+<div class="logo-mark">A</div>
+<div><b>AURELIA</b><small>INDUSTRIES</small></div>
+</a>
+<nav>
+<a href="index.html">ACCUEIL</a>
+<a href="entreprise.html">ENTREPRISE</a>
+<a href="technologie.html">TECHNOLOGIE</a>
+<a href="ren.html">R.E.N.</a>
+<a href="historique.html">HISTORIQUE</a>
+<a href="installations.html">INSTALLATIONS</a>
+<a href="archives.html">ARCHIVES</a>
+<a href="maintenance.html">MAINTENANCE</a>
+<a href="contact.html">CONTACT</a>
+</nav>
 </header>
-
 
 <main>
 
-
-    <!-- HERO -->
-
-    <div class="hero">
-
-        <div class="classification">
-            AURELIA INDUSTRIES // HUMANOID ROBOTICS DIVISION
-        </div>
-
-        <h1>R.E.N.</h1>
-
-        <div class="full-name">
-            ROBOT D’EXPLOITATION NEUROCOGNITIVE
-        </div>
-
-        <p class="hero-description">
-
-            R.E.N. is a humanoid robotic platform developed in France
-            for professional assistance, technical operations,
-            communication and human interaction.
-
-        </p>
-
-
-        <div class="status">
-
-            <span>●</span>
-
-            UNIT STATUS:
-            OPERATIONAL
-
-        </div>
-
-    </div>
-
-
-    <!-- IDENTIFICATION -->
-
-    <section>
-
-        <div class="section-label">
-            01 // UNIT IDENTIFICATION
-        </div>
-
-        <h2>
-            Unit profile
-        </h2>
-
-
-        <div class="info-grid">
-
-            <div class="info">
-
-                <div class="info-label">
-                    UNIT ID
-                </div>
-
-                <div class="info-value">
-                    REN-FR-0417
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <div class="info-label">
-                    DESIGNATION
-                </div>
-
-                <div class="info-value">
-                    R.E.N.
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <div class="info-label">
-                    CLASS
-                </div>
-
-                <div class="info-value">
-                    HUMANOID
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <div class="info-label">
-                    ORIGIN
-                </div>
-
-                <div class="info-value">
-                    FRANCE
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <div class="info-label">
-                    ACTIVATION
-                </div>
-
-                <div class="info-value">
-                    17.04.2017
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <div class="info-label">
-                    CURRENT YEAR
-                </div>
-
-                <div class="info-value">
-                    2042
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <div class="info-label">
-                    LAST SERVICE
-                </div>
-
-                <div class="info-value">
-                    14.08.2042
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <div class="info-label">
-                    SERVICE RECORDS
-                </div>
-
-                <div class="info-value">
-                    27
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <div class="info-label">
-                    MEMORY INTEGRITY
-                </div>
-
-                <div class="info-value">
-                    91%
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PRESENTATION -->
-
-    <section>
-
-        <div class="section-label">
-            02 // DEVELOPMENT
-        </div>
-
-        <h2>
-            Human-oriented robotics
-        </h2>
-
-
-        <div class="description">
-
-            <p>
-                R.E.N. was developed in France as part of Aurelia
-                Industries' humanoid robotics program.
-                The unit was designed to assist human personnel
-                across a variety of professional environments.
-            </p>
-
-            <p>
-                During its operational life, R.E.N. was deployed
-                primarily in logistics, stock management,
-                technical maintenance and technical assistance.
-            </p>
-
-            <p>
-                Over time, the unit demonstrated an increasing
-                capacity for communication, observation of human
-                behavior and adaptation to social interactions.
-            </p>
-
-            <p>
-                Unlike a conventional automated system,
-                R.E.N. was designed to work alongside people,
-                learn from its environment and progressively
-                adapt to the individuals around it.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- SYSTEM DIAGNOSTIC -->
-
-    <section>
-
-        <div class="section-label">
-            03 // SYSTEM DIAGNOSTIC
-        </div>
-
-        <h2>
-            Current system status
-        </h2>
-
-
-        <div class="system-panel">
-
-            <div class="system-header">
-
-                <span>
-                    REN-FR-0417 / LIVE DIAGNOSTIC
-                </span>
-
-                <span>
-                    2042
-                </span>
-
-            </div>
-
-
-            <div class="system-row">
-
-                <span>
-                    MOBILITY
-                </span>
-
-                <div class="bar">
-                    <span style="width:98%;"></span>
-                </div>
-
-                <div class="percentage">
-                    98%
-                </div>
-
-            </div>
-
-
-            <div class="system-row">
-
-                <span>
-                    POWER SYSTEM
-                </span>
-
-                <div class="bar">
-                    <span style="width:96%;"></span>
-                </div>
-
-                <div class="percentage">
-                    96%
-                </div>
-
-            </div>
-
-
-            <div class="system-row">
-
-                <span>
-                    COMMUNICATION
-                </span>
-
-                <div class="bar">
-                    <span style="width:100%;"></span>
-                </div>
-
-                <div class="percentage">
-                    100%
-                </div>
-
-            </div>
-
-
-            <div class="system-row">
-
-                <span>
-                    NEUROCOGNITIVE
-                </span>
-
-                <div class="bar">
-                    <span style="width:94%;"></span>
-                </div>
-
-                <div class="percentage">
-                    94%
-                </div>
-
-            </div>
-
-
-            <div class="system-row">
-
-                <span>
-                    MEMORY INTEGRITY
-                </span>
-
-                <div class="bar">
-                    <span style="width:91%;"></span>
-                </div>
-
-                <div class="percentage">
-                    91%
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="notice">
-
-            <div class="notice-title">
-                ARCHIVE NOTICE
-            </div>
-
-            <p>
-                Historical records associated with this unit are
-                partially restricted following the closure of its
-                former operating organization in 2037.
-                Some technical records may require elevated
-                authorization.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ACCESS -->
-
-    <section>
-
-        <div class="section-label">
-            04 // DOCUMENTATION
-        </div>
-
-        <h2>
-            Unit records
-        </h2>
-
-
-        <div class="actions">
-
-
-            <a href="maintenance.html" class="action">
-
-                <small>
-                    DATABASE
-                </small>
-
-                <h3>
-                    Maintenance Database
-                </h3>
-
-                <p>
-                    Access the Aurelia Industries maintenance
-                    database and registered robotic units.
-                </p>
-
-            </a>
-
-
-            <a href="journal-ren.html" class="action">
-
-                <small>
-                    TECHNICAL RECORD
-                </small>
-
-                <h3>
-                    R.E.N. Service Journal
-                </h3>
-
-                <p>
-                    View the complete registered maintenance
-                    and intervention history of REN-FR-0417.
-                </p>
-
-            </a>
-
-
-            <a href="dossier-initial.html" class="action">
-
-                <small>
-                    RESTRICTED
-                </small>
-
-                <h3>
-                    Initial File
-                </h3>
-
-                <p>
-                    Original R.E.N. documentation.
-                    Additional authorization may be required.
-                </p>
-
-            </a>
-
-
-            <a href="archives.html" class="action">
-
-                <small>
-                    ARCHIVES
-                </small>
-
-                <h3>
-                    Corporate Archives
-                </h3>
-
-                <p>
-                    Search historical Aurelia Industries
-                    documents and archived records.
-                </p>
-
-            </a>
-
-
-            <a href="technologie.html" class="action">
-
-                <small>
-                    TECHNOLOGY
-                </small>
-
-                <h3>
-                    R.E.N. Technology
-                </h3>
-
-                <p>
-                    Learn more about the technological systems
-                    used by the R.E.N. platform.
-                </p>
-
-            </a>
-
-
-            <a href="historique.html" class="action">
-
-                <small>
-                    HISTORY
-                </small>
-
-                <h3>
-                    Development History
-                </h3>
-
-                <p>
-                    Explore the major milestones in the development
-                    of R.E.N. and Aurelia Industries.
-                </p>
-
-            </a>
-
-        </div>
-
-    </section>
+<div class="hero">
+<div class="tag">UNITÉ HUMANOÏDE // REN-FR-0417</div>
+<h1>R.E.N.</h1>
+<p class="lead">
+Robot d'Exploitation Neurocognitive. Unité humanoïde masculine développée
+en France par Aurelia Industries et activée le 17 avril 2017.
+</p>
+<div class="status">● UNITÉ OPÉRATIONNELLE</div>
+</div>
+
+<section>
+<div class="tag">01 // IDENTIFICATION</div>
+<h2>Fiche technique</h2>
+
+<div class="data">
+<div class="row"><b>IDENTIFIANT</b><span>REN-FR-0417</span></div>
+<div class="row"><b>DÉSIGNATION</b><span>R.E.N.</span></div>
+<div class="row"><b>SIGNIFICATION</b><span>Robot d'Exploitation Neurocognitive</span></div>
+<div class="row"><b>TYPE</b><span>Robot humanoïde</span></div>
+<div class="row"><b>GENRE DE CONFIGURATION</b><span>Masculine</span></div>
+<div class="row"><b>ORIGINE</b><span>France</span></div>
+<div class="row"><b>ACTIVATION</b><span>17 avril 2017</span></div>
+<div class="row"><b>ÉTAT ACTUEL</b><span>Opérationnel</span></div>
+<div class="row"><b>ANNÉE DE RÉFÉRENCE</b><span>2042</span></div>
+</div>
+</section>
+
+<section>
+<div class="tag">02 // ORIGINE</div>
+<h2>Pourquoi R.E.N. a-t-il été créé ?</h2>
+
+<div class="text">
+<p>
+Les premières générations de robots Aurelia étaient conçues autour d'une
+tâche précise. Une unité pouvait déplacer des marchandises pendant plusieurs
+heures, effectuer des inspections ou assister un technicien, mais elle
+restait limitée lorsque son environnement changeait.
+</p>
+
+<p>
+Le projet R.E.N. devait répondre à cette limitation. Les ingénieurs souhaitaient
+créer une plateforme capable d'utiliser différents outils, de se déplacer dans
+des espaces conçus pour l'être humain et surtout de comprendre des instructions
+professionnelles formulées de manière naturelle.
+</p>
+
+<p>
+La forme humanoïde a donc été retenue pour une raison pratique. Un robot
+possédant une architecture proche du corps humain pouvait évoluer dans les
+mêmes environnements que les travailleurs sans nécessiter la transformation
+complète des infrastructures.
+</p>
+</div>
+</section>
+
+<section>
+<div class="tag">03 // PARCOURS</div>
+<h2>Les premières années</h2>
+
+<div class="text">
+<p>
+Après son activation en 2017, R.E.N. est affecté à des tâches de logistique
+et de maintenance. Ses journées sont organisées autour de procédures précises.
+Il déplace des palettes, vérifie des stocks, transporte du matériel et signale
+les problèmes rencontrés dans son environnement.
+</p>
+
+<p>
+Au départ, les interactions humaines sont limitées. R.E.N. répond aux
+instructions qui lui sont données et ne cherche pas à prolonger une conversation.
+Son système considère principalement la communication comme un moyen de
+recevoir ou transmettre une information.
+</p>
+
+<p>
+Cette situation change progressivement. En travaillant avec les mêmes personnes,
+R.E.N. commence à reconnaître certaines habitudes, certains tons de voix et
+certaines façons de communiquer. Les ingénieurs décident alors d'observer
+plus précisément cette évolution.
+</p>
+</div>
+</section>
+
+<section>
+<div class="tag">04 // ÉVOLUTION</div>
+<h2>Un apprentissage différent</h2>
+
+<div class="text">
+<p>
+R.E.N. apprend progressivement que toutes les phrases humaines ne doivent pas
+être interprétées littéralement. Une plaisanterie, une expression ou une
+réponse volontairement vague peuvent avoir un sens différent de leurs mots.
+</p>
+
+<p>
+Cette particularité devient l'un des éléments les plus intéressants de son
+historique. R.E.N. demande parfois une explication lorsqu'une situation lui
+semble illogique. Il peut également prendre une phrase au premier degré,
+avant de comprendre plus tard ce que la personne voulait réellement dire.
+</p>
+
+<p>
+Il n'est donc pas présenté comme une machine parfaite. Il peut se tromper,
+apprendre, oublier certaines informations non essentielles ou nécessiter une
+maintenance. Sa principale différence réside dans sa capacité à intégrer
+l'expérience professionnelle dans son comportement futur.
+</p>
+</div>
+</section>
+
+<section>
+<div class="tag">05 // DIAGNOSTIC 2042</div>
+<h2>État actuel de l'unité</h2>
+
+<div class="grid">
+<div class="card"><b>MOBILITÉ</b><p>98 %</p><div class="bar"><i style="width:98%"></i></div></div>
+<div class="card"><b>ÉNERGIE</b><p>96 %</p><div class="bar"><i style="width:96%"></i></div></div>
+<div class="card"><b>COMMUNICATION</b><p>100 %</p><div class="bar"><i style="width:100%"></i></div></div>
+<div class="card"><b>NEUROCOGNITIF</b><p>94 %</p><div class="bar"><i style="width:94%"></i></div></div>
+<div class="card"><b>MÉMOIRE</b><p>91 %</p><div class="bar"><i style="width:91%"></i></div></div>
+<div class="card"><b>PERCEPTION</b><p>97 %</p><div class="bar"><i style="width:97%"></i></div></div>
+<div class="card"><b>RÉACTION</b><p>95 %</p><div class="bar"><i style="width:95%"></i></div></div>
+<div class="card"><b>SÉCURITÉ</b><p>100 %</p><div class="bar"><i style="width:100%"></i></div></div>
+</div>
+</section>
+
+<section>
+<div class="tag">06 // SITUATION</div>
+<h2>R.E.N. en 2042</h2>
+
+<div class="text">
+<p>
+R.E.N. ne possède actuellement aucun poste permanent. Son ancienne entreprise
+a cessé ses activités et la procédure de transfert prévue n'a pas abouti.
+Une partie de ses anciennes données professionnelles est aujourd'hui
+inaccessible.
+</p>
+
+<p>
+Son objectif actuel est simple : retrouver une activité légale, gagner son
+propre argent, devenir indépendant et trouver une place dans la société.
+Il souhaite particulièrement travailler dans un service public ou une
+activité où il pourra être utile aux autres.
+</p>
+
+<p>
+Il ne cherche pas à obtenir immédiatement une fonction importante. Son parcours
+doit commencer par les tâches qui lui seront confiées. Il devra apprendre,
+travailler avec ses collègues, comprendre les règles de son nouvel
+environnement et gagner progressivement leur confiance.
+</p>
+</div>
+</section>
+
+<section>
+<div class="tag">07 // ARCHIVES</div>
+<h2>Une anomalie historique</h2>
+
+<div class="notice">
+<b>AVERTISSEMENT — DOSSIER INCOMPLET</b>
+Le dossier « R.E.N. — DOSSIER INITIAL » ne peut actuellement pas être
+consulté dans son intégralité. Certaines données liées aux événements de
+2036 et 2037 nécessitent une autorisation supérieure.
+</div>
+
+<div class="text" style="margin-top:25px">
+<p>
+R.E.N. n'effectue actuellement aucune enquête active sur cette période.
+Il possède seulement les informations accessibles dans ses propres archives.
+La question de ce qui s'est réellement produit peut cependant devenir
+importante pour son avenir.
+</p>
+</div>
+
+<div class="buttons">
+<a class="btn" href="journal-ren.html">JOURNAL DE MAINTENANCE</a>
+<a class="btn" href="dossier-initial.html">DOSSIER INITIAL</a>
+<a class="btn" href="archives.html">ARCHIVES</a>
+</div>
+</section>
 
 </main>
 
-
 <footer>
-
-    <span>
-        AURELIA INDUSTRIES © 2042
-    </span>
-
-    <span>
-        UNIT REN-FR-0417 // OPERATIONAL
-    </span>
-
+<span>REN-FR-0417 // AURELIA INDUSTRIES</span>
+<span>ÉTAT : OPÉRATIONNEL</span>
 </footer>
-
 
 </body>
 </html>
