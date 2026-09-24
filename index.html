@@ -7,217 +7,166 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{
-    background:#05090e;
-    color:#e8edf2;
     font-family:Arial,Helvetica,sans-serif;
-    line-height:1.8;
+    background:#05080b;
+    color:#d9e7eb;
+    line-height:1.7;
 }
 body:before{
     content:"";
     position:fixed;
     inset:0;
-    z-index:-2;
-    background:
-    radial-gradient(circle at 75% 10%,rgba(0,210,255,.15),transparent 35%),
-    radial-gradient(circle at 10% 80%,rgba(0,100,150,.08),transparent 30%),
-    linear-gradient(135deg,#05090e,#09131d,#05090e);
-}
-body:after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    opacity:.09;
-    background-image:
-    linear-gradient(rgba(0,200,255,.3) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,200,255,.3) 1px,transparent 1px);
-    background-size:70px 70px;
     pointer-events:none;
+    background:
+    linear-gradient(rgba(0,234,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.025) 1px,transparent 1px);
+    background-size:45px 45px;
 }
-a{color:inherit;text-decoration:none}
-
 header{
-    height:74px;
-    padding:0 5%;
+    position:sticky;
+    top:0;
+    z-index:100;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    position:sticky;
-    top:0;
-    z-index:20;
-    background:rgba(3,7,12,.95);
-    border-bottom:1px solid #19323d;
-    backdrop-filter:blur(15px);
+    padding:15px 6%;
+    background:rgba(5,8,11,.94);
+    border-bottom:1px solid #12343b;
+    backdrop-filter:blur(12px);
 }
-.logo{display:flex;align-items:center;gap:12px}
-.logo-mark{
-    width:42px;height:42px;
-    border:1px solid #45d4ff;
-    color:#45d4ff;
-    display:grid;
-    place-items:center;
-    font-weight:bold;
-    transform:rotate(-8deg);
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:white;
 }
-.logo b{letter-spacing:4px}
-.logo small{
-    display:block;
-    color:#637681;
+.logo svg{
+    width:48px;
+    height:48px;
+    color:#00eaff;
+    filter:drop-shadow(0 0 8px rgba(0,234,255,.45));
+}
+.logo-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+}
+.logo-text strong{
+    font-size:17px;
+    letter-spacing:4px;
+}
+.logo-text span{
+    margin-top:5px;
+    color:#00eaff;
     font-size:8px;
     letter-spacing:3px;
 }
-nav{display:flex;gap:18px;flex-wrap:wrap}
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
 nav a{
-    color:#81919b;
-    font-size:8px;
-    letter-spacing:1.5px;
+    color:#9db4ba;
+    text-decoration:none;
+    padding:8px 10px;
+    font-size:12px;
+    transition:.2s;
 }
-nav a:hover{color:#45d4ff}
-
-main{max-width:1250px;margin:auto}
+nav a:hover,nav a.active{
+    color:#00eaff;
+}
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
 .hero{
-    padding:110px 6% 80px;
-    border-bottom:1px solid #172a34;
+    min-height:78vh;
+    display:flex;
+    align-items:center;
+    padding:90px 0;
 }
-.kicker{
-    color:#45d4ff;
-    font-size:9px;
-    letter-spacing:3px;
-    margin-bottom:18px;
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    gap:60px;
+    align-items:center;
+}
+.label{
+    color:#00eaff;
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
 }
 h1{
-    font-size:clamp(45px,7vw,88px);
+    font-size:clamp(45px,7vw,90px);
     line-height:1;
-    font-weight:400;
-    letter-spacing:-4px;
+    margin:20px 0;
+    color:white;
 }
-h1 span{color:#45d4ff}
-.lead{
-    max-width:900px;
-    margin-top:30px;
-    color:#8c9ba5;
-    font-size:14px;
-}
-.buttons{margin-top:30px}
-.btn{
-    display:inline-block;
-    padding:13px 20px;
-    margin-right:8px;
-    border:1px solid #29434f;
-    font-size:8px;
-    letter-spacing:2px;
-}
-.btn:hover{border-color:#45d4ff;color:#45d4ff}
-.btn.primary{
-    background:#08bde9;
-    border-color:#08bde9;
-    color:#031016;
-}
-
-section{
-    padding:70px 6%;
-    border-bottom:1px solid #14262f;
-}
-.tag{
-    color:#45d4ff;
-    font-size:9px;
-    letter-spacing:3px;
-    margin-bottom:12px;
-}
+h1 span{color:#00eaff}
 h2{
-    font-size:34px;
-    font-weight:400;
-    margin-bottom:25px;
+    font-size:32px;
+    color:white;
+    margin-bottom:18px;
 }
 h3{
-    font-size:17px;
-    font-weight:500;
+    color:#fff;
     margin-bottom:10px;
 }
-.text{
-    max-width:1000px;
-    color:#84949e;
-    font-size:13px;
+p{color:#9fb1b7}
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 22px;
+    border:1px solid #00eaff;
+    color:#00eaff;
+    text-decoration:none;
+    transition:.2s;
 }
-.text p{margin-bottom:20px}
-.text strong{color:#d6e8ee;font-weight:500}
-
+.btn:hover{
+    background:#00eaff;
+    color:#031014;
+}
+.panel{
+    background:linear-gradient(145deg,#0b1317,#070b0e);
+    border:1px solid #17333a;
+    padding:28px;
+    margin-bottom:22px;
+    box-shadow:0 15px 50px rgba(0,0,0,.25);
+}
 .grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:30px;
+    gap:20px;
 }
-.card{
-    padding:28px;
-    background:rgba(7,15,21,.9);
-    border:1px solid #203640;
-    transition:.25s;
+section{
+    padding:75px 0;
 }
-.card:hover{
-    border-color:#45d4ff;
-    transform:translateY(-3px);
+.stat{
+    font-size:34px;
+    color:#00eaff;
+    font-weight:bold;
 }
-.number{
-    color:#45d4ff;
-    font-size:9px;
-    letter-spacing:2px;
-}
-.card p{
-    color:#71828d;
-    font-size:11px;
-}
-
-.data{
-    border:1px solid #213640;
-    margin-top:30px;
-}
-.row{
-    display:grid;
-    grid-template-columns:230px 1fr;
-    padding:15px 20px;
-    border-bottom:1px solid #182b34;
-    font-size:11px;
-}
-.row:last-child{border:0}
-.row b{
-    color:#617783;
-    font-size:8px;
-    letter-spacing:2px;
-}
-
-.schema{
-    margin-top:40px;
-    padding:25px;
-    border:1px solid #203640;
-    background:#070e14;
-}
-.schema svg{
+.schematic{
     width:100%;
-    max-width:700px;
-    display:block;
+    max-width:420px;
     margin:auto;
 }
-
 footer{
-    padding:30px 6%;
-    display:flex;
-    justify-content:space-between;
-    color:#52636e;
-    font-size:8px;
-    letter-spacing:1.5px;
+    padding:35px 6%;
+    border-top:1px solid #17333a;
+    color:#647b82;
+    font-size:12px;
+    text-align:center;
 }
-
-@media(max-width:900px){
-    nav{display:none}
-    .grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:600px){
+@media(max-width:800px){
+    header{flex-direction:column;gap:15px}
+    .hero-grid{grid-template-columns:1fr}
     .grid{grid-template-columns:1fr}
-    .row{grid-template-columns:1fr;gap:5px}
-    footer{flex-direction:column;gap:10px}
+    nav{justify-content:center}
 }
 </style>
 </head>
@@ -225,201 +174,188 @@ footer{
 <body>
 
 <header>
-<a class="logo" href="index.html">
-    <div class="logo-mark">A</div>
-    <div>
-        <b>AURELIA</b>
-        <small>INDUSTRIES</small>
-    </div>
+<a href="index.html" class="logo">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width="3"/>
+<path d="M27 72 L50 22 L73 72" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37 55 H63" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+<circle cx="50" cy="55" r="3.5" fill="currentColor"/>
+<path d="M18 82 H82" fill="none" stroke="currentColor" stroke-width="2" opacity=".6"/>
+</svg>
+<div class="logo-text">
+<strong>AURELIA</strong>
+<span>INDUSTRIES</span>
+</div>
 </a>
 
 <nav>
-<a href="index.html">ACCUEIL</a>
-<a href="entreprise.html">ENTREPRISE</a>
-<a href="technologie.html">TECHNOLOGIE</a>
+<a class="active" href="index.html">Accueil</a>
+<a href="entreprise.html">Entreprise</a>
 <a href="ren.html">R.E.N.</a>
-<a href="historique.html">HISTORIQUE</a>
-<a href="installations.html">INSTALLATIONS</a>
-<a href="archives.html">ARCHIVES</a>
-<a href="maintenance.html">MAINTENANCE</a>
-<a href="contact.html">CONTACT</a>
+<a href="technologie.html">Technologie</a>
+<a href="historique.html">Historique</a>
+<a href="installations.html">Installations</a>
+<a href="archives.html">Archives</a>
+<a href="maintenance.html">Maintenance</a>
+<a href="journal-ren.html">Journal R.E.N.</a>
+<a href="dossier-initial.html">Dossier initial</a>
+<a href="contact.html">Contact</a>
 </nav>
 </header>
 
 <main>
 
-<div class="hero">
-<div class="kicker">AURELIA INDUSTRIES // FRANCE // 2042</div>
-<h1>Des robots pour<br><span>un avenir humain.</span></h1>
+<section class="hero">
+<div class="container hero-grid">
 
-<p class="lead">
-Depuis 2011, Aurelia Industries développe des systèmes robotiques destinés
-à accompagner les professionnels dans les environnements industriels,
-logistiques, techniques et publics. Notre objectif n'est pas de remplacer
-l'humain, mais de lui permettre d'aller plus loin.
+<div>
+<div class="label">Aurelia Industries / Robotics Division</div>
+<h1>Des robots pour un <span>avenir humain.</span></h1>
+
+<p>
+Aurelia Industries développe des systèmes robotiques conçus pour
+accompagner les sociétés humaines dans les environnements industriels,
+techniques et publics.
 </p>
 
-<div class="buttons">
-<a class="btn primary" href="entreprise.html">DÉCOUVRIR L'ENTREPRISE</a>
-<a class="btn" href="ren.html">ACCÉDER AU DOSSIER R.E.N.</a>
+<p style="margin-top:15px">
+Notre approche repose sur une idée simple : une machine n'a pas vocation
+à remplacer l'humain, mais à lui permettre d'aller plus loin.
+</p>
+
+<a class="btn" href="entreprise.html">Découvrir Aurelia Industries</a>
+</div>
+
+<div class="panel">
+<div class="label">UNITÉ ACTIVE</div>
+<h2 style="margin-top:12px">R.E.N.</h2>
+<p>Robot d’Exploitation Neurocognitive</p>
+
+<div style="margin-top:25px">
+<div class="stat">REN-FR-0417</div>
+<p>Unité humanoïde française</p>
+</div>
+
+<div style="margin-top:25px">
+<div class="stat">2042</div>
+<p>Statut opérationnel actuel</p>
 </div>
 </div>
 
-<section>
-<div class="tag">01 // AURELIA INDUSTRIES</div>
-<h2>Une entreprise française tournée vers la robotique appliquée</h2>
-
-<div class="text">
-<p>
-Aurelia Industries est une entreprise française spécialisée dans la conception,
-le développement, la maintenance et l'intégration de systèmes robotiques.
-Depuis ses premières années, l'entreprise s'est concentrée sur une idée :
-une machine doit être conçue autour des besoins réels de ceux qui l'utilisent.
-</p>
-
-<p>
-Nos premières unités étaient principalement destinées aux entrepôts et aux
-environnements industriels. Elles transportaient du matériel, effectuaient
-des contrôles, surveillaient certains équipements et signalaient les anomalies.
-Cette expérience a progressivement conduit Aurelia à développer des systèmes
-capables de fonctionner dans des environnements beaucoup plus complexes.
-</p>
-
-<p>
-Le programme R.E.N. constitue l'une des étapes majeures de cette évolution.
-L'unité REN-FR-0417 a permis aux ingénieurs d'étudier une nouvelle relation
-entre robotique, communication et adaptation comportementale.
-</p>
 </div>
 </section>
 
 <section>
-<div class="tag">02 // DOMAINES</div>
-<h2>Nos domaines d'activité</h2>
+<div class="container">
+
+<div class="label">Domaines d'activité</div>
+<h2>Une technologie conçue pour le terrain</h2>
 
 <div class="grid">
-<div class="card">
-<div class="number">01</div>
+
+<div class="panel">
 <h3>Robotique industrielle</h3>
-<p>Automatisation, manutention, inspection, production et assistance aux opérateurs.</p>
+<p>
+Automatisation, manutention, maintenance et assistance technique
+dans les environnements exigeants.
+</p>
 </div>
 
-<div class="card">
-<div class="number">02</div>
-<h3>Maintenance autonome</h3>
-<p>Diagnostic des systèmes, contrôle des composants et anticipation des défaillances.</p>
-</div>
-
-<div class="card">
-<div class="number">03</div>
+<div class="panel">
 <h3>Assistance humaine</h3>
-<p>Développement de robots capables d'interagir avec des professionnels.</p>
+<p>
+Développement de systèmes capables d'interagir avec les opérateurs
+et de comprendre les contraintes d'une situation réelle.
+</p>
 </div>
 
-<div class="card">
-<div class="number">04</div>
-<h3>Logistique</h3>
-<p>Transport interne, gestion des stocks et déplacement sécurisé de matériel.</p>
+<div class="panel">
+<h3>Services publics</h3>
+<p>
+Recherche appliquée autour de la sécurité, de l'urgence, de la
+maintenance urbaine et de l'assistance aux collectivités.
+</p>
 </div>
 
-<div class="card">
-<div class="number">05</div>
-<h3>Systèmes cognitifs</h3>
-<p>Communication, compréhension des instructions et adaptation comportementale.</p>
-</div>
-
-<div class="card">
-<div class="number">06</div>
-<h3>Unités spécialisées</h3>
-<p>Conception de plateformes adaptées aux environnements professionnels spécifiques.</p>
 </div>
 </div>
 </section>
 
 <section>
-<div class="tag">03 // R.E.N.</div>
-<h2>REN-FR-0417</h2>
+<div class="container">
+<div class="panel">
 
-<div class="text">
-<p>
-<strong>R.E.N.</strong> signifie « Robot d'Exploitation Neurocognitive ».
-Il s'agit d'une unité humanoïde masculine activée en France le
-<strong>17 avril 2017</strong>.
-</p>
+<div class="label">Projet R.E.N.</div>
+<h2>Un système différent</h2>
 
 <p>
-Durant ses premières années de service, R.E.N. a principalement travaillé
-dans la logistique, la gestion de stocks, la maintenance et l'assistance
-technique. Son rôle était simple : exécuter une procédure correctement,
-identifier une anomalie et demander une intervention humaine lorsqu'elle
-dépassait ses paramètres.
+R.E.N. n'a pas été conçu comme un simple automate. Son architecture
+neurocognitive lui permet d'analyser son environnement, de communiquer
+avec les personnes qui l'entourent et d'adapter progressivement son
+comportement aux situations rencontrées.
 </p>
 
-<p>
-Avec le temps, son système neurocognitif a évolué. R.E.N. a commencé à
-observer les conversations, les comportements et les habitudes des personnes
-avec lesquelles il travaillait. Il a progressivement développé une capacité
-à adapter sa communication au contexte.
+<p style="margin-top:15px">
+Activé en France le 17 avril 2017, R.E.N. a d'abord travaillé dans
+la logistique, la gestion des stocks, la maintenance et l'assistance
+technique.
 </p>
 
-<p>
-Aujourd'hui, R.E.N. est officiellement enregistré comme unité opérationnelle.
-Il cherche toutefois à retrouver une activité professionnelle et à construire
-une existence indépendante.
+<p style="margin-top:15px">
+Au fil des années, son comportement s'est progressivement enrichi.
+Les équipes qui travaillaient avec lui ont commencé à l'appeler
+simplement « Ren ». Le nom est resté.
 </p>
+
+<a class="btn" href="ren.html">Consulter le dossier R.E.N.</a>
+
 </div>
-
-<div class="data">
-<div class="row"><b>IDENTIFIANT</b><span>REN-FR-0417</span></div>
-<div class="row"><b>DÉSIGNATION</b><span>R.E.N.</span></div>
-<div class="row"><b>CLASSE</b><span>HUMANOÏDE</span></div>
-<div class="row"><b>ORIGINE</b><span>FRANCE</span></div>
-<div class="row"><b>ACTIVATION</b><span>17.04.2017</span></div>
-<div class="row"><b>STATUT</b><span>OPÉRATIONNEL</span></div>
 </div>
 </section>
 
 <section>
-<div class="tag">04 // ARCHITECTURE</div>
-<h2>Schéma de construction R.E.N.</h2>
+<div class="container">
+<div class="panel">
 
-<div class="schema">
-<svg viewBox="0 0 700 760">
-<g stroke="#45d4ff" stroke-width="2" fill="none">
-<circle cx="350" cy="90" r="55"/>
-<rect x="300" y="145" width="100" height="180" rx="25"/>
-<rect x="235" y="175" width="65" height="25"/>
-<rect x="400" y="175" width="65" height="25"/>
-<rect x="315" y="325" width="70" height="180" rx="15"/>
-<rect x="245" y="505" width="60" height="180" rx="15"/>
-<rect x="395" y="505" width="60" height="180" rx="15"/>
-<circle cx="330" cy="80" r="7"/>
-<circle cx="370" cy="80" r="7"/>
-<line x1="300" y1="170" x2="150" y2="110"/>
-<line x1="400" y1="180" x2="550" y2="120"/>
-<line x1="300" y1="230" x2="130" y2="250"/>
-<line x1="400" y1="245" x2="570" y2="270"/>
-<line x1="315" y1="390" x2="130" y2="400"/>
-<line x1="385" y1="390" x2="570" y2="420"/>
+<div class="label">Architecture</div>
+<h2>Structure humanoïde</h2>
+
+<svg class="schematic" viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg">
+
+<g fill="none" stroke="#00eaff" stroke-width="2">
+
+<circle cx="150" cy="65" r="42"/>
+<circle cx="150" cy="65" r="20"/>
+
+<path d="M108 120 Q150 100 192 120 L205 260 Q150 285 95 260 Z"/>
+
+<path d="M105 135 L55 245 L70 255 L125 160"/>
+<path d="M195 135 L245 245 L230 255 L175 160"/>
+
+<path d="M110 260 L95 430"/>
+<path d="M190 260 L205 430"/>
+
+<path d="M95 430 L80 470"/>
+<path d="M205 430 L220 470"/>
+
+<path d="M115 165 H185"/>
+<path d="M115 200 H185"/>
+<path d="M115 235 H185"/>
+
 </g>
 
-<g fill="#8de4ff" font-family="Arial" font-size="13">
-<text x="60" y="105">MODULE VISUEL</text>
-<text x="500" y="115">SYSTÈME DE PERCEPTION</text>
-<text x="50" y="245">ACTIONNEMENT</text>
-<text x="500" y="265">CAPTEURS</text>
-<text x="45" y="395">MODULE NEUROCOGNITIF</text>
-<text x="500" y="415">UNITÉ CENTRALE</text>
-</g>
+<text x="150" y="65" text-anchor="middle" fill="#00eaff" font-size="10">R.E.N.</text>
+
 </svg>
+
+</div>
 </div>
 </section>
 
 </main>
 
 <footer>
-<span>AURELIA INDUSTRIES © 2042</span>
-<span>CONSTRUIRE L'AVENIR — FRANCE</span>
+Aurelia Industries — Robotics & Cognitive Systems — France — 2042
 </footer>
 
 </body>
