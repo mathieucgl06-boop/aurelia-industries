@@ -3,146 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Installations — Aurelia Industries</title>
+<title>Aurelia Industries — Installations</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#05090e;color:#e8edf2;font-family:Arial,sans-serif;line-height:1.8}
-body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 75% 10%,rgba(0,210,255,.14),transparent 35%),linear-gradient(135deg,#05090e,#09131d,#05090e)}
-a{color:inherit;text-decoration:none}
-header{height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(3,7,12,.96);border-bottom:1px solid #19323d;z-index:5}
-.logo{display:flex;gap:12px;align-items:center}.logo-mark{width:42px;height:42px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:4px}.logo small{display:block;color:#637681;font-size:8px;letter-spacing:3px}
-nav{display:flex;gap:18px}nav a{font-size:8px;color:#81919b;letter-spacing:1.4px}
-main{max-width:1250px;margin:auto}.hero,section{padding:75px 6%;border-bottom:1px solid #162a34}.hero{padding-top:100px}
-.tag{color:#45d4ff;font-size:9px;letter-spacing:3px;margin-bottom:15px}
-h1{font-size:clamp(45px,7vw,80px);font-weight:400;line-height:1}
-h2{font-size:32px;font-weight:400;margin-bottom:22px}
-.lead,.text{max-width:1000px;color:#84949e;font-size:13px}.lead{font-size:14px;margin-top:25px}
-.text p{margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:30px}
-.card{padding:30px;border:1px solid #203640;background:#071017}.card b{color:#45d4ff;font-size:9px;letter-spacing:2px}.card h3{margin:12px 0}.card p{font-size:11px;color:#71828d}
-.data{border:1px solid #203640;margin-top:30px}.row{display:grid;grid-template-columns:220px 1fr;padding:15px 18px;border-bottom:1px solid #172a33;font-size:11px}.row:last-child{border:0}.row b{font-size:8px;color:#617783;letter-spacing:2px}
-footer{padding:30px 6%;display:flex;justify-content:space-between;color:#52636e;font-size:8px;letter-spacing:1.5px}
-@media(max-width:900px){nav{display:none}}@media(max-width:600px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:5px}footer{flex-direction:column;gap:10px}}
+:root{--bg:#05070a;--line:rgba(210,230,238,.13);--text:#eef6f8;--muted:#8d9aa2;--cyan:#7ee7ff;--green:#a7ffd7}
+*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(circle at 70% 0,#10252e,transparent 35%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7}body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;opacity:.2;pointer-events:none}.shell{width:min(1180px,calc(100% - 40px));margin:auto}a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:10;background:rgba(5,7,10,.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}header{min-height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px}.logo{width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(126,231,255,.4)}.logo svg{width:29px;height:29px;fill:none;stroke:var(--cyan);stroke-width:1.8}.brand b{display:block;letter-spacing:.18em;font-size:14px}.brand small{display:block;color:#66747d;font-size:8px;letter-spacing:.28em}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{font-size:9px;text-transform:uppercase;color:#8c999f}nav a:hover{color:var(--cyan)}section{padding:90px 0}.kicker{font:10px monospace;color:var(--cyan);letter-spacing:.25em;margin-bottom:15px}h1{font-size:clamp(55px,8vw,100px);line-height:.88;letter-spacing:-.07em;margin-bottom:30px}h1 span{color:var(--cyan)}.lead{font-size:18px;color:#aebbc0;max-width:700px}.locations{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:50px}.site{border:1px solid var(--line);min-height:300px;padding:30px;background:linear-gradient(145deg,rgba(126,231,255,.045),transparent)}.site .code{font:10px monospace;color:var(--cyan);letter-spacing:.2em}.site h2{margin:50px 0 12px}.site p{color:var(--muted)}.status{margin-top:25px;color:var(--green);font:10px monospace;letter-spacing:.15em}.map{margin-top:15px;border:1px solid var(--line);height:230px;background:repeating-linear-gradient(45deg,transparent 0 20px,rgba(126,231,255,.025) 21px 22px);display:grid;place-items:center;color:#53656c;font:11px monospace}@media(max-width:900px){nav{display:none}.locations{grid-template-columns:1fr}}@media(max-width:600px){.shell{width:calc(100% - 24px)}}
 </style>
 </head>
+
 <body>
 
-<header>
-<a class="logo" href="index.html"><div class="logo-mark">A</div><div><b>AURELIA</b><small>INDUSTRIES</small></div></a>
+<div class="top"><header class="shell">
+
+<a class="brand" href="index.html">
+<span class="logo"><svg viewBox="0 0 44 44"><path d="M7 34 20.5 6 37 34M12 25h19M20.5 6 26 34"/><circle cx="20.5" cy="25" r="2.6"/></svg></span>
+<span><b>AURELIA</b><small>INDUSTRIES</small></span>
+</a>
+
 <nav>
-<a href="index.html">ACCUEIL</a><a href="entreprise.html">ENTREPRISE</a><a href="technologie.html">TECHNOLOGIE</a><a href="ren.html">R.E.N.</a><a href="historique.html">HISTORIQUE</a><a href="installations.html">INSTALLATIONS</a><a href="archives.html">ARCHIVES</a><a href="maintenance.html">MAINTENANCE</a><a href="contact.html">CONTACT</a>
+<a href="entreprise.html">Entreprise</a><a href="ren.html">R.E.N.</a><a href="technologie.html">Technologie</a><a href="historique.html">Historique</a><a href="installations.html">Installations</a><a href="archives.html">Archives</a><a href="maintenance.html">Maintenance</a><a href="journal-ren.html">Journal R.E.N.</a><a href="dossier-initial.html">Dossier initial</a><a href="contact.html">Contact</a>
 </nav>
-</header>
+
+</header></div>
 
 <main>
 
-<div class="hero">
-<div class="tag">AURELIA INDUSTRIES // INFRASTRUCTURES</div>
-<h1>Nos<br>installations.</h1>
+<section>
+<div class="shell">
+<div class="kicker">05 / FACILITIES</div>
+<h1>Les sites<br><span>Aurelia.</span></h1>
 <p class="lead">
-Laboratoires, ateliers de fabrication, centres de maintenance et archives :
-les infrastructures Aurelia constituent le cœur physique du développement
-des unités robotiques.
+Des infrastructures spécialisées conçues pour la recherche,
+la maintenance et l'intégration des systèmes robotiques.
 </p>
+
+<div class="locations">
+
+<div class="site">
+<div class="code">FAC—01</div>
+<h2>Centre de recherche</h2>
+<p>Laboratoires consacrés à l'intelligence artificielle, aux capteurs et aux systèmes neurocognitifs.</p>
+<div class="status">● OPERATIONAL</div>
 </div>
 
-<section>
-<div class="tag">01 // CENTRES</div>
-<h2>Un réseau industriel français</h2>
-
-<div class="grid">
-<div class="card">
-<b>FR-01 // SIÈGE</b>
-<h3>Centre administratif</h3>
-<p>
-Le siège regroupe les équipes administratives, la direction des programmes,
-les archives générales et une partie des services de recherche.
-</p>
+<div class="site">
+<div class="code">FAC—02</div>
+<h2>Atelier robotique</h2>
+<p>Zone dédiée à l'assemblage, à la réparation et aux tests mécaniques des unités.</p>
+<div class="status">● OPERATIONAL</div>
 </div>
 
-<div class="card">
-<b>FR-04 // LABORATOIRE</b>
-<h3>Laboratoire neurocognitif</h3>
-<p>
-Centre consacré aux systèmes de communication, à l'analyse comportementale
-et aux interfaces homme-machine.
-</p>
+<div class="site">
+<div class="code">FAC—03</div>
+<h2>Zone d'essais</h2>
+<p>Environnement contrôlé permettant de reproduire différentes situations de travail.</p>
+<div class="status">● RESTRICTED</div>
 </div>
 
-<div class="card">
-<b>FR-07 // SITE HISTORIQUE</b>
-<h3>Ancien centre d'exploitation</h3>
-<p>
-Site associé à plusieurs unités anciennes, dont R.E.N. Le centre a cessé
-son activité en 2037.
-</p>
+<div class="site">
+<div class="code">FAC—04</div>
+<h2>Archives techniques</h2>
+<p>Conservation des données historiques, rapports d'essais et documents techniques.</p>
+<div class="status">● CONTROLLED ACCESS</div>
 </div>
 
-<div class="card">
-<b>FR-09 // ARCHIVES</b>
-<h3>Centre documentaire</h3>
-<p>
-Infrastructure chargée de conserver les dossiers techniques et historiques
-des unités Aurelia.
-</p>
-</div>
-</div>
-</section>
-
-<section>
-<div class="tag">02 // FR-07</div>
-<h2>Le site historique</h2>
-
-<div class="text">
-<p>
-Le centre FR-07 a longtemps constitué l'un des principaux sites d'exploitation
-d'Aurelia Industries. Il regroupait des ateliers de maintenance, des espaces
-de stockage, plusieurs laboratoires et une zone réservée aux unités en service.
-</p>
-<p>
-R.E.N. y a travaillé pendant une partie importante de sa carrière. Plusieurs
-rapports indiquent qu'il connaissait parfaitement les installations et leurs
-procédures internes.
-</p>
-<p>
-Le site a été fermé en 2037 pour des raisons administratives et économiques.
-La plupart des unités ont été transférées. Le dossier de transfert de R.E.N.
-présente toutefois des informations incomplètes.
-</p>
 </div>
 
-<div class="data">
-<div class="row"><b>SITE</b><span>FR-07</span></div>
-<div class="row"><b>TYPE</b><span>Centre industriel et maintenance</span></div>
-<div class="row"><b>STATUT</b><span>Fermé</span></div>
-<div class="row"><b>ACTIVITÉ</b><span>2014 — 2037</span></div>
-<div class="row"><b>ARCHIVES</b><span>Partiellement transférées</span></div>
-</div>
-</section>
+<div class="map">AURELIA FACILITY NETWORK / LOCATION DATA RESTRICTED</div>
 
-<section>
-<div class="tag">03 // SÉCURITÉ</div>
-<h2>Des infrastructures contrôlées</h2>
-
-<div class="text">
-<p>
-Les centres Aurelia disposent de zones à accès différencié. Les espaces
-destinés aux visiteurs et aux opérateurs ne donnent pas automatiquement
-accès aux ateliers techniques ou aux archives.
-</p>
-<p>
-Les unités robotiques sont également suivies par des systèmes de maintenance
-permettant de connaître leur état, leur localisation déclarée et leurs
-dernières interventions.
-</p>
 </div>
 </section>
 
 </main>
 
-<footer>
-<span>AURELIA INDUSTRIES © 2042</span>
-<span>INFRASTRUCTURES // FRANCE</span>
+<footer style="border-top:1px solid var(--line);padding:35px 0;color:#65747b;font-size:11px">
+<div class="shell">AURELIA INDUSTRIES · FACILITY MANAGEMENT</div>
 </footer>
+
 </body>
 </html>
