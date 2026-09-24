@@ -11,10 +11,18 @@ content="Aurelia Industries — Robotique avancée, intelligence adaptative et s
 
 <style>
 
+/* =========================================================
+   AURELIA INDUSTRIES
+   FUTURISTIC CORPORATE DESIGN
+   ========================================================= */
+
 :root{
     --bg:#05070a;
+    --bg2:#080d11;
+
     --panel:rgba(13,18,24,.72);
     --panel2:rgba(255,255,255,.035);
+
     --line:rgba(210,230,238,.13);
 
     --text:#eef6f8;
@@ -22,8 +30,8 @@ content="Aurelia Industries — Robotique avancée, intelligence adaptative et s
 
     --cyan:#7ee7ff;
     --cyan2:#28b9e7;
-    --green:#a7ffd7;
 
+    --green:#a7ffd7;
     --warning:#ffd27e;
 }
 
@@ -38,6 +46,7 @@ html{
 }
 
 body{
+
     background:
         radial-gradient(
             circle at 70% 0%,
@@ -64,12 +73,17 @@ body{
     overflow-x:hidden;
 }
 
-/* GRID DE FOND */
+
+/* =========================================================
+   BACKGROUND GRID
+   ========================================================= */
 
 body::before{
+
     content:"";
 
     position:fixed;
+
     inset:0;
 
     pointer-events:none;
@@ -77,10 +91,12 @@ body::before{
     opacity:.18;
 
     background-image:
+
         linear-gradient(
             rgba(255,255,255,.035) 1px,
             transparent 1px
         ),
+
         linear-gradient(
             90deg,
             rgba(255,255,255,.035) 1px,
@@ -99,53 +115,94 @@ body::before{
     z-index:-1;
 }
 
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 35%,
+            rgba(0,0,0,.4) 100%
+        );
+
+    z-index:-1;
+}
+
+
 a{
     color:inherit;
     text-decoration:none;
 }
 
-/* CONTENEUR */
+
+/* =========================================================
+   GLOBAL CONTAINER
+   ========================================================= */
 
 .shell{
-    width:min(
-        1180px,
-        calc(100% - 40px)
-    );
+
+    width:
+        min(
+            1180px,
+            calc(100% - 40px)
+        );
 
     margin:auto;
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .top{
+
     position:sticky;
+
     top:0;
 
-    z-index:20;
+    z-index:100;
 
     background:
         rgba(5,7,10,.72);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:
+        blur(20px);
 
     border-bottom:
-        1px solid var(--line);
+        1px solid
+        var(--line);
 }
 
 header{
+
     min-height:78px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     gap:25px;
 }
 
-/* LOGO */
+
+/* =========================================================
+   AURELIA LOGO
+   ========================================================= */
 
 .brand{
+
     display:flex;
+
     align-items:center;
 
     gap:11px;
@@ -154,10 +211,13 @@ header{
 }
 
 .brand .logo{
-    width:39px;
-    height:39px;
+
+    width:40px;
+
+    height:40px;
 
     display:grid;
+
     place-items:center;
 
     border:
@@ -174,10 +234,41 @@ header{
     box-shadow:
         0 0 28px
         rgba(40,185,231,.12);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.brand .logo::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(126,231,255,.15),
+            transparent
+        );
+
+    transform:
+        translateX(-100%);
+
+    animation:
+        logoScan
+        4s
+        infinite;
 }
 
 .logo svg{
+
     width:29px;
+
     height:29px;
 
     fill:none;
@@ -186,9 +277,14 @@ header{
         var(--cyan);
 
     stroke-width:1.8;
+
+    position:relative;
+
+    z-index:2;
 }
 
 .brand b{
+
     display:block;
 
     letter-spacing:.18em;
@@ -197,6 +293,7 @@ header{
 }
 
 .brand small{
+
     display:block;
 
     color:#66747d;
@@ -206,9 +303,25 @@ header{
     letter-spacing:.28em;
 }
 
-/* NAVIGATION */
+@keyframes logoScan{
+
+    0%{
+        transform:translateX(-100%);
+    }
+
+    45%,
+    100%{
+        transform:translateX(100%);
+    }
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 nav{
+
     display:flex;
 
     gap:17px;
@@ -221,6 +334,7 @@ nav{
 }
 
 nav a{
+
     font-size:10px;
 
     text-transform:uppercase;
@@ -230,19 +344,52 @@ nav a{
     color:#8c999f;
 
     transition:.2s;
+
+    position:relative;
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-7px;
+
+    width:0;
+
+    height:1px;
+
+    background:
+        var(--cyan);
+
+    box-shadow:
+        0 0 8px
+        var(--cyan);
+
+    transition:.25s;
 }
 
 nav a:hover{
-    color:var(--cyan);
 
-    text-shadow:
-        0 0 12px
-        rgba(126,231,255,.5);
+    color:
+        var(--cyan);
 }
 
-/* HERO */
+nav a:hover::after{
+
+    width:100%;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero{
+
     min-height:74vh;
 
     display:grid;
@@ -257,6 +404,7 @@ nav a:hover{
 }
 
 .hero-grid{
+
     display:grid;
 
     grid-template-columns:
@@ -265,17 +413,19 @@ nav a:hover{
 
     gap:60px;
 
-    align-items:end;
+    align-items:center;
 }
 
 .eyebrow{
+
     font-size:10px;
 
     letter-spacing:.28em;
 
     text-transform:uppercase;
 
-    color:var(--cyan);
+    color:
+        var(--cyan);
 
     display:flex;
 
@@ -285,6 +435,7 @@ nav a:hover{
 }
 
 .eyebrow::before{
+
     content:"";
 
     width:34px;
@@ -300,6 +451,7 @@ nav a:hover{
 }
 
 h1{
+
     font-size:
         clamp(
             54px,
@@ -321,6 +473,7 @@ h1{
 }
 
 h1 span{
+
     color:transparent;
 
     -webkit-text-stroke:
@@ -329,6 +482,7 @@ h1 span{
 }
 
 .lead{
+
     max-width:680px;
 
     color:#aebbc0;
@@ -336,9 +490,13 @@ h1 span{
     font-size:18px;
 }
 
-/* ORBE */
+
+/* =========================================================
+   FUTURISTIC ORB
+   ========================================================= */
 
 .orb{
+
     width:
         min(
             340px,
@@ -356,6 +514,7 @@ h1 span{
     border-radius:50%;
 
     background:
+
         radial-gradient(
             circle,
             #0e2830 0 5%,
@@ -367,6 +526,7 @@ h1 span{
         );
 
     box-shadow:
+
         0 0 80px
         rgba(40,185,231,.13),
 
@@ -384,6 +544,7 @@ h1 span{
 
 .orb::before,
 .orb::after{
+
     content:"";
 
     position:absolute;
@@ -401,6 +562,7 @@ h1 span{
 }
 
 .orb::after{
+
     inset:26%;
 
     transform:
@@ -408,6 +570,7 @@ h1 span{
 }
 
 .orb-core{
+
     position:absolute;
 
     inset:42%;
@@ -439,14 +602,19 @@ h1 span{
     }
 }
 
-/* SECTIONS */
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
 
 section{
+
     padding:
         100px 0;
 }
 
 .section-head{
+
     display:flex;
 
     justify-content:space-between;
@@ -459,6 +627,7 @@ section{
 }
 
 .section-head h2{
+
     margin:0;
 
     font-size:
@@ -473,15 +642,24 @@ section{
     letter-spacing:-.055em;
 }
 
+.section-head h2 span{
+
+    color:
+        var(--cyan);
+}
+
 .section-head p{
+
     max-width:430px;
 
-    color:var(--muted);
+    color:
+        var(--muted);
 
     margin:0;
 }
 
 .kicker{
+
     color:#6d7c84;
 
     font-size:10px;
@@ -493,9 +671,13 @@ section{
     margin-bottom:10px;
 }
 
-/* GRILLES */
+
+/* =========================================================
+   GRIDS
+   ========================================================= */
 
 .grid{
+
     display:grid;
 
     grid-template-columns:
@@ -508,6 +690,7 @@ section{
 }
 
 .grid2{
+
     display:grid;
 
     grid-template-columns:
@@ -519,14 +702,19 @@ section{
     gap:14px;
 }
 
-/* CARTES */
+
+/* =========================================================
+   CARDS
+   ========================================================= */
 
 .card{
+
     border:
         1px solid
         var(--line);
 
     background:
+
         linear-gradient(
             145deg,
             rgba(255,255,255,.055),
@@ -549,6 +737,7 @@ section{
 }
 
 .card:hover{
+
     transform:
         translateY(-5px);
 
@@ -561,6 +750,7 @@ section{
 }
 
 .card::after{
+
     content:"";
 
     position:absolute;
@@ -581,6 +771,7 @@ section{
 }
 
 .card h3{
+
     font-size:21px;
 
     margin:
@@ -589,12 +780,15 @@ section{
 }
 
 .card p{
-    color:var(--muted);
+
+    color:
+        var(--muted);
 
     margin:0;
 }
 
 .num{
+
     font:
         11px
         ui-monospace,
@@ -602,16 +796,21 @@ section{
         Consolas,
         monospace;
 
-    color:var(--cyan);
+    color:
+        var(--cyan);
 
     letter-spacing:.15em;
 
     margin-bottom:34px;
 }
 
-/* PANEL */
+
+/* =========================================================
+   PANEL
+   ========================================================= */
 
 .panel{
+
     border:
         1px solid
         var(--line);
@@ -622,9 +821,13 @@ section{
     padding:36px;
 
     position:relative;
+
+    backdrop-filter:
+        blur(15px);
 }
 
 .panel::before{
+
     content:"";
 
     position:absolute;
@@ -645,9 +848,13 @@ section{
         var(--cyan);
 }
 
-/* DONNEES */
+
+/* =========================================================
+   DATA
+   ========================================================= */
 
 .data{
+
     display:flex;
 
     justify-content:space-between;
@@ -662,10 +869,12 @@ section{
 }
 
 .data span:first-child{
+
     color:#718087;
 }
 
 .data span:last-child{
+
     font-family:
         ui-monospace,
         SFMono-Regular,
@@ -675,9 +884,13 @@ section{
     color:#dce8eb;
 }
 
-/* TERMINAL */
+
+/* =========================================================
+   TERMINAL
+   ========================================================= */
 
 .terminal{
+
     font:
         12px/2
         ui-monospace,
@@ -689,18 +902,25 @@ section{
 }
 
 .terminal b{
-    color:var(--green);
+
+    color:
+        var(--green);
 
     font-weight:400;
 }
 
 .terminal .dim{
+
     color:#53636b;
 }
 
-/* CITATION */
+
+/* =========================================================
+   QUOTE
+   ========================================================= */
 
 .quote{
+
     font-size:27px;
 
     line-height:1.3;
@@ -711,9 +931,11 @@ section{
 }
 
 .line{
+
     height:1px;
 
     background:
+
         linear-gradient(
             90deg,
             var(--cyan),
@@ -725,60 +947,13 @@ section{
     margin:25px 0;
 }
 
-/* STATISTIQUES */
 
-.statgrid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(
-            4,
-            1fr
-        );
-
-    border-top:
-        1px solid
-        var(--line);
-
-    border-bottom:
-        1px solid
-        var(--line);
-}
-
-.stat{
-    padding:
-        30px 20px;
-
-    border-right:
-        1px solid
-        var(--line);
-}
-
-.stat:last-child{
-    border:0;
-}
-
-.stat strong{
-    display:block;
-
-    font-size:38px;
-
-    letter-spacing:-.05em;
-}
-
-.stat span{
-    font-size:9px;
-
-    color:#68767d;
-
-    letter-spacing:.18em;
-
-    text-transform:uppercase;
-}
-
-/* BOUTON */
+/* =========================================================
+   CTA
+   ========================================================= */
 
 .cta{
+
     display:inline-flex;
 
     align-items:center;
@@ -807,6 +982,7 @@ section{
 }
 
 .cta:hover{
+
     background:
         rgba(126,231,255,.12);
 
@@ -816,43 +992,318 @@ section{
 }
 
 .cta::after{
+
     content:"↗";
 
     color:
         var(--cyan);
 }
 
-/* TAGS */
 
-.tag{
-    display:inline-flex;
+/* =========================================================
+   R.E.N. SCHEMATIC
+   ========================================================= */
+
+.ren-schematic{
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.ren-schematic::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(40,185,231,.08),
+            transparent 65%
+        );
+
+    pointer-events:none;
+}
+
+.ren-system{
+
+    position:relative;
 
     border:
         1px solid
-        rgba(126,231,255,.22);
+        rgba(126,231,255,.18);
 
-    padding:
-        5px 9px;
+    background:
 
-    color:#91a7af;
+        linear-gradient(
+            145deg,
+            rgba(126,231,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    min-height:700px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+        inset 0 0 80px
+        rgba(40,185,231,.025);
+}
+
+.ren-system::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent 49.9%,
+            rgba(126,231,255,.05) 50%,
+            transparent 50.1%
+        );
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   SCHEMATIC HEADER
+   ========================================================= */
+
+.system-status{
+
+    position:absolute;
+
+    left:25px;
+
+    right:25px;
+
+    top:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
 
     font:
         9px
+        ui-monospace,
+        monospace;
+
+    letter-spacing:.18em;
+
+    color:#657980;
+
+    z-index:5;
+}
+
+.system-status .online{
+
+    color:
+        var(--green);
+}
+
+
+/* =========================================================
+   SVG
+   ========================================================= */
+
+.ren-svg{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    min-height:600px;
+
+    padding-top:35px;
+}
+
+
+/* =========================================================
+   SYSTEM DATA
+   ========================================================= */
+
+.system-data{
+
+    position:absolute;
+
+    bottom:18px;
+
+    left:25px;
+
+    right:25px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    border-top:
+        1px solid
+        rgba(126,231,255,.12);
+
+    padding-top:14px;
+
+    gap:20px;
+}
+
+.system-data div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+}
+
+.system-data span{
+
+    color:#52646b;
+
+    font-size:8px;
+
+    letter-spacing:.15em;
+}
+
+.system-data strong{
+
+    color:#c9dce1;
+
+    font:
+        11px
         ui-monospace,
         SFMono-Regular,
         Consolas,
         monospace;
 
-    letter-spacing:.12em;
-
-    text-transform:uppercase;
-
-    margin:4px;
+    font-weight:400;
 }
 
-/* FOOTER */
+.system-data .green{
+
+    color:
+        var(--green);
+}
+
+
+/* =========================================================
+   SCHEMATIC ANIMATION
+   ========================================================= */
+
+.ren-system svg circle[fill="#7ee7ff"]{
+
+    animation:
+        corePulse
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes corePulse{
+
+    0%,
+    100%{
+        opacity:.65;
+    }
+
+    50%{
+        opacity:1;
+    }
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.statgrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    border-top:
+        1px solid
+        var(--line);
+
+    border-bottom:
+        1px solid
+        var(--line);
+}
+
+.stat{
+
+    padding:
+        30px 20px;
+
+    border-right:
+        1px solid
+        var(--line);
+}
+
+.stat:last-child{
+
+    border:0;
+}
+
+.stat strong{
+
+    display:block;
+
+    font-size:38px;
+
+    letter-spacing:-.05em;
+}
+
+.stat span{
+
+    font-size:9px;
+
+    color:#68767d;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer{
+
     border-top:
         1px solid
         var(--line);
@@ -867,6 +1318,7 @@ footer{
 }
 
 .foot{
+
     display:flex;
 
     justify-content:space-between;
@@ -875,14 +1327,19 @@ footer{
 }
 
 .foot strong{
+
     color:#b7c7cc;
 
     letter-spacing:.15em;
 }
 
-/* ANIMATION */
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
 
 .reveal{
+
     animation:
         up
         .7s
@@ -893,6 +1350,7 @@ footer{
 @keyframes up{
 
     from{
+
         opacity:0;
 
         transform:
@@ -900,14 +1358,17 @@ footer{
     }
 
     to{
+
         opacity:1;
 
-        transform:
-            none;
+        transform:none;
     }
 }
 
-/* RESPONSIVE */
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media(max-width:900px){
 
@@ -916,20 +1377,24 @@ footer{
     }
 
     .hero-grid{
+
         grid-template-columns:1fr;
     }
 
     .orb{
+
         margin:
             0 auto;
     }
 
     .grid,
     .grid2{
+
         grid-template-columns:1fr;
     }
 
     .statgrid{
+
         grid-template-columns:
             repeat(
                 2,
@@ -938,21 +1403,66 @@ footer{
     }
 
     .stat:nth-child(2){
+
         border-right:0;
     }
 
     .section-head{
+
         display:block;
     }
 
     .section-head p{
+
         margin-top:18px;
     }
 }
 
+
+@media(max-width:700px){
+
+    .ren-system{
+
+        min-height:520px;
+    }
+
+    .ren-svg{
+
+        min-height:480px;
+
+        padding-top:45px;
+    }
+
+    .system-status{
+
+        font-size:7px;
+
+        left:14px;
+
+        right:14px;
+    }
+
+    .system-data{
+
+        left:14px;
+
+        right:14px;
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+        gap:10px;
+    }
+}
+
+
 @media(max-width:600px){
 
     .shell{
+
         width:
             min(
                 100% - 24px,
@@ -961,37 +1471,45 @@ footer{
     }
 
     header{
+
         min-height:68px;
     }
 
     .hero{
+
         padding:
             70px 0;
     }
 
     .hero h1{
+
         font-size:55px;
     }
 
     .lead{
+
         font-size:16px;
     }
 
     .panel,
     .card{
+
         padding:22px;
     }
 
     section{
+
         padding:
             70px 0;
     }
 
     .statgrid{
+
         grid-template-columns:1fr;
     }
 
     .stat{
+
         border-right:0;
 
         border-bottom:
@@ -1000,10 +1518,12 @@ footer{
     }
 
     .foot{
+
         display:block;
     }
 
     .foot div + div{
+
         margin-top:15px;
     }
 }
@@ -1011,59 +1531,75 @@ footer{
 </style>
 </head>
 
+
 <body>
 
-<!-- ========================= -->
-<!-- HEADER -->
-<!-- ========================= -->
+
+<!-- =======================================================
+     HEADER
+     ======================================================= -->
 
 <div class="top">
 
 <header class="shell">
 
-<a class="brand"
-   href="index.html"
-   aria-label="Aurelia Industries">
 
-    <span class="logo">
+<!-- LOGO AURELIA -->
 
-        <svg
-            viewBox="0 0 44 44"
-            aria-hidden="true">
+<a
+    class="brand"
+    href="index.html"
+    aria-label="Aurelia Industries"
+>
 
-            <path
-                d="
-                M7 34
-                L20.5 6
-                L37 34
-                M12 25
-                H31
-                M20.5 6
-                L26 34
-                "
-            />
+<span class="logo">
 
-            <circle
-                cx="20.5"
-                cy="25"
-                r="2.6"
-            />
+<svg
+    viewBox="0 0 44 44"
+    aria-hidden="true"
+>
 
-        </svg>
+<path
+    d="
+        M7 34
+        L20.5 6
+        L37 34
 
-    </span>
+        M12 25
+        H31
 
-    <span>
+        M20.5 6
+        L26 34
+    "
+/>
 
-        <b>AURELIA</b>
+<circle
+    cx="20.5"
+    cy="25"
+    r="2.6"
+/>
 
-        <small>
-            INDUSTRIES
-        </small>
+</svg>
 
-    </span>
+</span>
+
+
+<span>
+
+<b>
+AURELIA
+</b>
+
+<small>
+INDUSTRIES
+</small>
+
+</span>
 
 </a>
+
+
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -1114,21 +1650,30 @@ Contact
 </div>
 
 
+<!-- =======================================================
+     MAIN
+     ======================================================= -->
+
 <main>
 
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
+
+<!-- =======================================================
+     HERO
+     ======================================================= -->
 
 <section class="hero">
 
 <div class="shell hero-grid reveal">
 
+
 <div>
 
 <div class="eyebrow">
+
 AURELIA INDUSTRIES · EST. 2011
+
 </div>
+
 
 <h1>
 
@@ -1142,6 +1687,7 @@ humain.
 
 </h1>
 
+
 <p class="lead">
 
 Nous concevons des systèmes robotiques
@@ -1151,16 +1697,20 @@ de travailler aux côtés des humains.
 
 </p>
 
+
 <a
     class="cta"
-    href="ren.html">
+    href="ren.html"
+>
 
-    Découvrir R.E.N.
+Découvrir R.E.N.
 
 </a>
 
 </div>
 
+
+<!-- ORBE -->
 
 <div class="orb">
 
@@ -1168,18 +1718,21 @@ de travailler aux côtés des humains.
 
 </div>
 
+
 </div>
 
 </section>
 
 
-<!-- ========================= -->
-<!-- MISSION -->
-<!-- ========================= -->
+
+<!-- =======================================================
+     MISSION
+     ======================================================= -->
 
 <section>
 
 <div class="shell">
+
 
 <div class="section-head">
 
@@ -1197,6 +1750,7 @@ au service du réel.
 </h2>
 
 </div>
+
 
 <p>
 
@@ -1280,19 +1834,23 @@ avec des équipes humaines.
 </section>
 
 
-<!-- ========================= -->
-<!-- REN -->
-<!-- ========================= -->
+
+<!-- =======================================================
+     R.E.N. INTRODUCTION
+     ======================================================= -->
 
 <section>
 
 <div class="shell">
 
+
 <div class="panel">
+
 
 <div class="kicker">
 UNIT / R.E.N.—01
 </div>
+
 
 <div class="quote">
 
@@ -1302,6 +1860,7 @@ pour apprendre le contexte dans
 lequel cette procédure a du sens. »
 
 </div>
+
 
 <div class="line"></div>
 
@@ -1352,13 +1911,881 @@ Activation
 </section>
 
 
-<!-- ========================= -->
-<!-- STATISTIQUES -->
-<!-- ========================= -->
+
+<!-- =======================================================
+     R.E.N. SCHEMATIC
+     ======================================================= -->
+
+<section class="ren-schematic">
+
+<div class="shell">
+
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+03 / R.E.N. ARCHITECTURE
+</div>
+
+<h2>
+
+Architecture<br>
+
+<span>
+neurocognitive.
+</span>
+
+</h2>
+
+</div>
+
+
+<p>
+
+Une représentation simplifiée de l’architecture
+interne de R.E.N., de ses systèmes cognitifs
+jusqu'à ses modules physiques.
+
+</p>
+
+</div>
+
+
+<div class="ren-system">
+
+
+<!-- HUD -->
+
+<div class="system-status">
+
+<span>
+R.E.N.—01
+</span>
+
+<span>
+SYSTEM ARCHITECTURE
+</span>
+
+<span class="online">
+● ONLINE
+</span>
+
+</div>
+
+
+<!-- SVG -->
+
+<svg
+    class="ren-svg"
+    viewBox="0 0 1000 700"
+    xmlns="http://www.w3.org/2000/svg"
+>
+
+
+<defs>
+
+
+<!-- HALO -->
+
+<radialGradient
+    id="renGlow"
+    cx="50%"
+    cy="50%"
+    r="50%"
+>
+
+<stop
+    offset="0%"
+    stop-color="#7ee7ff"
+    stop-opacity=".35"
+/>
+
+<stop
+    offset="50%"
+    stop-color="#28b9e7"
+    stop-opacity=".08"
+/>
+
+<stop
+    offset="100%"
+    stop-color="#28b9e7"
+    stop-opacity="0"
+/>
+
+</radialGradient>
+
+
+<!-- CORPS -->
+
+<linearGradient
+    id="bodyGradient"
+    x1="0%"
+    y1="0%"
+    x2="100%"
+    y2="100%"
+>
+
+<stop
+    offset="0%"
+    stop-color="#172a31"
+/>
+
+<stop
+    offset="50%"
+    stop-color="#091217"
+/>
+
+<stop
+    offset="100%"
+    stop-color="#14252c"
+/>
+
+</linearGradient>
+
+
+<!-- LIGNES -->
+
+<linearGradient
+    id="lineGradient"
+    x1="0%"
+    y1="0%"
+    x2="100%"
+    y2="0%"
+>
+
+<stop
+    offset="0%"
+    stop-color="#7ee7ff"
+    stop-opacity="0"
+/>
+
+<stop
+    offset="50%"
+    stop-color="#7ee7ff"
+    stop-opacity=".9"
+/>
+
+<stop
+    offset="100%"
+    stop-color="#7ee7ff"
+    stop-opacity="0"
+/>
+
+</linearGradient>
+
+
+<!-- GLOW -->
+
+<filter id="glow">
+
+<feGaussianBlur
+    stdDeviation="4"
+    result="blur"
+/>
+
+<feMerge>
+
+<feMergeNode
+    in="blur"
+/>
+
+<feMergeNode
+    in="SourceGraphic"
+/>
+
+</feMerge>
+
+</filter>
+
+
+</defs>
+
+
+<!-- =================================================
+     HALO CENTRAL
+     ================================================= -->
+
+<circle
+    cx="500"
+    cy="340"
+    r="250"
+    fill="url(#renGlow)"
+/>
+
+
+<!-- =================================================
+     GRILLE
+     ================================================= -->
+
+<g
+    opacity=".12"
+    stroke="#7ee7ff"
+    stroke-width="1"
+>
+
+<circle
+    cx="500"
+    cy="340"
+    r="220"
+    fill="none"
+/>
+
+<circle
+    cx="500"
+    cy="340"
+    r="180"
+    fill="none"
+/>
+
+<circle
+    cx="500"
+    cy="340"
+    r="140"
+    fill="none"
+/>
+
+<line
+    x1="500"
+    y1="80"
+    x2="500"
+    y2="600"
+/>
+
+<line
+    x1="240"
+    y1="340"
+    x2="760"
+    y2="340"
+/>
+
+</g>
+
+
+<!-- =================================================
+     CONNEXIONS
+     ================================================= -->
+
+<g
+    stroke="url(#lineGradient)"
+    stroke-width="2"
+    fill="none"
+    filter="url(#glow)"
+>
+
+
+<!-- CERVEAU -->
+
+<path
+    d="
+        M500 190
+        L500 115
+        L245 115
+    "
+/>
+
+
+<!-- PERCEPTION -->
+
+<path
+    d="
+        M445 250
+        L280 190
+        L115 190
+    "
+/>
+
+
+<!-- MÉMOIRE -->
+
+<path
+    d="
+        M555 250
+        L720 190
+        L885 190
+    "
+/>
+
+
+<!-- ÉNERGIE -->
+
+<path
+    d="
+        M445 440
+        L280 500
+        L115 500
+    "
+/>
+
+
+<!-- MOBILITÉ -->
+
+<path
+    d="
+        M555 440
+        L720 500
+        L885 500
+    "
+/>
+
+
+<!-- MAINTENANCE -->
+
+<path
+    d="
+        M500 490
+        L500 585
+        L300 585
+    "
+/>
+
+</g>
+
+
+<!-- =================================================
+     NŒUDS
+     ================================================= -->
+
+<g
+    fill="#7ee7ff"
+    filter="url(#glow)"
+>
+
+<circle
+    cx="245"
+    cy="115"
+    r="5"
+/>
+
+<circle
+    cx="115"
+    cy="190"
+    r="5"
+/>
+
+<circle
+    cx="885"
+    cy="190"
+    r="5"
+/>
+
+<circle
+    cx="115"
+    cy="500"
+    r="5"
+/>
+
+<circle
+    cx="885"
+    cy="500"
+    r="5"
+/>
+
+<circle
+    cx="300"
+    cy="585"
+    r="5"
+/>
+
+</g>
+
+
+<!-- =================================================
+     TÊTE
+     ================================================= -->
+
+<g
+    fill="url(#bodyGradient)"
+    stroke="#7ee7ff"
+    stroke-width="2"
+>
+
+
+<rect
+    x="450"
+    y="145"
+    width="100"
+    height="105"
+    rx="38"
+/>
+
+
+<!-- YEUX -->
+
+<line
+    x1="475"
+    y1="195"
+    x2="490"
+    y2="195"
+/>
+
+<line
+    x1="510"
+    y1="195"
+    x2="525"
+    y2="195"
+/>
+
+<circle
+    cx="482"
+    cy="195"
+    r="3"
+    fill="#7ee7ff"
+/>
+
+<circle
+    cx="518"
+    cy="195"
+    r="3"
+    fill="#7ee7ff"
+/>
+
+</g>
+
+
+<!-- =================================================
+     COU
+     ================================================= -->
+
+<rect
+    x="480"
+    y="245"
+    width="40"
+    height="30"
+    rx="8"
+
+    fill="#0d1a20"
+
+    stroke="#7ee7ff"
+    stroke-width="2"
+/>
+
+
+<!-- =================================================
+     TORSE
+     ================================================= -->
+
+<g
+    fill="url(#bodyGradient)"
+    stroke="#7ee7ff"
+    stroke-width="2"
+>
+
+<path
+    d="
+        M425 275
+        Q500 250 575 275
+        L610 420
+        Q500 465 390 420
+        Z
+    "
+/>
+
+</g>
+
+
+<!-- =================================================
+     CORE
+     ================================================= -->
+
+<circle
+    cx="500"
+    cy="330"
+    r="28"
+
+    fill="none"
+
+    stroke="#7ee7ff"
+    stroke-width="2"
+/>
+
+<circle
+    cx="500"
+    cy="330"
+    r="10"
+
+    fill="#7ee7ff"
+
+    filter="url(#glow)"
+/>
+
+
+<!-- =================================================
+     BRAS
+     ================================================= -->
+
+<g
+    fill="#101c21"
+    stroke="#7ee7ff"
+    stroke-width="2"
+>
+
+
+<!-- BRAS GAUCHE -->
+
+<rect
+    x="355"
+    y="285"
+    width="45"
+    height="130"
+    rx="22"
+/>
+
+<circle
+    cx="377"
+    cy="430"
+    r="22"
+/>
+
+
+<!-- BRAS DROIT -->
+
+<rect
+    x="600"
+    y="285"
+    width="45"
+    height="130"
+    rx="22"
+/>
+
+<circle
+    cx="622"
+    cy="430"
+    r="22"
+/>
+
+</g>
+
+
+<!-- =================================================
+     HANCHES
+     ================================================= -->
+
+<path
+    d="
+        M425 420
+        Q500 450 575 420
+        L555 485
+        L445 485
+        Z
+    "
+
+    fill="#101c21"
+
+    stroke="#7ee7ff"
+    stroke-width="2"
+/>
+
+
+<!-- =================================================
+     JAMBES
+     ================================================= -->
+
+<g
+    fill="#101c21"
+    stroke="#7ee7ff"
+    stroke-width="2"
+>
+
+<rect
+    x="425"
+    y="475"
+    width="48"
+    height="110"
+    rx="22"
+/>
+
+<rect
+    x="527"
+    y="475"
+    width="48"
+    height="110"
+    rx="22"
+/>
+
+</g>
+
+
+<!-- =================================================
+     LABELS
+     ================================================= -->
+
+<g
+    font-family="Arial, sans-serif"
+    fill="#dceff3"
+>
+
+
+<!-- COGNITIVE -->
+
+<text
+    x="255"
+    y="108"
+    font-size="13"
+    letter-spacing="2"
+>
+
+COGNITIVE CORE
+
+</text>
+
+<text
+    x="255"
+    y="128"
+    font-size="9"
+    fill="#6d858e"
+>
+
+NEUROPROCESSING
+
+</text>
+
+
+<!-- PERCEPTION -->
+
+<text
+    x="125"
+    y="184"
+    font-size="13"
+    letter-spacing="2"
+>
+
+PERCEPTION
+
+</text>
+
+<text
+    x="125"
+    y="204"
+    font-size="9"
+    fill="#6d858e"
+>
+
+OPTICAL / AUDIO
+
+</text>
+
+
+<!-- MEMORY -->
+
+<text
+    x="735"
+    y="184"
+    font-size="13"
+    letter-spacing="2"
+>
+
+MEMORY
+
+</text>
+
+<text
+    x="735"
+    y="204"
+    font-size="9"
+    fill="#6d858e"
+>
+
+CONTEXTUAL DATA
+
+</text>
+
+
+<!-- ENERGY -->
+
+<text
+    x="125"
+    y="494"
+    font-size="13"
+    letter-spacing="2"
+>
+
+ENERGY
+
+</text>
+
+<text
+    x="125"
+    y="514"
+    font-size="9"
+    fill="#6d858e"
+>
+
+POWER MANAGEMENT
+
+</text>
+
+
+<!-- MOBILITY -->
+
+<text
+    x="735"
+    y="494"
+    font-size="13"
+    letter-spacing="2"
+>
+
+MOBILITY
+
+</text>
+
+<text
+    x="735"
+    y="514"
+    font-size="9"
+    fill="#6d858e"
+>
+
+MOTOR CONTROL
+
+</text>
+
+
+<!-- MAINTENANCE -->
+
+<text
+    x="310"
+    y="579"
+    font-size="13"
+    letter-spacing="2"
+>
+
+MAINTENANCE BUS
+
+</text>
+
+<text
+    x="310"
+    y="599"
+    font-size="9"
+    fill="#6d858e"
+>
+
+DIAGNOSTIC / SERVICE
+
+</text>
+
+</g>
+
+
+<!-- =================================================
+     R.E.N. IDENTIFICATION
+     ================================================= -->
+
+<g
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+>
+
+<text
+    x="500"
+    y="635"
+    fill="#7ee7ff"
+    font-size="16"
+    letter-spacing="5"
+>
+
+R.E.N.—01
+
+</text>
+
+<text
+    x="500"
+    y="655"
+    fill="#536970"
+    font-size="9"
+    letter-spacing="3"
+>
+
+ROBOT D'EXPLOITATION NEUROCOGNITIVE
+
+</text>
+
+</g>
+
+
+</svg>
+
+
+<!-- =================================================
+     SYSTEM DATA
+     ================================================= -->
+
+<div class="system-data">
+
+
+<div>
+
+<span>
+UNIT
+</span>
+
+<strong>
+R.E.N.—01
+</strong>
+
+</div>
+
+
+<div>
+
+<span>
+COGNITIVE CORE
+</span>
+
+<strong class="green">
+ONLINE
+</strong>
+
+</div>
+
+
+<div>
+
+<span>
+MOTOR SYSTEM
+</span>
+
+<strong class="green">
+STABLE
+</strong>
+
+</div>
+
+
+<div>
+
+<span>
+MAINTENANCE
+</span>
+
+<strong>
+READY
+</strong>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     STATISTICS
+     ======================================================= -->
 
 <section>
 
 <div class="shell">
+
 
 <div class="statgrid">
 
@@ -1421,16 +2848,19 @@ Unité active
 
 </section>
 
+
 </main>
 
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
+
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
 
 <footer>
 
 <div class="shell foot">
+
 
 <div>
 
@@ -1458,6 +2888,7 @@ R.E.N. / SYSTEM STATUS
 © 2026 Aurelia Industries
 
 </div>
+
 
 </div>
 
