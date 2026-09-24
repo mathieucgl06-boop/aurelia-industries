@@ -3,143 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Technologie — Aurelia Industries</title>
+<title>Aurelia Industries — Technologie</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#05090e;color:#e8edf2;font-family:Arial,sans-serif;line-height:1.8}
-body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 70% 10%,rgba(0,210,255,.14),transparent 35%),linear-gradient(135deg,#05090e,#09131d,#05090e)}
-a{color:inherit;text-decoration:none}
-header{height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5;background:rgba(3,7,12,.96);border-bottom:1px solid #19323d}
-.logo{display:flex;gap:12px;align-items:center}.logo-mark{width:42px;height:42px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:4px}.logo small{display:block;color:#637681;font-size:8px;letter-spacing:3px}
-nav{display:flex;gap:18px}nav a{font-size:8px;color:#81919b;letter-spacing:1.4px}nav a:hover{color:#45d4ff}
-main{max-width:1250px;margin:auto}.hero,section{padding:75px 6%;border-bottom:1px solid #162a34}.hero{padding-top:100px}
-.tag{color:#45d4ff;font-size:9px;letter-spacing:3px;margin-bottom:15px}
-h1{font-size:clamp(45px,7vw,80px);font-weight:400;line-height:1}
-h2{font-size:32px;font-weight:400;margin-bottom:22px}
-h3{font-size:17px;margin:20px 0 8px}
-.lead,.text{max-width:1000px;color:#84949e;font-size:13px}.lead{font-size:14px;margin-top:25px}
-.text p{margin-bottom:20px}.text strong{color:#d5e8ee}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}.card{padding:28px;border:1px solid #203640;background:#071017}.card b{font-size:8px;color:#45d4ff;letter-spacing:2px}.card p{color:#71828d;font-size:11px}
-.spec{border:1px solid #213640;margin-top:30px}.spec div{display:grid;grid-template-columns:240px 1fr;padding:14px 18px;border-bottom:1px solid #182a33;font-size:11px}.spec div:last-child{border:0}.spec b{font-size:8px;color:#617783;letter-spacing:2px}
-footer{padding:30px 6%;display:flex;justify-content:space-between;color:#52636e;font-size:8px;letter-spacing:1.5px}
-@media(max-width:900px){nav{display:none}.grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.spec div{grid-template-columns:1fr;gap:5px}footer{flex-direction:column;gap:10px}}
+:root{--bg:#05070a;--panel:#0b1116;--line:rgba(210,230,238,.13);--text:#eef6f8;--muted:#8d9aa2;--cyan:#7ee7ff;--green:#a7ffd7}
+*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(circle at 70% 0,#10252e,transparent 35%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7}body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;opacity:.2;pointer-events:none}.shell{width:min(1180px,calc(100% - 40px));margin:auto}a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:10;background:rgba(5,7,10,.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}header{min-height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px}.logo{width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(126,231,255,.4)}.logo svg{width:29px;height:29px;fill:none;stroke:var(--cyan);stroke-width:1.8}.brand b{display:block;letter-spacing:.18em;font-size:14px}.brand small{display:block;color:#66747d;font-size:8px;letter-spacing:.28em}nav{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}nav a{font-size:9px;text-transform:uppercase;color:#8c999f}nav a:hover{color:var(--cyan)}section{padding:85px 0}.kicker{font:10px monospace;color:var(--cyan);letter-spacing:.25em;margin-bottom:15px}h1{font-size:clamp(55px,8vw,100px);line-height:.88;letter-spacing:-.07em;margin-bottom:30px}h1 span,h2 span{color:var(--cyan)}.lead{font-size:18px;color:#aebbc0;max-width:720px}.tech{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.module{border:1px solid var(--line);padding:30px;background:linear-gradient(145deg,rgba(126,231,255,.045),rgba(255,255,255,.01));min-height:260px}.module .id{font:10px monospace;color:var(--cyan);letter-spacing:.2em}.module h2{margin:40px 0 12px}.module p{color:var(--muted)}.diagram{border:1px solid var(--line);padding:40px;background:#070c10;text-align:center}.core{width:170px;height:170px;border:1px solid var(--cyan);border-radius:50%;margin:0 auto;display:grid;place-items:center;box-shadow:0 0 60px rgba(126,231,255,.12)}.core div{width:65px;height:65px;border-radius:50%;background:var(--cyan);box-shadow:0 0 30px var(--cyan)}.links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.links div{border-top:1px solid var(--line);padding:15px;color:#829198;font:10px monospace}.links strong{display:block;color:#d8e8eb;margin-bottom:4px}@media(max-width:900px){nav{display:none}.tech{grid-template-columns:1fr 1fr}}@media(max-width:600px){.shell{width:calc(100% - 24px)}.tech,.links{grid-template-columns:1fr}}
 </style>
 </head>
+
 <body>
 
-<header>
-<a class="logo" href="index.html"><div class="logo-mark">A</div><div><b>AURELIA</b><small>INDUSTRIES</small></div></a>
+<div class="top"><header class="shell">
+
+<a class="brand" href="index.html">
+<span class="logo"><svg viewBox="0 0 44 44"><path d="M7 34 20.5 6 37 34M12 25h19M20.5 6 26 34"/><circle cx="20.5" cy="25" r="2.6"/></svg></span>
+<span><b>AURELIA</b><small>INDUSTRIES</small></span>
+</a>
+
 <nav>
-<a href="index.html">ACCUEIL</a><a href="entreprise.html">ENTREPRISE</a><a href="technologie.html">TECHNOLOGIE</a><a href="ren.html">R.E.N.</a><a href="historique.html">HISTORIQUE</a><a href="installations.html">INSTALLATIONS</a><a href="archives.html">ARCHIVES</a><a href="maintenance.html">MAINTENANCE</a><a href="contact.html">CONTACT</a>
+<a href="entreprise.html">Entreprise</a><a href="ren.html">R.E.N.</a><a href="technologie.html">Technologie</a><a href="historique.html">Historique</a><a href="installations.html">Installations</a><a href="archives.html">Archives</a><a href="maintenance.html">Maintenance</a><a href="journal-ren.html">Journal R.E.N.</a><a href="dossier-initial.html">Dossier initial</a><a href="contact.html">Contact</a>
 </nav>
-</header>
+
+</header></div>
 
 <main>
 
-<div class="hero">
-<div class="tag">AURELIA INDUSTRIES // TECHNOLOGIE</div>
-<h1>Architecture<br>neurocognitive.</h1>
+<section>
+<div class="shell">
+<div class="kicker">03 / TECHNOLOGY DIVISION</div>
+<h1>Architecture<br><span>adaptative.</span></h1>
 <p class="lead">
-Les robots Aurelia associent mécanique de précision, systèmes énergétiques,
-capteurs environnementaux et logiciels embarqués. Le programme R.E.N. ajoute
-à cette architecture une capacité d'adaptation aux interactions humaines.
-</p>
-</div>
-
-<section>
-<div class="tag">01 // ARCHITECTURE</div>
-<h2>Une machine conçue comme un ensemble</h2>
-<div class="text">
-<p>
-R.E.N. n'est pas constitué d'un seul système informatique. Son fonctionnement
-repose sur plusieurs unités indépendantes capables de communiquer entre elles.
-Cette architecture permet de maintenir certaines fonctions même lorsqu'un
-module rencontre un problème.
-</p>
-<p>
-Les informations provenant des capteurs sont traitées par le système central,
-puis utilisées par les modules de mobilité, de communication et de sécurité.
-Le système neurocognitif intervient lorsqu'une situation nécessite davantage
-qu'une simple réponse mécanique.
-</p>
-</div>
-
-<div class="grid">
-<div class="card"><b>01 // PERCEPTION</b><h3>Système visuel</h3><p>Caméras, profondeur, reconnaissance des objets et analyse de l'environnement.</p></div>
-<div class="card"><b>02 // MOBILITÉ</b><h3>Actionnement</h3><p>Moteurs articulés et systèmes d'équilibrage permettant une mobilité humanoïde.</p></div>
-<div class="card"><b>03 // ÉNERGIE</b><h3>Module énergétique</h3><p>Gestion de l'alimentation et distribution dynamique de l'énergie.</p></div>
-<div class="card"><b>04 // COGNITION</b><h3>Neurocognitif</h3><p>Interprétation des informations et adaptation des réponses.</p></div>
-<div class="card"><b>05 // COMMUNICATION</b><h3>Langage</h3><p>Compréhension des instructions et production d'une réponse naturelle.</p></div>
-<div class="card"><b>06 // SÉCURITÉ</b><h3>Protection</h3><p>Limites mécaniques, arrêt d'urgence et surveillance des paramètres critiques.</p></div>
-</div>
-</section>
-
-<section>
-<div class="tag">02 // MODULE NEUROCOGNITIF</div>
-<h2>Apprendre sans perdre son cadre</h2>
-<div class="text">
-<p>
-Le système neurocognitif de R.E.N. est conçu pour permettre l'apprentissage
-de nouvelles informations tout en conservant les règles fondamentales de
-sécurité et de fonctionnement.
-</p>
-<p>
-Il peut apprendre qu'une personne préfère une certaine méthode de travail,
-qu'une procédure a changé ou qu'un terme professionnel possède un sens
-particulier dans son environnement.
-</p>
-<p>
-Cette capacité ne signifie pas que R.E.N. possède une connaissance illimitée.
-Ses informations sont toujours liées à son expérience, à ses données
-accessibles et aux systèmes auxquels il peut légalement accéder.
+L'architecture Aurelia repose sur plusieurs systèmes
+interconnectés capables de fonctionner indépendamment
+tout en partageant leurs informations.
 </p>
 </div>
 </section>
 
 <section>
-<div class="tag">03 // DONNÉES R.E.N.</div>
-<h2>Paramètres connus</h2>
+<div class="shell">
 
-<div class="spec">
-<div><b>UNITÉ</b><span>REN-FR-0417</span></div>
-<div><b>ARCHITECTURE</b><span>Humanoïde neurocognitive</span></div>
-<div><b>ACTIVATION</b><span>17.04.2017</span></div>
-<div><b>COMMUNICATION</b><span>Interface vocale et textuelle</span></div>
-<div><b>MOBILITÉ</b><span>Architecture bipède autonome</span></div>
-<div><b>DIAGNOSTIC 2042</b><span>Opérationnel</span></div>
-<div><b>INTÉGRITÉ MÉMOIRE</b><span>91 %</span></div>
-<div><b>DERNIÈRE MAINTENANCE</b><span>14.08.2042</span></div>
+<div class="tech">
+
+<div class="module">
+<div class="id">SYS—01</div>
+<h2>Perception</h2>
+<p>Analyse visuelle, sonore et environnementale destinée à fournir une représentation dynamique du monde réel.</p>
+</div>
+
+<div class="module">
+<div class="id">SYS—02</div>
+<h2>Cognition</h2>
+<p>Traitement des informations, contextualisation des situations et génération de réponses adaptées.</p>
+</div>
+
+<div class="module">
+<div class="id">SYS—03</div>
+<h2>Mobilité</h2>
+<p>Gestion des mouvements, équilibre, déplacement et interaction physique avec l'environnement.</p>
+</div>
+
+<div class="module">
+<div class="id">SYS—04</div>
+<h2>Mémoire</h2>
+<p>Conservation et association de données contextuelles nécessaires aux interactions futures.</p>
+</div>
+
+<div class="module">
+<div class="id">SYS—05</div>
+<h2>Énergie</h2>
+<p>Surveillance permanente de la consommation et distribution énergétique des différents systèmes.</p>
+</div>
+
+<div class="module">
+<div class="id">SYS—06</div>
+<h2>Maintenance</h2>
+<p>Diagnostic interne, surveillance des composants et identification préventive des anomalies.</p>
+</div>
+
+</div>
+
 </div>
 </section>
 
 <section>
-<div class="tag">04 // LIMITES</div>
-<h2>R.E.N. n'est pas une machine parfaite</h2>
-<div class="text">
-<p>
-Comme toute unité robotique, R.E.N. possède des limites. Ses batteries
-doivent être rechargées, ses composants mécaniques doivent être entretenus
-et certains environnements peuvent perturber ses capteurs.
-</p>
-<p>
-Son système de communication peut également nécessiter une clarification
-lorsqu'une personne utilise une expression ambiguë, une plaisanterie ou
-une formulation volontairement indirecte.
-</p>
-<p>
-Ces limites font partie de son fonctionnement et expliquent pourquoi les
-systèmes Aurelia ont toujours été conçus pour travailler avec des humains
-plutôt que de fonctionner totalement indépendamment d'eux.
-</p>
+<div class="shell">
+
+<div class="diagram">
+
+<div class="kicker">NEUROCOGNITIVE BUS</div>
+
+<div class="core"><div></div></div>
+
+<div class="links">
+
+<div><strong>PERCEPTION</strong>INPUT / SENSOR</div>
+<div><strong>COGNITION</strong>PROCESS / CONTEXT</div>
+<div><strong>MEMORY</strong>DATA / HISTORY</div>
+<div><strong>MOBILITY</strong>MOTOR / BALANCE</div>
+<div><strong>ENERGY</strong>POWER / CONTROL</div>
+<div><strong>SERVICE</strong>DIAGNOSTIC / MAINTENANCE</div>
+
+</div>
+
+</div>
+
 </div>
 </section>
 
 </main>
 
-<footer>
-<span>AURELIA INDUSTRIES © 2042</span>
-<span>TECHNOLOGIE // DOCUMENT TECHNIQUE</span>
+<footer style="border-top:1px solid var(--line);padding:35px 0;color:#65747b;font-size:11px">
+<div class="shell">AURELIA INDUSTRIES · TECHNOLOGY DIVISION</div>
 </footer>
+
 </body>
 </html>
