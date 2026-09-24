@@ -3,210 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Entreprise — Aurelia Industries</title>
+<title>Aurelia Industries — Entreprise</title>
 
 <style>
+:root{
+--bg:#05070a;--panel:rgba(13,18,24,.78);--line:rgba(210,230,238,.13);
+--text:#eef6f8;--muted:#8d9aa2;--cyan:#7ee7ff;--green:#a7ffd7;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#05090e;color:#e8edf2;font-family:Arial,sans-serif;line-height:1.8}
-body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 80% 10%,rgba(0,210,255,.14),transparent 35%),linear-gradient(135deg,#05090e,#09131d,#05090e)}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(circle at 75% 0,#10252e,transparent 35%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7}
+body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;opacity:.2;pointer-events:none}
 a{color:inherit;text-decoration:none}
-header{height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5;background:rgba(3,7,12,.96);border-bottom:1px solid #19323d}
-.logo{display:flex;align-items:center;gap:12px}.logo-mark{width:42px;height:42px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:4px}.logo small{display:block;color:#637681;font-size:8px;letter-spacing:3px}
-nav{display:flex;gap:18px}nav a{font-size:8px;color:#81919b;letter-spacing:1.4px}nav a:hover{color:#45d4ff}
-main{max-width:1250px;margin:auto}
-.hero,section{padding:75px 6%;border-bottom:1px solid #162a34}
-.hero{padding-top:100px}
-.tag{color:#45d4ff;font-size:9px;letter-spacing:3px;margin-bottom:15px}
-h1{font-size:clamp(45px,7vw,80px);font-weight:400;line-height:1;letter-spacing:-3px}
-h2{font-size:32px;font-weight:400;margin-bottom:22px}
-h3{margin:25px 0 10px;color:#dcebf0;font-size:17px}
-.lead,.text{max-width:950px;color:#84949e;font-size:13px}
-.lead{font-size:14px;margin-top:25px}
-.text p{margin-bottom:20px}.text strong{color:#d5e8ef}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}
-.card{padding:28px;border:1px solid #203640;background:rgba(7,15,21,.9)}
-.card span{color:#45d4ff;font-size:9px;letter-spacing:2px}
-.card p{color:#71828c;font-size:11px}
-.timeline{border-left:1px solid #2b5666;margin:30px 0;padding-left:30px}
-.event{margin-bottom:35px;position:relative}
-.event:before{content:"";position:absolute;left:-35px;top:8px;width:9px;height:9px;border:1px solid #45d4ff;background:#071018;border-radius:50%}
-.event time{color:#45d4ff;font-size:9px;letter-spacing:2px}
-.event p{color:#81909b;font-size:12px;margin-top:5px}
-footer{padding:30px 6%;display:flex;justify-content:space-between;color:#52636e;font-size:8px;letter-spacing:1.5px}
+.shell{width:min(1180px,calc(100% - 40px));margin:auto}
+.top{position:sticky;top:0;z-index:10;background:rgba(5,7,10,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+header{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;gap:11px}
+.logo{width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(126,231,255,.4);background:rgba(126,231,255,.05)}
+.logo svg{width:29px;height:29px;fill:none;stroke:var(--cyan);stroke-width:1.8}
+.brand b{display:block;letter-spacing:.18em;font-size:14px}.brand small{display:block;color:#66747d;font-size:8px;letter-spacing:.28em}
+nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+nav a{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#8c999f}
+nav a:hover{color:var(--cyan)}
+.hero{padding:110px 0 80px;border-bottom:1px solid var(--line)}
+.kicker{font-size:10px;color:var(--cyan);letter-spacing:.25em;text-transform:uppercase;margin-bottom:15px}
+h1{font-size:clamp(50px,8vw,100px);line-height:.9;letter-spacing:-.07em;margin-bottom:30px}
+h1 span,h2 span{color:var(--cyan)}
+.lead{font-size:19px;color:#aebbc0;max-width:700px}
+section{padding:80px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.012));padding:30px;min-height:220px}
+.card:hover{border-color:rgba(126,231,255,.35)}
+.card .num{color:var(--cyan);font:10px monospace;letter-spacing:.2em;margin-bottom:35px}
+.card h2{font-size:24px;margin-bottom:12px}.card p{color:var(--muted)}
+.panel{border:1px solid var(--line);background:var(--panel);padding:40px}
+.data{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line);gap:20px}
+.data span:first-child{color:#65747b}.data span:last-child{font-family:monospace}
+footer{border-top:1px solid var(--line);padding:35px 0;color:#65747b;font-size:11px}
 @media(max-width:900px){nav{display:none}.grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.grid{grid-template-columns:1fr}footer{flex-direction:column;gap:10px}}
+@media(max-width:600px){.shell{width:calc(100% - 24px)}.grid{grid-template-columns:1fr}h1{font-size:58px}.panel{padding:24px}}
 </style>
 </head>
 
 <body>
 
-<header>
-<a class="logo" href="index.html">
-<div class="logo-mark">A</div>
-<div><b>AURELIA</b><small>INDUSTRIES</small></div>
+<div class="top">
+<header class="shell">
+
+<a class="brand" href="index.html">
+<span class="logo">
+<svg viewBox="0 0 44 44">
+<path d="M7 34 20.5 6 37 34M12 25h19M20.5 6 26 34"/>
+<circle cx="20.5" cy="25" r="2.6"/>
+</svg>
+</span>
+<span><b>AURELIA</b><small>INDUSTRIES</small></span>
 </a>
+
 <nav>
-<a href="index.html">ACCUEIL</a>
-<a href="entreprise.html">ENTREPRISE</a>
-<a href="technologie.html">TECHNOLOGIE</a>
+<a href="entreprise.html">Entreprise</a>
 <a href="ren.html">R.E.N.</a>
-<a href="historique.html">HISTORIQUE</a>
-<a href="installations.html">INSTALLATIONS</a>
-<a href="archives.html">ARCHIVES</a>
-<a href="maintenance.html">MAINTENANCE</a>
-<a href="contact.html">CONTACT</a>
+<a href="technologie.html">Technologie</a>
+<a href="historique.html">Historique</a>
+<a href="installations.html">Installations</a>
+<a href="archives.html">Archives</a>
+<a href="maintenance.html">Maintenance</a>
+<a href="journal-ren.html">Journal R.E.N.</a>
+<a href="dossier-initial.html">Dossier initial</a>
+<a href="contact.html">Contact</a>
 </nav>
+
 </header>
+</div>
 
 <main>
 
-<div class="hero">
-<div class="tag">AURELIA INDUSTRIES // PRÉSENTATION</div>
-<h1>Une industrie<br>pensée pour durer.</h1>
+<section class="hero">
+<div class="shell">
+<div class="kicker">01 / CORPORATE DIVISION</div>
+<h1>Une industrie<br><span>différente.</span></h1>
 <p class="lead">
-Aurelia Industries est une entreprise française spécialisée dans la robotique
-professionnelle. Son développement repose sur une combinaison de mécanique,
-électronique, intelligence embarquée et observation des besoins humains.
-</p>
-</div>
-
-<section>
-<div class="tag">01 // NOTRE HISTOIRE</div>
-<h2>De l'automatisation à l'adaptation</h2>
-<div class="text">
-<p>
-Aurelia Industries est fondée en 2011 par un groupe d'ingénieurs français
-issus des domaines de l'automatisation industrielle, de la mécanique avancée
-et des systèmes embarqués.
-</p>
-<p>
-Les premières années sont consacrées à la conception de machines spécialisées.
-Ces systèmes sont utilisés dans des entrepôts, des ateliers et des chaînes
-de production où la répétition de certaines tâches représente une difficulté
-pour les opérateurs humains.
-</p>
-<p>
-L'entreprise comprend rapidement qu'un robot efficace ne doit pas seulement
-être puissant. Il doit également être prévisible, facilement maintenable et
-capable de communiquer clairement avec les personnes qui travaillent autour
-de lui.
-</p>
-<p>
-Cette philosophie conduit progressivement à la création de plateformes plus
-polyvalentes, jusqu'au lancement du programme R.E.N.
+Aurelia Industries développe des systèmes robotiques
+destinés à fonctionner dans des environnements humains
+réels, avec une approche centrée sur l'adaptation,
+la fiabilité et la collaboration.
 </p>
 </div>
 </section>
 
 <section>
-<div class="tag">02 // PHILOSOPHIE</div>
-<h2>L'humain reste au centre</h2>
-<div class="text">
-<p>
-Aurelia ne considère pas la robotique comme une simple course à la performance.
-Une unité plus rapide ou plus puissante n'est pas nécessairement plus utile.
-La sécurité, la compréhension des procédures et la coopération avec les
-professionnels sont des critères essentiels.
-</p>
-<p>
-Les robots Aurelia sont donc conçus pour fonctionner dans un cadre défini.
-Ils disposent de limites mécaniques, de procédures de sécurité et de systèmes
-de diagnostic permettant aux opérateurs d'intervenir lorsque cela est
-nécessaire.
-</p>
-<p>
-Le programme R.E.N. a toutefois repoussé cette philosophie en ajoutant une
-dimension nouvelle : la capacité d'une unité à apprendre de son environnement
-social et professionnel.
-</p>
-</div>
-</section>
-
-<section>
-<div class="tag">03 // ORGANISATION</div>
-<h2>Les principaux départements</h2>
+<div class="shell">
 
 <div class="grid">
+
 <div class="card">
-<span>01 // R&D</span>
-<h3>Recherche et développement</h3>
-<p>Conception des nouvelles architectures robotiques, capteurs et systèmes cognitifs.</p>
+<div class="num">A—01</div>
+<h2>Recherche</h2>
+<p>
+Nos équipes travaillent sur la perception artificielle,
+la mobilité humanoïde, l'apprentissage comportemental
+et l'interaction homme-machine.
+</p>
 </div>
 
 <div class="card">
-<span>02 // INGÉNIERIE</span>
-<h3>Ingénierie mécanique</h3>
-<p>Conception des structures, articulations, moteurs et systèmes de mobilité.</p>
+<div class="num">A—02</div>
+<h2>Ingénierie</h2>
+<p>
+Chaque système est pensé autour d'une architecture
+modulaire permettant son évolution au fil des années.
+</p>
 </div>
 
 <div class="card">
-<span>03 // LOGICIEL</span>
-<h3>Systèmes embarqués</h3>
-<p>Développement des logiciels contrôlant les unités et leurs fonctions.</p>
+<div class="num">A—03</div>
+<h2>Intégration</h2>
+<p>
+Aurelia privilégie les applications concrètes :
+industrie, logistique, maintenance, assistance
+et services spécialisés.
+</p>
 </div>
 
-<div class="card">
-<span>04 // SUPPORT</span>
-<h3>Maintenance</h3>
-<p>Suivi des unités, diagnostics, réparations et mises à jour.</p>
 </div>
 
-<div class="card">
-<span>05 // ARCHIVES</span>
-<h3>Documentation</h3>
-<p>Conservation des dossiers techniques et historiques des programmes.</p>
-</div>
-
-<div class="card">
-<span>06 // FORMATION</span>
-<h3>Accompagnement</h3>
-<p>Formation des opérateurs amenés à travailler avec les robots Aurelia.</p>
-</div>
 </div>
 </section>
 
 <section>
-<div class="tag">04 // DATES IMPORTANTES</div>
-<h2>Quelques étapes majeures</h2>
+<div class="shell">
 
-<div class="timeline">
-<div class="event">
-<time>2011</time>
-<p>Création d'Aurelia Industries et lancement des premiers travaux sur la robotique industrielle.</p>
+<div class="panel">
+
+<div class="kicker">AURELIA / CORPORATE DATA</div>
+
+<div class="data"><span>Fondation</span><span>2011</span></div>
+<div class="data"><span>Origine</span><span>France</span></div>
+<div class="data"><span>Division robotique</span><span>Active</span></div>
+<div class="data"><span>Programme principal</span><span>R.E.N.</span></div>
+<div class="data"><span>Statut</span><span style="color:var(--green)">OPERATIONAL</span></div>
+
 </div>
 
-<div class="event">
-<time>2014</time>
-<p>Premières unités de manutention autonome déployées dans des environnements professionnels.</p>
-</div>
-
-<div class="event">
-<time>2017</time>
-<p>Activation de la première unité R.E.N. sous la référence REN-FR-0417.</p>
-</div>
-
-<div class="event">
-<time>2024</time>
-<p>Déploiement d'une nouvelle architecture neurocognitive destinée à améliorer la communication homme-machine.</p>
-</div>
-
-<div class="event">
-<time>2037</time>
-<p>Fermeture administrative d'un site d'exploitation lié à plusieurs anciennes unités.</p>
-</div>
-
-<div class="event">
-<time>2042</time>
-<p>Maintien des activités de recherche, de maintenance et de suivi des unités existantes.</p>
-</div>
 </div>
 </section>
 
 </main>
 
 <footer>
-<span>AURELIA INDUSTRIES © 2042</span>
-<span>FRANCE // ROBOTIQUE PROFESSIONNELLE</span>
+<div class="shell">
+<strong>AURELIA INDUSTRIES</strong> — Advanced Robotics Division
+</div>
 </footer>
 
 </body>
