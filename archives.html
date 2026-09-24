@@ -3,138 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Archives — Aurelia Industries</title>
+<title>Aurelia Industries — Archives</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#05090e;color:#e8edf2;font-family:Arial,sans-serif;line-height:1.8}
-body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 75% 10%,rgba(0,210,255,.14),transparent 35%),linear-gradient(135deg,#05090e,#09131d,#05090e)}
-a{color:inherit;text-decoration:none}
-header{height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(3,7,12,.96);border-bottom:1px solid #19323d;z-index:5}
-.logo{display:flex;gap:12px;align-items:center}.logo-mark{width:42px;height:42px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:4px}.logo small{display:block;color:#637681;font-size:8px;letter-spacing:3px}
-nav{display:flex;gap:18px}nav a{font-size:8px;color:#81919b;letter-spacing:1.4px}
-main{max-width:1250px;margin:auto}.hero,section{padding:75px 6%;border-bottom:1px solid #162a34}.hero{padding-top:100px}
-.tag{color:#45d4ff;font-size:9px;letter-spacing:3px;margin-bottom:15px}
-h1{font-size:clamp(45px,7vw,80px);font-weight:400;line-height:1}
-h2{font-size:32px;font-weight:400;margin-bottom:22px}
-.lead,.text{max-width:1000px;color:#84949e;font-size:13px}.lead{font-size:14px;margin-top:25px}
-.text p{margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:30px}
-.card{padding:28px;border:1px solid #203640;background:#071017}.card b{color:#45d4ff;font-size:8px;letter-spacing:2px}.card h3{margin:12px 0}.card p{font-size:11px;color:#71828d}
-.notice{margin-top:25px;padding:22px;border-left:3px solid #e0a42b;background:rgba(224,164,43,.04);font-size:11px;color:#89969d}.notice b{display:block;color:#e0a42b;font-size:9px;letter-spacing:2px;margin-bottom:7px}
-footer{padding:30px 6%;display:flex;justify-content:space-between;color:#52636e;font-size:8px;letter-spacing:1.5px}
-@media(max-width:900px){nav{display:none}}@media(max-width:600px){.grid{grid-template-columns:1fr}footer{flex-direction:column;gap:10px}}
+:root{--bg:#05070a;--line:rgba(210,230,238,.13);--text:#eef6f8;--muted:#8d9aa2;--cyan:#7ee7ff;--green:#a7ffd7;--warning:#ffd27e}
+*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(circle at 70% 0,#10252e,transparent 35%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7}body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;opacity:.2;pointer-events:none}.shell{width:min(1180px,calc(100% - 40px));margin:auto}a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:10;background:rgba(5,7,10,.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}header{min-height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px}.logo{width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(126,231,255,.4)}.logo svg{width:29px;height:29px;fill:none;stroke:var(--cyan);stroke-width:1.8}.brand b{display:block;letter-spacing:.18em;font-size:14px}.brand small{display:block;color:#66747d;font-size:8px;letter-spacing:.28em}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{font-size:9px;text-transform:uppercase;color:#8c999f}nav a:hover{color:var(--cyan)}section{padding:85px 0}.kicker{font:10px monospace;color:var(--cyan);letter-spacing:.25em;margin-bottom:15px}h1{font-size:clamp(55px,8vw,100px);line-height:.88;letter-spacing:-.07em;margin-bottom:30px}h1 span{color:var(--cyan)}.lead{font-size:18px;color:#aebbc0;max-width:700px}.files{margin-top:50px;border:1px solid var(--line)}.file{display:grid;grid-template-columns:130px 1fr 120px;align-items:center;gap:20px;padding:20px;border-bottom:1px solid var(--line)}.file:last-child{border:0}.file:hover{background:rgba(126,231,255,.035)}.id{font:10px monospace;color:var(--cyan)}.file h2{font-size:15px}.file p{font-size:12px;color:var(--muted)}.state{text-align:right;font:9px monospace;color:var(--green);letter-spacing:.12em}.locked{color:var(--warning)}@media(max-width:900px){nav{display:none}.file{grid-template-columns:80px 1fr}.state{display:none}}@media(max-width:600px){.shell{width:calc(100% - 24px)}}
 </style>
 </head>
+
 <body>
 
-<header>
-<a class="logo" href="index.html"><div class="logo-mark">A</div><div><b>AURELIA</b><small>INDUSTRIES</small></div></a>
+<div class="top"><header class="shell">
+
+<a class="brand" href="index.html">
+<span class="logo"><svg viewBox="0 0 44 44"><path d="M7 34 20.5 6 37 34M12 25h19M20.5 6 26 34"/><circle cx="20.5" cy="25" r="2.6"/></svg></span>
+<span><b>AURELIA</b><small>INDUSTRIES</small></span>
+</a>
+
 <nav>
-<a href="index.html">ACCUEIL</a><a href="entreprise.html">ENTREPRISE</a><a href="technologie.html">TECHNOLOGIE</a><a href="ren.html">R.E.N.</a><a href="historique.html">HISTORIQUE</a><a href="installations.html">INSTALLATIONS</a><a href="archives.html">ARCHIVES</a><a href="maintenance.html">MAINTENANCE</a><a href="contact.html">CONTACT</a>
+<a href="entreprise.html">Entreprise</a><a href="ren.html">R.E.N.</a><a href="technologie.html">Technologie</a><a href="historique.html">Historique</a><a href="installations.html">Installations</a><a href="archives.html">Archives</a><a href="maintenance.html">Maintenance</a><a href="journal-ren.html">Journal R.E.N.</a><a href="dossier-initial.html">Dossier initial</a><a href="contact.html">Contact</a>
 </nav>
-</header>
+
+</header></div>
 
 <main>
 
-<div class="hero">
-<div class="tag">AURELIA INDUSTRIES // CENTRE DOCUMENTAIRE</div>
-<h1>Archives<br>industrielles.</h1>
-<p class="lead">
-Cette base regroupe les documents historiques accessibles concernant les
-programmes, installations et unités développés par Aurelia Industries.
-</p>
-</div>
-
 <section>
-<div class="tag">01 // CATÉGORIES</div>
-<h2>Documents disponibles</h2>
+<div class="shell">
 
-<div class="grid">
-<div class="card">
-<b>ARCH-01</b>
-<h3>Documents d'entreprise</h3>
-<p>Historique, organisation et évolution des activités Aurelia.</p>
+<div class="kicker">06 / ARCHIVE NETWORK</div>
+<h1>Archives<br><span>Aurelia.</span></h1>
+<p class="lead">Une sélection de documents historiques et techniques conservés dans les archives de l'entreprise.</p>
+
+<div class="files">
+
+<div class="file">
+<div class="id">ARC—001</div>
+<div><h2>Programme R.E.N.</h2><p>Documentation générale du programme neurocognitif.</p></div>
+<div class="state">AVAILABLE</div>
 </div>
 
-<div class="card">
-<b>ARCH-02</b>
-<h3>Documentation technique</h3>
-<p>Informations sur les architectures mécaniques et électroniques.</p>
+<div class="file">
+<div class="id">ARC—014</div>
+<div><h2>Journal d'essais</h2><p>Rapports issus des premières phases expérimentales.</p></div>
+<div class="state">AVAILABLE</div>
 </div>
 
-<div class="card">
-<b>ARCH-03</b>
-<h3>Unités robotiques</h3>
-<p>Informations administratives et historiques relatives aux robots enregistrés.</p>
+<div class="file">
+<div class="id">ARC—027</div>
+<div><h2>Maintenance 2018</h2><p>Historique des opérations réalisées sur R.E.N.</p></div>
+<div class="state">AVAILABLE</div>
 </div>
 
-<div class="card">
-<b>ARCH-04</b>
-<h3>Rapports de maintenance</h3>
-<p>Interventions, diagnostics et mises à jour des unités.</p>
+<div class="file">
+<div class="id">ARC—036</div>
+<div><h2>Intervention non autorisée</h2><p>Référence partiellement accessible.</p></div>
+<div class="state locked">RESTRICTED</div>
 </div>
 
-<div class="card">
-<b>ARCH-05</b>
-<h3>Installations</h3>
-<p>Données historiques relatives aux différents centres Aurelia.</p>
+<div class="file">
+<div class="id">ARC—037</div>
+<div><h2>Transfert système</h2><p>Données incomplètes.</p></div>
+<div class="state locked">RESTRICTED</div>
 </div>
 
-<div class="card">
-<b>ARCH-06</b>
-<h3>Dossiers restreints</h3>
-<p>Documents nécessitant un niveau d'autorisation supérieur.</p>
-</div>
-</div>
-</section>
-
-<section>
-<div class="tag">02 // R.E.N.</div>
-<h2>Archives liées à REN-FR-0417</h2>
-
-<div class="text">
-<p>
-Le dossier de R.E.N. est réparti entre plusieurs systèmes. Les documents
-techniques sont principalement conservés dans la base de maintenance,
-tandis que son historique professionnel se trouve dans les archives
-administratives.
-</p>
-<p>
-Certains événements enregistrés entre 2036 et 2037 ne sont toutefois pas
-présents dans leur intégralité. Cette situation explique pourquoi plusieurs
-documents de R.E.N. possèdent aujourd'hui un statut particulier.
-</p>
 </div>
 
-<div class="notice">
-<b>ACCÈS RESTREINT</b>
-Le document « R.E.N. — DOSSIER INITIAL » contient des sections non
-accessibles depuis l'interface publique.
-</div>
-</section>
-
-<section>
-<div class="tag">03 // CONSERVATION</div>
-<h2>Pourquoi conserver ces données ?</h2>
-
-<div class="text">
-<p>
-Une unité robotique peut rester active pendant plusieurs décennies.
-Conserver son historique permet aux techniciens de comprendre l'origine
-d'une modification, d'une panne ou d'un comportement inhabituel.
-</p>
-<p>
-Les archives permettent également d'éviter la disparition des connaissances
-acquises lors des anciennes générations de robots.
-</p>
 </div>
 </section>
 
 </main>
 
-<footer>
-<span>AURELIA INDUSTRIES © 2042</span>
-<span>ARCHIVES // ACCÈS PUBLIC PARTIEL</span>
+<footer style="border-top:1px solid var(--line);padding:35px 0;color:#65747b;font-size:11px">
+<div class="shell">AURELIA INDUSTRIES · ARCHIVE NETWORK</div>
 </footer>
+
 </body>
 </html>
