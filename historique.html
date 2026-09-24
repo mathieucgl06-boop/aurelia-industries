@@ -3,172 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Historique — Aurelia Industries</title>
+<title>Aurelia Industries — Historique</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#05090e;color:#e8edf2;font-family:Arial,sans-serif;line-height:1.8}
-body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 70% 10%,rgba(0,210,255,.14),transparent 35%),linear-gradient(135deg,#05090e,#09131d,#05090e)}
-a{color:inherit;text-decoration:none}
-header{height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(3,7,12,.96);border-bottom:1px solid #19323d;z-index:5}
-.logo{display:flex;gap:12px;align-items:center}.logo-mark{width:42px;height:42px;border:1px solid #45d4ff;display:grid;place-items:center;color:#45d4ff;font-weight:bold}.logo b{letter-spacing:4px}.logo small{display:block;color:#637681;font-size:8px;letter-spacing:3px}
-nav{display:flex;gap:18px}nav a{font-size:8px;color:#81919b;letter-spacing:1.4px}
-main{max-width:1250px;margin:auto}.hero,section{padding:75px 6%;border-bottom:1px solid #162a34}.hero{padding-top:100px}
-.tag{color:#45d4ff;font-size:9px;letter-spacing:3px;margin-bottom:15px}
-h1{font-size:clamp(45px,7vw,80px);font-weight:400;line-height:1}
-h2{font-size:32px;font-weight:400;margin-bottom:22px}
-.lead,.text{max-width:1000px;color:#84949e;font-size:13px}.lead{font-size:14px;margin-top:25px}
-.text p{margin-bottom:20px}
-.timeline{border-left:1px solid #2b5666;margin:35px 0;padding-left:35px}
-.event{position:relative;margin-bottom:50px}.event:before{content:"";position:absolute;left:-40px;top:7px;width:10px;height:10px;border:1px solid #45d4ff;background:#061018;border-radius:50%}
-.event time{font-size:10px;color:#45d4ff;letter-spacing:3px}.event h3{margin:8px 0;color:#dcebf0;font-size:18px}.event p{color:#7f909a;font-size:12px;max-width:900px}
-footer{padding:30px 6%;display:flex;justify-content:space-between;color:#52636e;font-size:8px;letter-spacing:1.5px}
-@media(max-width:900px){nav{display:none}}@media(max-width:600px){footer{flex-direction:column;gap:10px}}
+:root{--bg:#05070a;--line:rgba(210,230,238,.13);--text:#eef6f8;--muted:#8d9aa2;--cyan:#7ee7ff;--green:#a7ffd7}
+*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(circle at 70% 0,#10252e,transparent 35%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7}body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;opacity:.2;pointer-events:none}.shell{width:min(1180px,calc(100% - 40px));margin:auto}a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:10;background:rgba(5,7,10,.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}header{min-height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px}.logo{width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(126,231,255,.4)}.logo svg{width:29px;height:29px;fill:none;stroke:var(--cyan);stroke-width:1.8}.brand b{display:block;letter-spacing:.18em;font-size:14px}.brand small{display:block;color:#66747d;font-size:8px;letter-spacing:.28em}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{font-size:9px;text-transform:uppercase;color:#8c999f}nav a:hover{color:var(--cyan)}section{padding:85px 0}.kicker{font:10px monospace;color:var(--cyan);letter-spacing:.25em;margin-bottom:15px}h1{font-size:clamp(55px,8vw,100px);line-height:.88;letter-spacing:-.07em;margin-bottom:25px}h1 span{color:var(--cyan)}.lead{color:#aebbc0;font-size:18px;max-width:700px}.timeline{position:relative;margin-top:50px}.timeline:before{content:"";position:absolute;left:110px;top:0;bottom:0;width:1px;background:linear-gradient(var(--cyan),rgba(126,231,255,.05))}.event{display:grid;grid-template-columns:180px 1fr;gap:40px;padding:30px 0}.year{font:24px monospace;color:var(--cyan)}.event h2{margin-bottom:8px}.event p{color:var(--muted);max-width:650px}.event .dot{position:absolute;left:105px;width:11px;height:11px;border:1px solid var(--cyan);background:var(--bg);border-radius:50%;box-shadow:0 0 15px rgba(126,231,255,.4)}footer{border-top:1px solid var(--line);padding:35px 0;color:#65747b;font-size:11px}@media(max-width:900px){nav{display:none}}@media(max-width:600px){.shell{width:calc(100% - 24px)}.timeline:before{left:7px}.event{grid-template-columns:1fr;padding-left:35px}.event .dot{left:2px}}
 </style>
 </head>
+
 <body>
 
-<header>
-<a class="logo" href="index.html"><div class="logo-mark">A</div><div><b>AURELIA</b><small>INDUSTRIES</small></div></a>
+<div class="top"><header class="shell">
+
+<a class="brand" href="index.html">
+<span class="logo"><svg viewBox="0 0 44 44"><path d="M7 34 20.5 6 37 34M12 25h19M20.5 6 26 34"/><circle cx="20.5" cy="25" r="2.6"/></svg></span>
+<span><b>AURELIA</b><small>INDUSTRIES</small></span>
+</a>
+
 <nav>
-<a href="index.html">ACCUEIL</a><a href="entreprise.html">ENTREPRISE</a><a href="technologie.html">TECHNOLOGIE</a><a href="ren.html">R.E.N.</a><a href="historique.html">HISTORIQUE</a><a href="installations.html">INSTALLATIONS</a><a href="archives.html">ARCHIVES</a><a href="maintenance.html">MAINTENANCE</a><a href="contact.html">CONTACT</a>
+<a href="entreprise.html">Entreprise</a><a href="ren.html">R.E.N.</a><a href="technologie.html">Technologie</a><a href="historique.html">Historique</a><a href="installations.html">Installations</a><a href="archives.html">Archives</a><a href="maintenance.html">Maintenance</a><a href="journal-ren.html">Journal R.E.N.</a><a href="dossier-initial.html">Dossier initial</a><a href="contact.html">Contact</a>
 </nav>
-</header>
+
+</header></div>
 
 <main>
 
-<div class="hero">
-<div class="tag">AURELIA INDUSTRIES // CHRONOLOGIE</div>
-<h1>Notre<br>histoire.</h1>
-<p class="lead">
-Plus de trente années de recherche, d'essais, de développement industriel
-et d'apprentissage ont construit l'histoire d'Aurelia Industries.
-</p>
-</div>
-
 <section>
-<div class="tag">01 // CHRONOLOGIE</div>
-<h2>2011 — 2042</h2>
+<div class="shell">
+<div class="kicker">04 / CORPORATE HISTORY</div>
+<h1>Une histoire<br><span>en mouvement.</span></h1>
+<p class="lead">Les étapes majeures qui ont conduit Aurelia Industries au développement de R.E.N.</p>
 
 <div class="timeline">
 
-<div class="event">
-<time>2011</time>
-<h3>Fondation d'Aurelia Industries</h3>
-<p>
-Création de l'entreprise en France par plusieurs ingénieurs spécialisés
-dans l'automatisation industrielle et les systèmes embarqués.
-</p>
-</div>
+<div class="event"><span class="dot"></span><div class="year">2011</div><div><h2>Fondation</h2><p>Création d'Aurelia Industries en France autour de la recherche robotique et des systèmes autonomes.</p></div></div>
 
-<div class="event">
-<time>2013</time>
-<h3>Premiers prototypes autonomes</h3>
-<p>
-Les premiers robots Aurelia sont capables de déplacer du matériel et de
-réaliser des opérations répétitives dans des environnements contrôlés.
-</p>
-</div>
+<div class="event"><span class="dot"></span><div class="year">2013</div><div><h2>Premiers prototypes</h2><p>Les premiers systèmes mobiles expérimentaux permettent de développer les architectures de contrôle et de perception.</p></div></div>
 
-<div class="event">
-<time>2015</time>
-<h3>Développement des architectures humanoïdes</h3>
-<p>
-Les recherches commencent sur une plateforme capable d'utiliser des espaces
-et des équipements conçus pour les travailleurs humains.
-</p>
-</div>
+<div class="event"><span class="dot"></span><div class="year">2015</div><div><h2>Programme neurocognitif</h2><p>Les recherches s'orientent vers une nouvelle génération de systèmes capables d'apprendre de leur environnement.</p></div></div>
 
-<div class="event">
-<time>17.04.2017</time>
-<h3>Activation de R.E.N.</h3>
-<p>
-L'unité REN-FR-0417 est activée. Son premier environnement professionnel
-est orienté vers la logistique, la maintenance et la gestion de stocks.
-</p>
-</div>
+<div class="event"><span class="dot"></span><div class="year">2017</div><div><h2>Activation R.E.N.</h2><p>La première unité R.E.N. entre en activité et commence une longue phase d'apprentissage en environnement réel.</p></div></div>
 
-<div class="event">
-<time>2019</time>
-<h3>Première maintenance mécanique majeure</h3>
-<p>
-Les actionneurs des membres sont révisés afin d'améliorer leur endurance
-et leur précision sur les longues périodes de fonctionnement.
-</p>
-</div>
-
-<div class="event">
-<time>2024</time>
-<h3>Évolution neurocognitive</h3>
-<p>
-Le système REN-NC passe de la version 6.2 à la version 7.0. Les capacités
-de communication et d'adaptation contextuelle sont améliorées.
-</p>
-</div>
-
-<div class="event">
-<time>2028</time>
-<h3>Observation comportementale</h3>
-<p>
-Les équipes remarquent une augmentation importante de l'adaptation de R.E.N.
-aux conversations humaines et aux habitudes de ses collègues.
-</p>
-</div>
-
-<div class="event">
-<time>2036</time>
-<h3>Intervention non planifiée</h3>
-<p>
-Une intervention technique est enregistrée sans autorisation complète.
-Le journal correspondant présente aujourd'hui plusieurs incohérences.
-</p>
-</div>
-
-<div class="event">
-<time>2037</time>
-<h3>Fermeture du site d'exploitation</h3>
-<p>
-Le site associé à l'unité est fermé. Un transfert de R.E.N. vers une
-structure spécialisée est prévu, mais aucun dossier de réception complet
-n'est retrouvé.
-</p>
-</div>
-
-<div class="event">
-<time>2042</time>
-<h3>Situation actuelle</h3>
-<p>
-R.E.N. est toujours opérationnel et cherche désormais à reprendre une
-activité professionnelle indépendante.
-</p>
-</div>
+<div class="event"><span class="dot"></span><div class="year">2020+</div><div><h2>Déploiement expérimental</h2><p>R.E.N. participe à différentes activités professionnelles et développe progressivement ses capacités d'interaction humaine.</p></div></div>
 
 </div>
-</section>
-
-<section>
-<div class="tag">02 // APRÈS 2037</div>
-<h2>Une période moins documentée</h2>
-<div class="text">
-<p>
-La période située entre la fermeture du site et la réapparition administrative
-de R.E.N. est particulièrement difficile à documenter. Plusieurs fichiers
-anciens ont été archivés et certains identifiants ne sont plus reliés aux
-bases actuelles.
-</p>
-<p>
-Aurelia ne possède pas aujourd'hui une chronologie complète de cette période.
-Les informations encore accessibles doivent donc être considérées avec
-prudence.
-</p>
 </div>
 </section>
 
 </main>
 
-<footer>
-<span>AURELIA INDUSTRIES © 2042</span>
-<span>CHRONOLOGIE HISTORIQUE</span>
-</footer>
+<footer><div class="shell">AURELIA INDUSTRIES · ARCHIVE HISTORIQUE</div></footer>
 
 </body>
 </html>
